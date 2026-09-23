@@ -686,3 +686,118 @@ nav {
         ),
         url("/static/images/Fondo.JPG") center center / cover no-repeat;
 }
+
+/* AFICHES DE EVENTOS */
+
+.evento-afiche {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto;
+}
+
+
+/* AFICHES COMO FONDO DE LOS EVENTOS */
+
+.evento-cocina,
+.evento-anfiteatro {
+    position: relative;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 420px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+/* Capa oscura sobre el afiche */
+
+.evento-cocina::before,
+.evento-anfiteatro::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+/* Afiches */
+
+.evento-cocina {
+    background-image: url("/static/images/afiche cocina clandestina 25 septiembre.png");
+}
+
+.evento-anfiteatro {
+    background-image: url("/static/images/afiche anfiteatro cortijano - 03 octubre.png");
+}
+
+/* Texto y botón por encima de la imagen */
+
+.evento-cocina > *,
+.evento-anfiteatro > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* DISEÑO FINAL DE TARJETAS DE EVENTOS */
+
+#eventos .evento-cocina,
+#eventos .evento-anfiteatro {
+    position: relative;
+    overflow: hidden;
+    width: 42%;
+    min-width: 300px;
+    min-height: 500px;
+    padding: 35px;
+    box-sizing: border-box;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    vertical-align: top;
+}
+
+/* AFICHES */
+
+#eventos .evento-cocina {
+    background-image: url("/static/images/afiche cocina clandestina 25 septiembre.png");
+}
+
+#eventos .evento-anfiteatro {
+    background-image: url("/static/images/afiche anfiteatro cortijano - 03 octubre.png");
+}
+
+/* CAPA OSCURA */
+
+#eventos .evento-cocina::before,
+#eventos .evento-anfiteatro::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.58);
+    z-index: 0;
+}
+
+/* CONTENIDO SOBRE EL AFICHE */
+
+#eventos .evento-cocina > *,
+#eventos .evento-anfiteatro > * {
+    position: relative;
+    z-index: 1;
+}
+
+@media (max-width: 700px) {
+    #eventos .evento-cocina,
+    #eventos .evento-anfiteatro {
+        width: 100%;
+        min-width: 0;
+        min-height: 500px;
+    }
+}
+
