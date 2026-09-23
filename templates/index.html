@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autodefensa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header>
+    <nav>
+        <a href="#inicio" class="logo-nav">
+            <img src="{{ url_for('static', filename='images/LOGO AUTODEFENSA blanco.png') }}" alt="Autodefensa">
+        </a>
+
+        <div class="menu">
+            <a href="#musica">Música</a>
+            <a href="#fotos">Fotos</a>
+            <a href="#videoclips">Videoclips</a>
+            <a href="#envivo">En Vivo</a>
+            <a href="#eventos">Eventos</a>
+            <a href="#merch">Merch</a>
+            <a href="#banda">La banda</a>
+        </div>
+    </nav>
+</header>
+
+<main>
+
+<section class="hero" id="inicio">
+
+    <img
+        class="logo-hero"
+        src="{{ url_for('static', filename='images/LOGO AUTODEFENSA blanco.png') }}"
+        alt="Autodefensa"
+    >
+
+    <p class="ubicacion">SANTIAGO DE CHILE · CONCHALÍ</p>
+
+    <p>Banda de Santiago de Chile</p>
+
+    <div class="redes">
+        <a href="https://www.instagram.com/autodefensa/" target="_blank">Instagram</a>
+        <a href="https://open.spotify.com/artist/4WDbLSvCAcc6YKNGxFu0hs" target="_blank">Spotify</a>
+        <a href="https://autodefensacl.bandcamp.com" target="_blank">Bandcamp</a>
+        <a href="https://music.youtube.com/channel/UCR1E-GiAoq20V6H2DkKwFAw" target="_blank">YouTube Music</a>
+    </div>
+
+</section>
+
+<section id="musica">
+
+    <h2>MÚSICA</h2>
+
+    <p>Escucha la música de Autodefensa.</p>
+
+    <div class="tarjeta">
+        <h3>SPOTIFY</h3>
+        <a class="boton" href="https://open.spotify.com/artist/4WDbLSvCAcc6YKNGxFu0hs" target="_blank">
+            ESCUCHAR
+        </a>
+    </div>
+
+    <div class="tarjeta">
+        <h3>BANDCAMP</h3>
+        <a class="boton" href="https://autodefensacl.bandcamp.com" target="_blank">
+            ESCUCHAR
+        </a>
+    </div>
+
+    <div class="tarjeta">
+        <h3>YOUTUBE MUSIC</h3>
+        <a class="boton" href="https://music.youtube.com/channel/UCR1E-GiAoq20V6H2DkKwFAw" target="_blank">
+            ESCUCHAR
+        </a>
+    </div>
+
+</section>
+
+<section id="fotos">
+
+    <h2>FOTOS</h2>
+
+    <p>Autodefensa en vivo y en acción.</p>
+
+    <div class="fotos-grid">
+
+        <div class="foto-card">
+            <img src="{{ url_for('static', filename='images/photo1.JPG') }}" alt="Autodefensa en vivo">
+        </div>
+
+        <div class="foto-card">
+            <img src="{{ url_for('static', filename='images/photo2.JPG') }}" alt="Autodefensa">
+        </div>
+
+        <div class="foto-card">
+            <img src="{{ url_for('static', filename='images/photo3.JPG') }}" alt="Autodefensa">
+        </div>
+
+    </div>
+
+</section>
+
+<section id="videoclips">
+
+    <h2>VIDEOCLIPS</h2>
+
+    <p>Videoclips oficiales de Autodefensa.</p>
+
+    <div class="videos-grid">
+
+        <div class="video-link">
+
+            <div class="video-thumb" onclick="reproducirVideo(this, 'P6iaRnTYhk4')">
+                <img src="https://img.youtube.com/vi/P6iaRnTYhk4/maxresdefault.jpg" alt="Autodefensa - Videoclip 1">
+                <span class="play-button">▶</span>
+            </div>
+
+            <div class="video-info">
+                <h3>VIDEOCLIP 1</h3>
+                <a href="https://www.youtube.com/watch?v=P6iaRnTYhk4" target="_blank">
+                    Ver en YouTube ↗
+                </a>
+            </div>
+
+        </div>
+
+        <div class="video-link">
+
+            <div class="video-thumb" onclick="reproducirVideo(this, 's7pMfxxZ3EY')">
+                <img src="https://img.youtube.com/vi/s7pMfxxZ3EY/maxresdefault.jpg" alt="Autodefensa - Videoclip 2">
+                <span class="play-button">▶</span>
+            </div>
+
+            <div class="video-info">
+                <h3>VIDEOCLIP 2</h3>
+                <a href="https://www.youtube.com/watch?v=s7pMfxxZ3EY" target="_blank">
+                    Ver en YouTube ↗
+                </a>
+            </div>
+
+        </div>
+
+        <div class="video-link">
+
+            <div class="video-thumb" onclick="reproducirVideo(this, 'V-BX51EDMnc')">
+                <img src="https://img.youtube.com/vi/V-BX51EDMnc/maxresdefault.jpg" alt="Autodefensa - Videoclip 3">
+                <span class="play-button">▶</span>
+            </div>
+
+            <div class="video-info">
+                <h3>VIDEOCLIP 3</h3>
+                <a href="https://www.youtube.com/watch?v=V-BX51EDMnc" target="_blank">
+                    Ver en YouTube ↗
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="envivo">
+
+    <h2>EN VIVO</h2>
+
+    <p>Presentaciones en vivo de Autodefensa.</p>
+
+    <div class="videos-grid">
+
+        <div class="video-link">
+
+            <div class="video-thumb" onclick="reproducirVideo(this, 'uKQLyWpnuFU')">
+                <img src="https://img.youtube.com/vi/uKQLyWpnuFU/maxresdefault.jpg" alt="Autodefensa en vivo">
+                <span class="play-button">▶</span>
+            </div>
+
+            <div class="video-info">
+                <h3>EN VIVO · PLECTRUM</h3>
+                <p>02/11/2025</p>
+                <a href="https://www.youtube.com/watch?v=uKQLyWpnuFU" target="_blank">
+                    Ver en YouTube ↗
+                </a>
+            </div>
+
+        </div>
+
+        <div class="video-link">
+
+            <div class="video-thumb" onclick="reproducirVideo(this, 'q9ZvD4zRuOs')">
+                <img src="https://img.youtube.com/vi/q9ZvD4zRuOs/maxresdefault.jpg" alt="Autodefensa en vivo">
+                <span class="play-button">▶</span>
+            </div>
+
+            <div class="video-info">
+                <h3>FLORES LAS ANTORCHAS · SHOW SECRETO</h3>
+                <p>18/12/2022</p>
+                <a href="https://www.youtube.com/watch?v=q9ZvD4zRuOs" target="_blank">
+                    Ver en YouTube ↗
+                </a>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section id="eventos">
+
+    <h2>EVENTOS</h2>
+
+    <p>Próximamente información sobre las próximas presentaciones de Autodefensa.</p>
+
+    <div class="tarjeta">
+        <h3>PRÓXIMAMENTE</h3>
+        <p>Fechas y lugares de próximos conciertos.</p>
+    </div>
+
+</section>
+
+<section id="merch">
+
+    <h2>MERCH</h2>
+
+    <p>Merchandising oficial de Autodefensa.</p>
+
+    <div class="tarjeta">
+        <h3>PRÓXIMAMENTE</h3>
+        <p>Poleras, discos, accesorios y más.</p>
+    </div>
+
+</section>
+
+<section id="banda">
+
+    <h2>LA BANDA</h2>
+
+    <p>
+        Autodefensa es un proyecto que reúne nuestros aprendizajes emocionales y musicales.
+    </p>
+
+    <p>
+        Nació desde la intención de expresar mundos interiores y, poco a poco, fue creciendo en torno a la amistad, abordando temáticas cada vez más complejas.
+    </p>
+
+    <p>
+        Nuestra música busca acompañar a quienes están pasando por un mal momento, a quienes sobrepiensan constantemente y a quienes necesitan un espacio para detenerse, sentir y reflexionar.
+    </p>
+
+    <p>
+        En cada frase y en cada canción intentamos contar un proceso, una experiencia alrededor de la temática que estamos abordando. No buscamos dar respuestas ni decirle a nadie qué hacer. Solo queremos generar sensaciones y espacios para reflexionar sobre lo que ocurre dentro y fuera de nosotros.
+    </p>
+
+    <p>
+        Para nosotros, la música también es una forma de hablar y de generar conversaciones entre amigos de una manera más cercana.
+    </p>
+
+    <p>
+        <strong>Autodefensa es, en gran parte, nuestra forma de relacionarnos.</strong>
+    </p>
+
+    <div class="integrantes">
+
+        <h3>INTEGRANTES</h3>
+
+        <div class="integrantes-grid">
+
+            <div class="integrante">
+                <h4>YERKO LOPEZ</h4>
+                <p>Voz y guitarra</p>
+            </div>
+
+            <div class="integrante">
+                <h4>JORGE LOPEZ</h4>
+                <p>Bajo</p>
+            </div>
+
+            <div class="integrante">
+                <h4>SEBASTIAN SAAVEDRA</h4>
+                <p>Batería</p>
+            </div>
+
+            <div class="integrante">
+                <h4>NAYARETH ALBORNOZ</h4>
+                <p>Guitarra</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+<footer>
+
+    <h3>AUTODEFENSA</h3>
+
+    <p>Santiago de Chile · Conchalí</p>
+
+    <div class="redes">
+        <a href="https://www.instagram.com/autodefensa/" target="_blank">Instagram</a>
+        <a href="https://open.spotify.com/artist/4WDbLSvCAcc6YKNGxFu0hs" target="_blank">Spotify</a>
+        <a href="https://autodefensacl.bandcamp.com" target="_blank">Bandcamp</a>
+        <a href="https://music.youtube.com/channel/UCR1E-GiAoq20V6H2DkKwFAw" target="_blank">YouTube Music</a>
+    </div>
+
+</footer>
+
+<script>
+function reproducirVideo(elemento, videoId) {
+    const tarjeta = elemento.closest(".video-link");
+
+    tarjeta.classList.add("video-ampliado");
+
+    tarjeta.innerHTML = `
+        <div class="video-container video-reproduciendo">
+            <iframe
+                src="https://www.youtube.com/embed/${videoId}?autoplay=1"
+                title="Autodefensa"
+                frameborder="0"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                allowfullscreen>
+            </iframe>
+        </div>
+    `;
+}
+</script>
+
+</body>
+</html>
