@@ -801,3 +801,122 @@ nav {
     }
 }
 
+
+/* TARJETA SPOTIFY */
+
+.musica-spotify {
+    text-decoration: none;
+    color: #ffffff;
+    text-align: center;
+    min-height: 260px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.musica-spotify .plataforma-logo {
+    font-size: 80px;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.musica-spotify h3 {
+    margin-bottom: 5px;
+    letter-spacing: 3px;
+}
+
+.musica-spotify .boton {
+    margin-top: 15px;
+}
+
+
+.musica-spotify .plataforma-logo img {
+    width: 70px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+
+.musica-spotify .plataforma-logo img {
+    width: 70px;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+
+/* TARJETA YOUTUBE MUSIC */
+
+.musica-youtube {
+    text-decoration: none;
+    color: #ffffff;
+    text-align: center;
+    min-height: 260px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.musica-youtube .plataforma-logo {
+    font-size: 70px;
+    line-height: 1;
+    margin-bottom: 20px;
+}
+
+.musica-youtube h3 {
+    margin-bottom: 5px;
+    letter-spacing: 3px;
+}
+
+.musica-youtube .boton {
+    margin-top: 15px;
+}
+
+
+.musica-youtube .plataforma-logo img {
+    width: 70px;
+    height: 70px;
+    display: block;
+    object-fit: contain;
+}
+
+
+/* TARJETA BANDCAMP */
+
+.musica-bandcamp {
+    text-decoration: none;
+    color: #ffffff;
+    text-align: center;
+    min-height: 260px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.musica-bandcamp .plataforma-logo {
+    margin-bottom: 20px;
+}
+
+.musica-bandcamp .plataforma-logo img {
+    width: 70px;
+    height: 70px;
+    display: block;
+    object-fit: contain;
+}
+
+.musica-bandcamp h3 {
+    margin-bottom: 5px;
+    letter-spacing: 3px;
+}
+
+.musica-bandcamp .boton {
+    margin-top: 15px;
+}
+
