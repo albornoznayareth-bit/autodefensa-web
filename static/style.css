@@ -674,3 +674,15 @@ nav {
         width: 100%;
     }
 }
+
+/* FONDO DEL HERO */
+
+.hero {
+    position: relative;
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.72),
+            rgba(0, 0, 0, 0.88)
+        ),
+        url("/static/images/Fondo.JPG") center center / cover no-repeat;
+}
