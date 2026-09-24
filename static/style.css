@@ -1447,6 +1447,7 @@ main section.seccion-saliendo {
 
 
 /* HEADER · OCULTAR AL HACER SCROLL */
+
 header {
     transition: transform 0.45s ease, opacity 0.45s ease;
 }
@@ -1457,18 +1458,14 @@ header.header-oculto {
     pointer-events: none;
 }
 
+/* BOTÓN DEL MENÚ · SIEMPRE VISIBLE */
 
-/* MENÚ · OCULTAR AL HACER SCROLL */
-#menu-principal {
-    transition: transform 0.45s ease, opacity 0.45s ease;
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1002;
 }
-
-#menu-principal.menu-scroll-oculto {
-    transform: translateX(100%);
-    opacity: 0;
-    pointer-events: none;
-}
-
 
 /* EVITAR DESPLAZAMIENTO HORIZONTAL */
 html,
@@ -1479,4 +1476,23 @@ body {
 
 * {
     box-sizing: border-box;
+}
+
+
+
+/* BOTÓN DEL MENÚ INDEPENDIENTE DEL HEADER */
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1002;
+}
+
+/* MENÚ · FIJO E INDEPENDIENTE DEL HEADER */
+
+.menu-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1002;
 }
