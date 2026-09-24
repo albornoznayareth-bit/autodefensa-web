@@ -15,7 +15,14 @@
             <img src="{{ url_for('static', filename='images/LOGO AUTODEFENSA blanco.png') }}" alt="Autodefensa">
         </a>
 
-        <div class="menu">
+        <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" onclick="alternarMenu()">
+            <span class="linea linea-1"></span>
+            <span class="linea linea-2"></span>
+            <span class="linea linea-3"></span>
+            <img src="{{ url_for('static', filename='images/Menu.png') }}" alt="" class="menu-imagen">
+        </button>
+
+        <div class="menu" id="menu-principal">
             <a href="#eventos">Eventos</a>
             <a href="#musica">Música</a>
             <a href="#fotos">Fotos</a>
@@ -338,6 +345,26 @@ function reproducirVideo(elemento, videoId) {
         </div>
     `;
 }
+</script>
+
+
+<script>
+function alternarMenu() {
+    const menu = document.getElementById("menu-principal");
+    const boton = document.querySelector(".menu-toggle");
+
+    menu.classList.toggle("menu-abierto");
+
+    const abierto = menu.classList.contains("menu-abierto");
+    boton.setAttribute("aria-expanded", abierto);
+}
+
+document.querySelectorAll("#menu-principal a").forEach(enlace => {
+    enlace.addEventListener("click", () => {
+        document.getElementById("menu-principal").classList.remove("menu-abierto");
+        document.querySelector(".menu-toggle").setAttribute("aria-expanded", "false");
+    });
+});
 </script>
 
 </body>
