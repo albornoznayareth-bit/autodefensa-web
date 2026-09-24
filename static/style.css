@@ -1250,3 +1250,222 @@ a,
     transform: scale(1);
 }
 
+/* ========================================
+   CAMBIO DE SECCIONES
+======================================== */
+
+.seccion-oculta {
+    display: none !important;
+}
+
+.seccion-activa {
+    display: block !important;
+}
+
+
+/* ========================================
+   CONTENIDO SALE DESDE LA PESTAÑA
+======================================== */
+
+main section.seccion-entrando {
+    display: block !important;
+    animation: contenidoDesdePestana 0.55s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+
+@keyframes contenidoDesdePestana {
+    from {
+        transform: translateX(100vw);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+main section.seccion-saliendo {
+    display: block !important;
+    animation: contenidoHaciaPestana 0.55s cubic-bezier(0.77, 0, 0.18, 1) forwards;
+}
+
+@keyframes contenidoHaciaPestana {
+    from {
+        transform: translateX(0);
+        opacity: 1;
+    }
+
+    to {
+        transform: translateX(-100vw);
+        opacity: 1;
+    }
+}
+
+
+/* CONTENIDO INTEGRADO EN LA APERTURA DE LA PESTAÑA */
+
+#capa-pestana {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+}
+
+#contenido-pestana {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+#capa-pestana.abriendo #contenido-pestana {
+    opacity: 1;
+}
+
+
+
+/* DISCOGRAFÍA */
+.discografia {
+    width: 100%;
+    max-width: 900px;
+    margin: 80px auto 0;
+}
+
+.discografia-titulo {
+    margin-bottom: 35px;
+    font-size: 24px;
+    letter-spacing: 4px;
+    text-align: center;
+}
+
+.disco {
+    border: 1px solid #292929;
+    background: rgba(255, 255, 255, 0.02);
+    padding: 35px;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.disco-cabecera {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 20px;
+    border-bottom: 1px solid #292929;
+    padding-bottom: 18px;
+    margin-bottom: 22px;
+}
+
+.disco-cabecera h3 {
+    margin: 0;
+    font-size: 21px;
+    letter-spacing: 2px;
+}
+
+.disco-cabecera span {
+    color: #999;
+    font-size: 13px;
+    letter-spacing: 2px;
+    white-space: nowrap;
+}
+
+.disco p {
+    max-width: none;
+    margin: 0 0 25px;
+    color: #bdbdbd;
+    line-height: 1.8;
+}
+
+.tracklist {
+    margin: 0 0 30px;
+    padding-left: 25px;
+    color: #d0d0d0;
+    columns: 2;
+    column-gap: 50px;
+}
+
+.tracklist li {
+    margin-bottom: 8px;
+    break-inside: avoid;
+}
+
+@media (max-width: 700px) {
+    .discografia {
+        margin-top: 60px;
+    }
+
+    .disco {
+        padding: 25px 20px;
+    }
+
+    .disco-cabecera {
+        display: block;
+    }
+
+    .disco-cabecera h3 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .tracklist {
+        columns: 1;
+    }
+}
+
+
+/* DISCOGRAFÍA · DOS COLUMNAS */
+.discografia {
+    max-width: 1100px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 30px;
+}
+
+.discografia-titulo {
+    grid-column: 1 / -1;
+}
+
+.disco {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 0;
+}
+
+.tracklist {
+    columns: 1;
+}
+
+@media (max-width: 700px) {
+    .discografia {
+        grid-template-columns: 1fr;
+    }
+
+    .discografia-titulo {
+        grid-column: auto;
+    }
+}
+
+
+/* HEADER · OCULTAR AL HACER SCROLL */
+header {
+    transition: transform 0.45s ease, opacity 0.45s ease;
+}
+
+header.header-oculto {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+/* MENÚ · OCULTAR AL HACER SCROLL */
+#menu-principal {
+    transition: transform 0.45s ease, opacity 0.45s ease;
+}
+
+#menu-principal.menu-scroll-oculto {
+    transform: translateX(100%);
+    opacity: 0;
+    pointer-events: none;
+}
+
