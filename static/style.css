@@ -1496,3 +1496,204 @@ body {
     right: 20px;
     z-index: 1002;
 }
+
+/* PORTADAS · DISCOGRAFÍA */
+
+.disco-portada {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    margin-bottom: 25px;
+}
+
+
+/* TARJETAS DE MÚSICA · FORMATO COMPACTO */
+
+.musica-spotify,
+.musica-bandcamp,
+.musica-youtube {
+    min-height: 180px;
+    padding: 25px 20px;
+}
+
+.musica-spotify .plataforma-logo,
+.musica-bandcamp .plataforma-logo,
+.musica-youtube .plataforma-logo {
+    margin-bottom: 12px;
+}
+
+.musica-spotify .plataforma-logo img,
+.musica-bandcamp .plataforma-logo img,
+.musica-youtube .plataforma-logo img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.musica-spotify h3,
+.musica-bandcamp h3,
+.musica-youtube h3 {
+    font-size: 16px;
+    letter-spacing: 2px;
+    margin-bottom: 0;
+}
+
+.musica-spotify .boton,
+.musica-bandcamp .boton,
+.musica-youtube .boton {
+    margin-top: 10px;
+    padding: 8px 14px;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+}
+
+
+/* TARJETAS DE MÚSICA · AJUSTE FINAL */
+
+.musica-spotify,
+.musica-bandcamp,
+.musica-youtube {
+    min-height: 145px;
+    padding: 18px 15px;
+}
+
+.musica-spotify .plataforma-logo img,
+.musica-bandcamp .plataforma-logo img,
+.musica-youtube .plataforma-logo img {
+    width: 40px;
+    height: 40px;
+}
+
+.musica-spotify h3,
+.musica-bandcamp h3,
+.musica-youtube h3 {
+    font-size: 14px;
+}
+
+.musica-spotify .boton,
+.musica-bandcamp .boton,
+.musica-youtube .boton {
+    margin-top: 7px;
+    padding: 6px 11px;
+    font-size: 10px;
+}
+
+
+/* PLATAFORMAS · LOGO COMO ENLACE PRINCIPAL */
+
+.musica-spotify,
+.musica-bandcamp,
+.musica-youtube {
+    min-height: 125px;
+    padding: 18px 15px;
+}
+
+.musica-spotify .plataforma-logo,
+.musica-bandcamp .plataforma-logo,
+.musica-youtube .plataforma-logo {
+    margin-bottom: 8px;
+}
+
+.musica-spotify .plataforma-logo img,
+.musica-bandcamp .plataforma-logo img,
+.musica-youtube .plataforma-logo img {
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.musica-spotify:hover .plataforma-logo img,
+.musica-bandcamp:hover .plataforma-logo img,
+.musica-youtube:hover .plataforma-logo img {
+    transform: scale(1.08);
+}
+
+.musica-spotify h3,
+.musica-bandcamp h3,
+.musica-youtube h3 {
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+
+/* PLATAFORMAS · LOGOS UNIFORMES */
+
+.plataformas-musica {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 70px;
+    margin: 45px auto 60px;
+}
+
+.plataforma {
+    width: 130px;
+    text-align: center;
+}
+
+.plataforma a {
+    display: flex;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 15px;
+    align-items: center;
+    justify-content: center;
+}
+
+.plataforma a img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.plataforma a:hover img {
+    transform: scale(1.08);
+}
+
+.plataforma h3 {
+    margin: 0;
+    font-size: 13px;
+    letter-spacing: 2px;
+}
+
+@media (max-width: 700px) {
+    .plataformas-musica {
+        gap: 25px;
+    }
+
+    .plataforma {
+        width: 100px;
+    }
+
+    .plataforma a {
+        width: 70px;
+        height: 70px;
+    }
+
+    .plataforma a img {
+        width: 52px;
+        height: 52px;
+    }
+
+    .plataforma h3 {
+        font-size: 11px;
+    }
+}
+
+
+/* ENLACES DE PLATAFORMAS · ÁREA DE CLIC */
+
+.plataforma a {
+    position: relative;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.plataforma a img {
+    pointer-events: none;
+}
+

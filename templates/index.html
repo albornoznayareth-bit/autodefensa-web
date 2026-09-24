@@ -147,28 +147,36 @@
 
     <p>Escucha la música de Autodefensa.</p>
 
-    <a class="tarjeta musica-spotify" href="https://open.spotify.com/artist/4WDbLSvCAcc6YKNGxFu0hs" target="_blank">
-        <div class="plataforma-logo"><img src="{{ url_for('static', filename='images/Logo spotify.png') }}" alt="Spotify"></div>
-        <h3>SPOTIFY</h3>
-        <span class="boton">ESCUCHAR ↗</span>
-    </a>
+    <div class="plataformas-musica">
 
-    <a class="tarjeta musica-bandcamp" href="https://autodefensacl.bandcamp.com" target="_blank">
-        <div class="plataforma-logo"><img src="{{ url_for('static', filename='images/logo bandcamp-button-circle-aqua-128.png') }}" alt="Bandcamp"></div>
-        <h3>BANDCAMP</h3>
-        <span class="boton">ESCUCHAR ↗</span>
-    </a>
+        <div class="plataforma">
+            <a href="https://open.spotify.com/artist/4WDbLSvCAcc6YKNGxFu0hs" target="_blank">
+                <img src="{{ url_for('static', filename='images/Logo spotify.png') }}" alt="Spotify">
+            </a>
+            <h3>SPOTIFY</h3>
+        </div>
 
-    <a class="tarjeta musica-youtube" href="https://music.youtube.com/channel/UCR1E-GiAoq20V6H2DkKwFAw" target="_blank">
-        <div class="plataforma-logo"><img src="{{ url_for('static', filename='images/YouTubeMusic_Logo.png') }}" alt="YouTube Music"></div>
-        <h3>YOUTUBE MUSIC</h3>
-        <span class="boton">ESCUCHAR ↗</span>
-    </a>
+        <div class="plataforma">
+            <a href="https://autodefensacl.bandcamp.com" target="_blank">
+                <img src="{{ url_for('static', filename='images/logo bandcamp-button-circle-aqua-128.png') }}" alt="Bandcamp">
+            </a>
+            <h3>BANDCAMP</h3>
+        </div>
+
+        <div class="plataforma">
+            <a href="https://music.youtube.com/channel/UCR1E-GiAoq20V6H2DkKwFAw" target="_blank">
+                <img src="{{ url_for('static', filename='images/YouTubeMusic_Logo.png') }}" alt="YouTube Music">
+            </a>
+            <h3>YOUTUBE MUSIC</h3>
+        </div>
+
+    </div>
 
     <div class="discografia">
         <h3 class="discografia-titulo">DISCOGRAFÍA</h3>
 
         <article class="disco">
+            <img class="disco-portada" src="{{ url_for('static', filename='images/demasiado tiempo cantandole a la pena portada.jpg') }}" alt="Demasiado tiempo cantándole a la pena">
             <div class="disco-cabecera">
                 <h3>DEMASIADO TIEMPO CANTÁNDOLE A LA PENA</h3>
                 <span>2024 · ÁLBUM</span>
@@ -192,6 +200,7 @@
         </article>
 
         <article class="disco">
+            <img class="disco-portada" src="{{ url_for('static', filename='images/mirar al fondo del mar portada.png') }}" alt="Mirar al fondo del mar">
             <div class="disco-cabecera">
                 <h3>MIRAR AL FONDO DEL MAR</h3>
                 <span>2023 · EP</span>
@@ -210,6 +219,7 @@
         </article>
 
         <article class="disco">
+            <img class="disco-portada" src="{{ url_for('static', filename='images/ESPIRAL PORTADA.png') }}" alt="Espiral">
             <div class="disco-cabecera">
                 <h3>ESPIRAL</h3>
                 <span>2021 · ÁLBUM</span>
@@ -237,6 +247,7 @@
         </article>
 
         <article class="disco">
+            <img class="disco-portada" src="{{ url_for('static', filename='images/CONTRA TODO MAL portada.jpg') }}" alt="Contra todo mal">
             <div class="disco-cabecera">
                 <h3>CONTRA TODO MAL</h3>
                 <span>2018 · ÁLBUM</span>
