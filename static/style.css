@@ -100,19 +100,37 @@ nav h2 {
     gap: 12px;
 }
 
+.redes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 22px;
+}
+
 .redes a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
     color: white;
     text-decoration: none;
-    border: 1px solid #555555;
-    padding: 10px 18px;
-    font-size: 13px;
-    letter-spacing: 1px;
-    transition: 0.3s;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .redes a:hover {
-    background: white;
-    color: black;
+    transform: scale(1.15);
+    opacity: 0.75;
+}
+
+.redes svg {
+    width: 28px;
+    height: 28px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
 
 
