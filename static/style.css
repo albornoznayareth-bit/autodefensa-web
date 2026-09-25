@@ -1697,3 +1697,37 @@ body {
     pointer-events: none;
 }
 
+
+/* ENLACES DEL HERO · CLICKEABLES */
+.hero .redes {
+    position: relative;
+    z-index: 20;
+}
+
+.hero .redes a {
+    position: relative;
+    z-index: 21;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+
+
+.video-thumb.video-reproduciendo iframe {
+    width: 390px;
+    height: 219px;
+    display: block;
+    border: 0;
+}
+
+#contenido-pestana {
+    pointer-events: none;
+}
+
+.logo-nav {
+    cursor: pointer;
+}
+
+.logo-nav {
+    cursor: pointer;
+}
