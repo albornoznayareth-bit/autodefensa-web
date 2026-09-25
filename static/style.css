@@ -22,8 +22,8 @@ header {
     position: sticky;
     top: 0;
     z-index: 1000;
-    background: #080808;
-    border-bottom: 1px solid #292929;
+    background: rgba(180, 120, 145, 0.16);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 nav {
@@ -509,12 +509,12 @@ footer p {
 /* MEJORA DEL MENÚ */
 
 header {
-    background: rgba(8, 8, 8, 0.92);
+    background: rgba(180, 120, 145, 0.16);
     backdrop-filter: blur(10px);
 }
 
 nav {
-    padding: 14px 25px;
+    padding: 8px 25px;
 }
 
 .menu {
@@ -1181,7 +1181,7 @@ a,
     font-weight: 600;
     letter-spacing: 2px;
     text-transform: uppercase;
-    border-bottom: 1px solid #292929;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     transition: color 0.3s ease, padding-left 0.3s ease;
 }
 
@@ -1369,7 +1369,7 @@ main section.seccion-saliendo {
     justify-content: space-between;
     align-items: baseline;
     gap: 20px;
-    border-bottom: 1px solid #292929;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     padding-bottom: 18px;
     margin-bottom: 22px;
 }
@@ -1749,3 +1749,64 @@ body {
 .logo-nav {
     cursor: pointer;
 }
+
+/* LOGO DEL HEADER · ALINEADO A LA IZQUIERDA */
+.logo-nav {
+    margin-right: auto;
+}
+
+
+/* FONDO DEL HERO · EXTENDIDO HACIA ARRIBA */
+.hero {
+    margin-top: -80px;
+    padding-top: 120px;
+}
+
+
+/* LA BANDA · FOTO + TEXTO */
+.banda-presentacion {
+    max-width: 1100px;
+    margin: 50px auto 70px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.banda-foto {
+    width: 100%;
+}
+
+.banda-foto img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.banda-texto {
+    text-align: left;
+}
+
+.banda-texto p {
+    max-width: none;
+    margin: 0 0 22px;
+    color: #bdbdbd;
+}
+
+.banda-texto strong {
+    color: white;
+}
+
+@media (max-width: 700px) {
+    .banda-presentacion {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        margin-top: 35px;
+    }
+
+    .banda-texto {
+        text-align: left;
+    }
+}
+
