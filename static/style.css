@@ -2167,8 +2167,8 @@ footer {
     margin-top: 80px;
     padding: 70px 30px 55px;
     background: #050505;
-    border-top: 1px solid #292929;
     text-align: center;
+    position: relative;
 }
 
 footer h3 {
@@ -2320,54 +2320,56 @@ footer .redes a:hover svg {
 /* CRÉDITO DE DISEÑO Y DESARROLLO */
 
 .creditos-footer {
-    margin-top: 45px;
-    padding-top: 30px;
+    margin-top: 25px;
+    padding-top: 18px;
     border-top: 1px solid #292929;
     text-align: center;
 }
 
 .creditos-footer .detalle-autor {
     display: block;
-    margin-bottom: 14px;
-    color: #999;
-    font-size: 14px;
+    margin-bottom: 8px;
+    color: #777;
+    font-size: 10px;
 }
 
 .creditos-footer p {
-    margin: 0 0 7px;
-    color: #666;
-    font-size: 9px;
-    letter-spacing: 3px;
+    margin: 0 0 4px;
+    color: #555;
+    font-size: 7px;
+    letter-spacing: 2px;
 }
 
 .creditos-footer strong {
-    color: #888;
-    font-size: 10px;
+    color: #777;
+    font-size: 8px;
     font-weight: 400;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
 }
 
 @media (max-width: 700px) {
 
     .creditos-footer {
-        margin-top: 38px;
-        padding-top: 25px;
+        margin-top: 22px;
+        padding-top: 15px;
+    }
+
+    .creditos-footer .detalle-autor {
+        margin-bottom: 6px;
+        font-size: 9px;
     }
 
     .creditos-footer p {
-        font-size: 8px;
-        letter-spacing: 2px;
+        font-size: 6px;
+        letter-spacing: 1.5px;
     }
 
     .creditos-footer strong {
-        font-size: 9px;
-        letter-spacing: 2px;
+        font-size: 7px;
+        letter-spacing: 1.5px;
     }
 
 }
-
-
-
 
 
 
@@ -2533,6 +2535,8 @@ section h2::after {
     .logo-presentacion {
         width: 240px;
         max-width: 75%;
+        transform: translateY(70px);
+        margin-bottom: 80px;
     }
 
     section:not(.hero) {
@@ -2541,7 +2545,7 @@ section h2::after {
     }
 
     .presentacion {
-        padding: 20px 15px 5px;
+        padding: 100px 15px 5px;
     }
 }
 
