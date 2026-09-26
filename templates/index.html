@@ -44,13 +44,13 @@
         </button>
 
         <div class="menu" id="menu-principal">
-            <a href="/" onclick="ocultarEventos()">Inicio</a>
-            <a href="#eventos" onclick="mostrarEventos()">Eventos</a>
-            <a href="#musica">Música</a>
-            <a href="#fotos">Fotos</a>
-            <a href="#videoclips">Videoclips</a>
-            <a href="#envivo">En Vivo</a>
-            <a href="#merch">Merch</a>
+            <a href="/" onclick="ocultarEventos(); mostrarRecomendaciones()">Inicio</a>
+            <a href="#eventos" onclick="mostrarEventos(); ocultarRecomendaciones()">Eventos</a>
+            <a href="#musica" onclick="ocultarRecomendaciones()">Música</a>
+            <a href="#fotos" onclick="ocultarRecomendaciones()">Fotos</a>
+            <a href="#videoclips" onclick="ocultarRecomendaciones()">Videoclips</a>
+            <a href="#envivo" onclick="ocultarRecomendaciones()">En Vivo</a>
+            <a href="#merch" onclick="ocultarRecomendaciones()">Merch</a>
         </div>
 
 
@@ -128,6 +128,7 @@
     </div>
 </section>
 
+</section>
 <section id="eventos" class="eventos-portada-oculto">
 
     <h2>EVENTOS</h2>
@@ -678,6 +679,13 @@ document.addEventListener("DOMContentLoaded", () => {
         inicio.classList.add("seccion-activa");
     }
 
+    const recomendaciones = document.querySelector("#recomendadas");
+
+    if (recomendaciones) {
+        recomendaciones.classList.remove("seccion-oculta");
+        recomendaciones.classList.add("seccion-activa");
+    }
+
     const eventos = document.querySelector("#eventos");
     const banda = document.querySelector("#banda");
 
@@ -825,6 +833,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 <script>
+function mostrarRecomendaciones() {
+    const recomendaciones = document.getElementById("recomendadas");
+    if (recomendaciones) {
+        recomendaciones.style.display = "";
+    }
+}
+
+function ocultarRecomendaciones() {
+    const recomendaciones = document.getElementById("recomendadas");
+    if (recomendaciones) {
+        recomendaciones.style.display = "none";
+    }
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+    mostrarRecomendaciones();
+});
+
 function mostrarEventos() {
     const eventos = document.getElementById("eventos");
 
@@ -948,6 +974,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 </script>
+
+
+
 
 </body>
 </html>
