@@ -2494,3 +2494,54 @@ footer .redes a:hover svg {
         opacity: 1 !important;
     }
 }
+
+/* =========================================
+   AJUSTE VISUAL FINAL · AUTODEFENSA
+   ========================================= */
+
+/* LOGO PRINCIPAL MÁS GRANDE */
+.logo-presentacion {
+    width: 300px;
+    max-width: 75%;
+    height: auto;
+    margin: 0 auto 12px;
+}
+
+/* MENOS ESPACIO ENTRE SECCIONES */
+section:not(.hero) {
+    padding-top: 55px;
+    padding-bottom: 55px;
+}
+
+/* PRESENTACIÓN MÁS COMPACTA */
+.presentacion {
+    padding: 25px 20px 5px;
+}
+
+/* MENOS ESPACIO DESPUÉS DE LOS TÍTULOS */
+section h2 {
+    margin-bottom: 12px;
+}
+
+section h2::after {
+    margin-top: 10px;
+}
+
+/* EN CELULAR */
+@media (max-width: 700px) {
+
+    .logo-presentacion {
+        width: 240px;
+        max-width: 75%;
+    }
+
+    section:not(.hero) {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .presentacion {
+        padding: 20px 15px 5px;
+    }
+}
+
