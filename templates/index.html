@@ -5,17 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Autodefensa</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
 
-<header>
-    <nav>
-        <a href="/" class="logo-nav">
-            <img src="{{ url_for('static', filename='images/LOGO AUTODEFENSA blanco.png') }}" alt="Autodefensa">
-        </a>
-</nav>
-</header>
+
+
+<a href="/" class="logo-nav">
+    <img src="{{ url_for('static', filename='images/LOGO AUTODEFENSA blanco.png') }}" alt="Autodefensa">
+</a>
 
 <button class="menu-toggle" aria-label="Abrir menú" aria-expanded="false" onclick="alternarMenu()">
             <span class="linea linea-1"></span>
@@ -25,14 +24,16 @@
         </button>
 
         <div class="menu" id="menu-principal">
-    <a href="/">Inicio</a>
+            <a href="/">Inicio</a>
             <a href="#eventos">Eventos</a>
             <a href="#musica">Música</a>
             <a href="#fotos">Fotos</a>
             <a href="#videoclips">Videoclips</a>
             <a href="#envivo">En Vivo</a>
             <a href="#merch">Merch</a>
-            </div>
+        </div>
+
+
 
 
 <main>
@@ -72,7 +73,7 @@
 
     <p>Próximas presentaciones</p>
 
-    <div class="tarjeta evento-cocina" data-fecha="2026-09-25">
+    <div class="evento-cocina" data-fecha="2026-09-25">
 
         <a class="afiche-enlace" href="https://portaldisc.com/evento/autodefensablacksunsetgamanjoy" target="_blank" rel="noopener noreferrer">
             <img class="afiche-evento" src="{{ url_for('static', filename='images/afiche cocina clandestina 25 septiembre.png') }}" alt="Afiche Cocina Clandestina">
@@ -87,18 +88,24 @@
 
     </div>
 
-    <div class="tarjeta evento-anfiteatro" data-fecha="2026-10-03">
+    <div class="evento-anfiteatro" data-fecha="2026-10-03">
 
         <a class="afiche-enlace" href="https://portaldisc.com/evento/brokencoletivofloresfuego" target="_blank" rel="noopener noreferrer">
             <img class="afiche-evento" src="{{ url_for('static', filename='images/afiche anfiteatro cortijano - 03 octubre.png') }}" alt="Afiche Anfiteatro Cortijano">
         </a>
 
-        <a class="detalle-evento" href="https://portaldisc.com/evento/brokencoletivofloresfuego" target="_blank" rel="noopener noreferrer">
-            <h3>SÁBADO 3 DE OCTUBRE</h3>
+        <div class="detalle-evento">
+
+            <a class="nombre-evento" href="https://portaldisc.com/evento/brokencoletivofloresfuego" target="_blank" rel="noopener noreferrer">
+                <h3>BROKEN COLECTIVO / FLORES Y FUEGO</h3>
+            </a>
+
+            <p><strong>Sábado 3 de Octubre</strong></p>
             <p><strong>15:30 hrs.</strong></p>
             <p>Anfiteatro Cortijano</p>
-            <p>Frorestal #2250, Conchalí</p>
-        </a>
+            <p>Forestal #2250, Conchalí</p>
+
+        </div>
 
     </div>
 
@@ -226,7 +233,7 @@
                 <li>La aceptación</li>
                 <li>El futuro</li>
             </ol>
-            <a class="boton" href="https://www.youtube.com/watch?v=pfuvN8ibBY4" target="_blank">ESCUCHAR ↗</a>
+            <a class="boton" href="https://www.youtube.com/watch?v=pfuvN8ibBY4" target="_blank"><span class="youtube-text">Puedes escucharlo aquí</span><img src="{{ url_for('static', filename='images/Youtube_logo.png') }}" alt="YouTube" class="youtube-logo"></a>
         </article>
 
         <article class="disco">
@@ -245,7 +252,7 @@
                 <li>Inseguridad</li>
                 <li>Calma</li>
             </ol>
-            <a class="boton" href="https://www.youtube.com/watch?v=d8s04XlJ-wU" target="_blank">ESCUCHAR ↗</a>
+            <a class="boton" href="https://www.youtube.com/watch?v=d8s04XlJ-wU" target="_blank"><span class="youtube-text">Puedes escucharlo aquí</span><img src="{{ url_for('static', filename='images/Youtube_logo.png') }}" alt="YouTube" class="youtube-logo"></a>
         </article>
 
         <article class="disco">
@@ -273,7 +280,7 @@
                 <li>Aceptar / Convencer</li>
                 <li>Uno / Tres</li>
             </ol>
-            <a class="boton" href="https://www.youtube.com/watch?v=xOIgeT47AnU" target="_blank">ESCUCHAR ↗</a>
+            <a class="boton" href="https://www.youtube.com/watch?v=xOIgeT47AnU" target="_blank"><span class="youtube-text">Puedes escucharlo aquí</span><img src="{{ url_for('static', filename='images/Youtube_logo.png') }}" alt="YouTube" class="youtube-logo"></a>
         </article>
 
         <article class="disco">
@@ -296,7 +303,7 @@
                 <li>Jugando con fuego</li>
                 <li>Creer</li>
             </ol>
-            <a class="boton" href="https://www.youtube.com/watch?v=TzK7sGneRXg" target="_blank">ESCUCHAR ↗</a>
+            <a class="boton" href="https://www.youtube.com/watch?v=TzK7sGneRXg" target="_blank"><span class="youtube-text">Puedes escucharlo aquí</span><img src="{{ url_for('static', filename='images/Youtube_logo.png') }}" alt="YouTube" class="youtube-logo"></a>
         </article>
     </div>
 
@@ -453,10 +460,42 @@
     <p>Santiago de Chile · Conchalí</p>
 
     <div class="redes">
-        <a href="https://www.instagram.com/autodefensa/" target="_blank">Instagram</a>
-        <a href="https://open.spotify.com/artist/4WDbLSvCAcc6YKNGxFu0hs" target="_blank">Spotify</a>
-        <a href="https://autodefensacl.bandcamp.com" target="_blank">Bandcamp</a>
-        <a href="https://music.youtube.com/channel/UCR1E-GiAoq20V6H2DkKwFAw" target="_blank">YouTube Music</a>
+
+        <a href="https://www.instagram.com/autodefensa/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.5" cy="6.5" r="1"></circle>
+            </svg>
+        </a>
+
+        <a href="https://open.spotify.com/artist/4WDbLSvCAcc6YKNGxFu0hs" target="_blank" rel="noopener noreferrer" aria-label="Spotify">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M5 9.5c4.5-1.5 9.5-1.2 14 .7"></path>
+                <path d="M5.5 13c3.8-1.2 8-1 12 .6"></path>
+                <path d="M6 16.3c3.1-.9 6.5-.7 9.7.5"></path>
+            </svg>
+        </a>
+
+        <a href="https://autodefensacl.bandcamp.com" target="_blank" rel="noopener noreferrer" aria-label="Bandcamp">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 17.5h7.5L19.5 6.5H12z"></path>
+            </svg>
+        </a>
+
+        <a href="https://music.youtube.com/channel/UCR1E-GiAoq20V6H2DkKwFAw" target="_blank" rel="noopener noreferrer" aria-label="YouTube Music">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="4"></rect>
+                <polygon points="10,9 16,12 10,15"></polygon>
+            </svg>
+        </a>
+
+    </div>
+
+    <div class="creditos-footer">
+        <span class="detalle-autor">✦</span>
+        <p>DISEÑO Y DESARROLLO WEB</p>
+        <strong>NAYARETH ALBORNOZ</strong>
     </div>
 
 </footer>
@@ -647,13 +686,15 @@ window.addEventListener("scroll", () => {
 document.addEventListener("DOMContentLoaded", () => {
 
     const hoy = new Date();
-    hoy.setHours(0, 0, 0, 0);
+    const fechaHoy = hoy.getFullYear() + "-" +
+        String(hoy.getMonth() + 1).padStart(2, "0") + "-" +
+        String(hoy.getDate()).padStart(2, "0");
 
     document.querySelectorAll("#eventos .tarjeta").forEach(evento => {
 
-        const fechaEvento = new Date(evento.dataset.fecha + "T00:00:00");
+        const fechaEvento = evento.dataset.fecha;
 
-        if (fechaEvento < hoy) {
+        if (fechaEvento < fechaHoy) {
             evento.remove();
         }
 
