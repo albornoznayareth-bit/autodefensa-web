@@ -2454,3 +2454,43 @@ footer .redes a:hover svg {
         transform: translateX(0) !important;
     }
 }
+
+
+
+/* MENÚ CELULAR · DESPLIEGA DESDE LA DERECHA */
+@media (max-width: 700px) {
+
+    #menu-principal {
+        position: fixed !important;
+        top: 0 !important;
+        right: 0 !important;
+        left: auto !important;
+
+        width: 280px !important;
+        max-width: 85vw !important;
+        height: 100vh !important;
+
+        padding: 100px 30px 30px !important;
+
+        transform: translate3d(100%, 0, 0) !important;
+
+        border-left: 1px solid #292929 !important;
+        border-right: none !important;
+
+        visibility: hidden !important;
+        opacity: 0 !important;
+
+        transition:
+            transform 0.4s ease,
+            opacity 0.4s ease,
+            visibility 0.4s ease !important;
+    }
+
+    #menu-principal.menu-abierto {
+        right: 0 !important;
+        left: auto !important;
+        transform: translate3d(0, 0, 0) !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+    }
+}
