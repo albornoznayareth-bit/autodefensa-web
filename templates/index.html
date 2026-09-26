@@ -626,6 +626,13 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         }
 
+        const recomendaciones = document.querySelector("#recomendadas");
+
+        if (recomendaciones) {
+            recomendaciones.classList.remove("seccion-activa");
+            recomendaciones.classList.add("seccion-oculta");
+        }
+
         const actual = document.querySelector("main section.seccion-activa");
 
         if (actual === destino) {
