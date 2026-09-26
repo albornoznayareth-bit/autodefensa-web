@@ -2545,3 +2545,156 @@ section h2::after {
     }
 }
 
+
+/* =========================================
+   POPUP PRÓXIMO EVENTO
+   ========================================= */
+
+.evento-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.84);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.evento-modal.cerrado {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.evento-modal-contenido {
+    position: relative;
+    max-width: 520px;
+    width: 100%;
+    max-height: 90vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: eventoEntrada 0.45s ease;
+}
+
+.evento-modal-afiche {
+    display: block;
+    max-width: 100%;
+    max-height: 78vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.evento-modal-cerrar {
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    width: 38px;
+    height: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 0;
+    background: #0b0b0b;
+    color: #ffffff;
+    font-size: 27px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.evento-modal-cerrar:hover {
+    background: #ffffff;
+    color: #0b0b0b;
+}
+
+.evento-modal-boton {
+    margin-top: 18px;
+    padding: 10px 24px;
+    border: 1px solid rgba(255, 255, 255, 0.75);
+    border-radius: 0;
+    background: transparent;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 500;
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.evento-modal-boton:hover {
+    background: #ffffff;
+    color: #0b0b0b;
+}
+
+@keyframes eventoEntrada {
+    from {
+        opacity: 0;
+        transform: scale(0.94);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 700px) {
+
+    .evento-modal {
+        padding: 20px;
+    }
+
+    .evento-modal-contenido {
+        max-width: 90vw;
+    }
+
+    .evento-modal-afiche {
+        max-height: 72vh;
+    }
+
+    .evento-modal-cerrar {
+        top: -10px;
+        right: -10px;
+    }
+
+    .evento-modal-boton {
+        margin-top: 14px;
+        padding: 9px 20px;
+    }
+}
+
+
+/* TÍTULO DEL POPUP */
+.evento-modal-titulo {
+    margin: 0 0 18px;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 4px;
+    text-align: center;
+}
+
+
+/* EVENTOS NO SE MUESTRA AL ENTRAR A INICIO */
+body.inicio-sin-eventos #eventos {
+    display: none;
+}
+
+
+
+
+
+/* EVENTOS: oculto en la página de inicio */
+.eventos-portada-oculto {
+    display: none !important;
+}
