@@ -1876,3 +1876,13 @@ section h2::after {
 #eventos {
     padding-top: 35px;
 }
+
+    
+/* AJUSTE DEL FONDO PARA CELULARES */
+@media (max-width: 700px) {
+    body {
+        background-attachment: scroll;
+        background-size: auto 80%;
+        background-position: center top;
+    }
+}
