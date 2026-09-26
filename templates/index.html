@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
-<body>
+<body class="inicio-sin-eventos">
 
 
 
@@ -42,8 +42,8 @@
         </button>
 
         <div class="menu" id="menu-principal">
-            <a href="/">Inicio</a>
-            <a href="#eventos">Eventos</a>
+            <a href="/" onclick="ocultarEventos()">Inicio</a>
+            <a href="#eventos" onclick="mostrarEventos()">Eventos</a>
             <a href="#musica">Música</a>
             <a href="#fotos">Fotos</a>
             <a href="#videoclips">Videoclips</a>
@@ -85,7 +85,7 @@
 </section>
 
 
-<section id="eventos">
+<section id="eventos" class="eventos-portada-oculto">
 
     <h2>EVENTOS</h2>
 
@@ -109,7 +109,7 @@
     <div class="evento-anfiteatro" data-fecha="2026-10-03">
 
         <a class="afiche-enlace" href="https://portaldisc.com/evento/brokencoletivofloresfuego" target="_blank" rel="noopener noreferrer">
-            <img class="afiche-evento" src="{{ url_for('static', filename='images/afiche anfiteatro cortijano - 03 octubre.png') }}" alt="Afiche Anfiteatro Cortijano">
+            <img class="afiche-evento" src="{{ url_for('static', filename='images/afiche anfiteatro cortijano - 03 octubre.png') }}" alt="Afiche Broken Colectivo / Flores y Fuego">
         </a>
 
         <div class="detalle-evento">
@@ -719,6 +719,84 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+</script>
+
+
+<!-- POPUP PRÓXIMO EVENTO -->
+<div id="eventoModal" class="evento-modal">
+
+    <div class="evento-modal-contenido">
+
+        <h2 class="evento-modal-titulo">PRÓXIMAS PRESENTACIONES</h2>
+
+        <button
+            id="cerrarEvento"
+            class="evento-modal-cerrar"
+            aria-label="Cerrar"
+        >
+            ×
+        </button>
+
+        <img
+            src="{{ url_for('static', filename='images/afiche anfiteatro cortijano - 03 octubre.png') }}"
+            alt="Anfiteatro Cortijano - 3 de octubre"
+            class="evento-modal-afiche"
+        >
+
+        <a
+            href="https://portaldisc.com/evento/brokencoletivofloresfuego"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="evento-modal-boton"
+        >
+            VER EVENTO
+        </a>
+
+    </div>
+
+</div>
+
+<script>
+    const eventoModal = document.getElementById("eventoModal");
+    const cerrarEvento = document.getElementById("cerrarEvento");
+
+    cerrarEvento.addEventListener("click", function () {
+        eventoModal.classList.add("cerrado");
+    });
+
+    eventoModal.addEventListener("click", function (e) {
+        if (e.target === eventoModal) {
+            eventoModal.classList.add("cerrado");
+        }
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+function mostrarEventos() {
+    const eventos = document.getElementById("eventos");
+
+    if (eventos) {
+        eventos.classList.remove("eventos-portada-oculto");
+    }
+}
+
+function ocultarEventos() {
+    const eventos = document.getElementById("eventos");
+
+    if (eventos) {
+        eventos.classList.add("eventos-portada-oculto");
+    }
+}
 </script>
 
 </body>
