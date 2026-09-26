@@ -13,6 +13,11 @@ def robots():
     return send_from_directory("static", "robots.txt")
 
 
+@app.route("/google6edb0130f974bf09.html")
+def google_verificacion():
+    return send_from_directory(".", "google6edb0130f974bf09.html")
+
+
 @app.route("/sitemap.xml")
 def sitemap():
     return send_from_directory("static", "sitemap.xml")
