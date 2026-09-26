@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://autodefensa-web.onrender.com/sitemap.xml
