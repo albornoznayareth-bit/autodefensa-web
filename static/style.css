@@ -1881,8 +1881,8 @@ section h2::after {
 /* AJUSTE DEL FONDO PARA CELULARES */
 @media (max-width: 700px) {
     body {
-        background-attachment: scroll;
-        background-size: auto 80%;
+        background-attachment: fixed;
+        background-size: auto 100%;
         background-position: center top;
     }
 }
