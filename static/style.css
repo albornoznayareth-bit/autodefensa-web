@@ -714,112 +714,84 @@ nav {
 }
 
 
-/* AFICHES COMO FONDO DE LOS EVENTOS */
+/* EVENTOS */
 
-.evento-cocina,
-.evento-anfiteatro {
-    position: relative;
-    overflow: hidden;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 420px;
+#eventos .eventos-proximos {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    flex-wrap: wrap;
+}
+
+#eventos .eventos-proximos .tarjeta {
+    width: 300px;
+    min-width: 0;
+    min-height: 0;
+    padding: 0;
+    background: transparent;
+    border: none;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    padding: 30px;
+    align-items: center;
+}
+
+#eventos .afiche-enlace {
+    display: block;
+    width: 260px;
+    padding: 8px;
+    background: rgba(0, 0, 0, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     box-sizing: border-box;
+    transition: transform 0.3s ease, border-color 0.3s ease;
 }
 
-/* Capa oscura sobre el afiche */
-
-.evento-cocina::before,
-.evento-anfiteatro::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.55);
+#eventos .afiche-enlace:hover {
+    transform: translateY(-5px);
+    border-color: rgba(255, 255, 255, 0.65);
 }
 
-/* Afiches */
-
-.evento-cocina {
-    background-image: url("/static/images/afiche cocina clandestina 25 septiembre.png");
+#eventos .afiche-evento {
+    display: block;
+    width: 100%;
+    height: auto;
 }
 
-.evento-anfiteatro {
-    background-image: url("/static/images/afiche anfiteatro cortijano - 03 octubre.png");
+#eventos .detalle-evento {
+    display: block;
+    width: 100%;
+    padding: 18px 5px 0;
+    text-align: center;
+    color: inherit;
+    text-decoration: none;
 }
 
-/* Texto y botón por encima de la imagen */
-
-.evento-cocina > *,
-.evento-anfiteatro > * {
-    position: relative;
-    z-index: 1;
+#eventos .detalle-evento:hover {
+    opacity: 0.75;
 }
 
-
-/* DISEÑO FINAL DE TARJETAS DE EVENTOS */
-
-#eventos .evento-cocina,
-#eventos .evento-anfiteatro {
-    position: relative;
-    overflow: hidden;
-    width: 42%;
-    min-width: 300px;
-    min-height: 500px;
-    padding: 35px;
-    box-sizing: border-box;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    vertical-align: top;
+#eventos .detalle-evento h3 {
+    margin: 0 0 10px;
+    font-size: 15px;
+    letter-spacing: 1.5px;
 }
 
-/* AFICHES */
-
-#eventos .evento-cocina {
-    background-image: url("/static/images/afiche cocina clandestina 25 septiembre.png");
-}
-
-#eventos .evento-anfiteatro {
-    background-image: url("/static/images/afiche anfiteatro cortijano - 03 octubre.png");
-}
-
-/* CAPA OSCURA */
-
-#eventos .evento-cocina::before,
-#eventos .evento-anfiteatro::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.58);
-    z-index: 0;
-}
-
-/* CONTENIDO SOBRE EL AFICHE */
-
-#eventos .evento-cocina > *,
-#eventos .evento-anfiteatro > * {
-    position: relative;
-    z-index: 1;
+#eventos .detalle-evento p {
+    margin: 5px 0;
 }
 
 @media (max-width: 700px) {
-    #eventos .evento-cocina,
-    #eventos .evento-anfiteatro {
+    #eventos .eventos-proximos .tarjeta {
         width: 100%;
-        min-width: 0;
-        min-height: 500px;
+    }
+
+    #eventos .afiche-enlace {
+        width: min(260px, 85vw);
     }
 }
 
 
 /* TARJETA SPOTIFY */
+
 
 .musica-spotify {
     text-decoration: none;

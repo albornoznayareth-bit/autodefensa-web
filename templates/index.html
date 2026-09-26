@@ -70,22 +70,36 @@
 
     <h2>EVENTOS</h2>
 
-    <p>Próximas presentaciones de Autodefensa.</p>
+    <p>Próximas presentaciones</p>
 
-    <div class="tarjeta evento-cocina">
-        <h3>VIERNES 25 DE SEPTIEMBRE</h3>
-        <p><strong>21:00 hrs.</strong></p>
-        <p>Cocina Clandestina</p>
-        <p>Antonia López de Bello #0108, Providencia</p>
-        <a class="boton" href="https://portaldisc.com/evento/autodefensablacksunsetgamanjoy" target="_blank">VER EVENTO ↗</a>
+    <div class="tarjeta evento-cocina" data-fecha="2026-09-25">
+
+        <a class="afiche-enlace" href="https://portaldisc.com/evento/autodefensablacksunsetgamanjoy" target="_blank" rel="noopener noreferrer">
+            <img class="afiche-evento" src="{{ url_for('static', filename='images/afiche cocina clandestina 25 septiembre.png') }}" alt="Afiche Cocina Clandestina">
+        </a>
+
+        <a class="detalle-evento" href="https://portaldisc.com/evento/autodefensablacksunsetgamanjoy" target="_blank" rel="noopener noreferrer">
+            <h3>VIERNES 25 DE SEPTIEMBRE</h3>
+            <p><strong>21:00 hrs.</strong></p>
+            <p>Cocina Clandestina</p>
+            <p>Antonia López de Bello #0108, Providencia</p>
+        </a>
+
     </div>
 
-    <div class="tarjeta evento-anfiteatro">
-        <h3>SÁBADO 3 DE OCTUBRE</h3>
-        <p><strong>15:30 hrs.</strong></p>
-        <p>Anfiteatro Cortijano</p>
-        <p>Frorestal #2250, Conchalí</p>
-        <a class="boton" href="https://portaldisc.com/evento/brokencoletivofloresfuego" target="_blank">VER EVENTO ↗</a>
+    <div class="tarjeta evento-anfiteatro" data-fecha="2026-10-03">
+
+        <a class="afiche-enlace" href="https://portaldisc.com/evento/brokencoletivofloresfuego" target="_blank" rel="noopener noreferrer">
+            <img class="afiche-evento" src="{{ url_for('static', filename='images/afiche anfiteatro cortijano - 03 octubre.png') }}" alt="Afiche Anfiteatro Cortijano">
+        </a>
+
+        <a class="detalle-evento" href="https://portaldisc.com/evento/brokencoletivofloresfuego" target="_blank" rel="noopener noreferrer">
+            <h3>SÁBADO 3 DE OCTUBRE</h3>
+            <p><strong>15:30 hrs.</strong></p>
+            <p>Anfiteatro Cortijano</p>
+            <p>Frorestal #2250, Conchalí</p>
+        </a>
+
     </div>
 
 </section>
@@ -162,7 +176,6 @@
 
     <h2>MÚSICA</h2>
 
-    <p>Escucha la música de Autodefensa.</p>
 
     <div class="plataformas-musica">
 
@@ -293,7 +306,6 @@
 
     <h2>FOTOS</h2>
 
-    <p>Autodefensa en vivo y en acción.</p>
 
     <div class="fotos-grid">
 
@@ -317,7 +329,6 @@
 
     <h2>VIDEOCLIPS</h2>
 
-    <p>Videoclips oficiales de Autodefensa.</p>
 
     <div class="videos-grid">
 
@@ -377,7 +388,6 @@
 
     <h2>EN VIVO</h2>
 
-    <p>Presentaciones en vivo de Autodefensa.</p>
 
     <div class="videos-grid">
 
@@ -629,6 +639,26 @@ window.addEventListener("scroll", () => {
     }
 
     ultimaPosicionScroll = posicionActual;
+});
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const hoy = new Date();
+    hoy.setHours(0, 0, 0, 0);
+
+    document.querySelectorAll("#eventos .tarjeta").forEach(evento => {
+
+        const fechaEvento = new Date(evento.dataset.fecha + "T00:00:00");
+
+        if (fechaEvento < hoy) {
+            evento.remove();
+        }
+
+    });
+
 });
 </script>
 
