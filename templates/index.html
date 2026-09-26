@@ -87,6 +87,47 @@
 </section>
 
 
+<section id="recomendadas">
+    <h2>RECOMENDACIONES</h2>
+
+    <div class="reproductor-musica">
+
+        <div class="cancion" data-audio="{{ url_for('static', filename='music/Autodefensa - Aceptar - Convencer.mp3') }}">
+            <button class="boton-play" aria-label="Reproducir">▶</button>
+            <div class="info-cancion">
+                <h3>ACEPTAR / CONVENCER [Espiral]</h3>
+                <div class="barra-musica">
+                    <div class="progreso-musica"></div>
+                </div>
+            </div>
+            <span class="tiempo-musica">0:00</span>
+        </div>
+
+        <div class="cancion" data-audio="{{ url_for('static', filename='music/Autodefensa - Flores, las antorchas.mp3') }}">
+            <button class="boton-play" aria-label="Reproducir">▶</button>
+            <div class="info-cancion">
+                <h3>FLORES, LAS ANTORCHAS [Contra todo mal]</h3>
+                <div class="barra-musica">
+                    <div class="progreso-musica"></div>
+                </div>
+            </div>
+            <span class="tiempo-musica">0:00</span>
+        </div>
+
+        <div class="cancion" data-audio="{{ url_for('static', filename='music/Autodefensa - LA ACEPTACION.mp3') }}">
+            <button class="boton-play" aria-label="Reproducir">▶</button>
+            <div class="info-cancion">
+                <h3>LA ACEPTACIÓN [Demasiado tiempo cantándole a la pena]</h3>
+                <div class="barra-musica">
+                    <div class="progreso-musica"></div>
+                </div>
+            </div>
+            <span class="tiempo-musica">0:00</span>
+        </div>
+
+    </div>
+</section>
+
 <section id="eventos" class="eventos-portada-oculto">
 
     <h2>EVENTOS</h2>
@@ -799,6 +840,113 @@ function ocultarEventos() {
         eventos.classList.add("eventos-portada-oculto");
     }
 }
+</script>
+
+
+<!-- REPRODUCTOR-MUSICA-JS -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const canciones = document.querySelectorAll(".cancion");
+    const audio = new Audio();
+
+    let cancionActual = null;
+
+    function formatearTiempo(segundos) {
+        if (!isFinite(segundos)) return "0:00";
+
+        const minutos = Math.floor(segundos / 60);
+        const segundosRestantes = Math.floor(segundos % 60);
+
+        return minutos + ":" + String(segundosRestantes).padStart(2, "0");
+    }
+
+    canciones.forEach(function (cancion) {
+
+        const boton = cancion.querySelector(".boton-play");
+        const barra = cancion.querySelector(".barra-musica");
+        const progreso = cancion.querySelector(".progreso-musica");
+        const tiempo = cancion.querySelector(".tiempo-musica");
+
+        boton.addEventListener("click", function () {
+
+            if (cancionActual === cancion) {
+
+                if (audio.paused) {
+                    audio.play();
+                    boton.textContent = "Ⅱ";
+                } else {
+                    audio.pause();
+                    boton.textContent = "▶";
+                }
+
+                return;
+            }
+
+            canciones.forEach(function (otraCancion) {
+                otraCancion.querySelector(".boton-play").textContent = "▶";
+                otraCancion.querySelector(".progreso-musica").style.width = "0%";
+                otraCancion.querySelector(".tiempo-musica").textContent = "0:00";
+            });
+
+            cancionActual = cancion;
+            audio.src = cancion.dataset.audio;
+
+            audio.play();
+
+            boton.textContent = "Ⅱ";
+        });
+
+        barra.addEventListener("click", function (e) {
+
+            if (cancionActual !== cancion || !audio.duration) {
+                return;
+            }
+
+            const rect = barra.getBoundingClientRect();
+            const posicion = (e.clientX - rect.left) / rect.width;
+
+            audio.currentTime = posicion * audio.duration;
+        });
+    });
+
+    audio.addEventListener("timeupdate", function () {
+
+        if (!cancionActual || !audio.duration) {
+            return;
+        }
+
+        const progreso = cancionActual.querySelector(".progreso-musica");
+        const tiempo = cancionActual.querySelector(".tiempo-musica");
+
+        const porcentaje = (audio.currentTime / audio.duration) * 100;
+
+        progreso.style.width = porcentaje + "%";
+
+        tiempo.textContent =
+            formatearTiempo(audio.currentTime) +
+            " / " +
+            formatearTiempo(audio.duration);
+    });
+
+    audio.addEventListener("ended", function () {
+
+        if (!cancionActual) {
+            return;
+        }
+
+        const boton = cancionActual.querySelector(".boton-play");
+        const progreso = cancionActual.querySelector(".progreso-musica");
+        const tiempo = cancionActual.querySelector(".tiempo-musica");
+
+        boton.textContent = "▶";
+        progreso.style.width = "0%";
+        tiempo.textContent = "0:00 / " + formatearTiempo(audio.duration);
+
+        cancionActual = null;
+    });
+
+});
 </script>
 
 </body>

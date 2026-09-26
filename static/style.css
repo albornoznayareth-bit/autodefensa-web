@@ -2702,3 +2702,237 @@ body.inicio-sin-eventos #eventos {
 .eventos-portada-oculto {
     display: none !important;
 }
+
+
+/* =========================================
+   REPRODUCTOR · RECOMENDADAS
+   ========================================= */
+
+#recomendadas {
+    padding: 60px 20px;
+}
+
+.reproductor-musica {
+    width: 100%;
+    max-width: 760px;
+    margin: 35px auto 0;
+}
+
+.cancion {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid #292929;
+}
+
+.cancion:first-child {
+    border-top: 1px solid #292929;
+}
+
+.boton-play {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border: 1px solid #777;
+    border-radius: 50%;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    transition: 0.2s ease;
+}
+
+.boton-play:hover {
+    border-color: #fff;
+    transform: scale(1.05);
+}
+
+.info-cancion {
+    flex: 1;
+    min-width: 0;
+}
+
+.info-cancion h3 {
+    margin: 0 0 10px;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #ddd;
+}
+
+.barra-musica {
+    width: 100%;
+    height: 3px;
+    background: #292929;
+    cursor: pointer;
+    position: relative;
+}
+
+.progreso-musica {
+    width: 0%;
+    height: 100%;
+    background: #fff;
+    transition: width 0.05s linear;
+}
+
+.tiempo-musica {
+    width: 75px;
+    flex-shrink: 0;
+    text-align: right;
+    font-size: 10px;
+    color: #777;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 700px) {
+
+    #recomendadas {
+        padding: 45px 15px;
+    }
+
+    .reproductor-musica {
+        margin-top: 25px;
+    }
+
+    .cancion {
+        gap: 12px;
+        padding: 16px 0;
+    }
+
+    .boton-play {
+        width: 34px;
+        height: 34px;
+        font-size: 11px;
+    }
+
+    .info-cancion h3 {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    .tiempo-musica {
+        width: 55px;
+        font-size: 8px;
+    }
+}
+
+/* =========================================
+   REPRODUCTOR · RECOMENDADAS
+   ========================================= */
+
+#recomendadas {
+    padding: 60px 20px;
+}
+
+.reproductor-musica {
+    width: 100%;
+    max-width: 760px;
+    margin: 35px auto 0;
+}
+
+.cancion {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 0;
+    border-bottom: 1px solid #292929;
+}
+
+.cancion:first-child {
+    border-top: 1px solid #292929;
+}
+
+.boton-play {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    border: 1px solid #777;
+    border-radius: 50%;
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.boton-play:hover {
+    border-color: #fff;
+    transform: scale(1.05);
+}
+
+.info-cancion {
+    flex: 1;
+    min-width: 0;
+}
+
+.info-cancion h3 {
+    margin: 0 0 10px;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 2px;
+    color: #ddd;
+}
+
+.barra-musica {
+    width: 100%;
+    height: 3px;
+    background: #292929;
+    cursor: pointer;
+}
+
+.progreso-musica {
+    width: 0%;
+    height: 100%;
+    background: #fff;
+}
+
+.tiempo-musica {
+    width: 75px;
+    flex-shrink: 0;
+    text-align: right;
+    font-size: 10px;
+    color: #777;
+}
+
+@media (max-width: 700px) {
+    #recomendadas {
+        padding: 45px 15px;
+    }
+
+    .cancion {
+        gap: 12px;
+        padding: 16px 0;
+    }
+
+    .boton-play {
+        width: 34px;
+        height: 34px;
+        font-size: 11px;
+    }
+
+    .info-cancion h3 {
+        font-size: 9px;
+        letter-spacing: 1.5px;
+    }
+
+    .tiempo-musica {
+        width: 55px;
+        font-size: 8px;
+    }
+}
+
+
+/* PRUEBA RECOMENDADAS */
+#recomendadas {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+}
