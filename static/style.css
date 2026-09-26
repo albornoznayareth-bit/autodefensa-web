@@ -2949,3 +2949,140 @@ body.inicio-sin-eventos #eventos {
     font-size: 22px !important;
     letter-spacing: 3px;
 }
+
+
+
+/* TÍTULO DE SECCIÓN · SOLO CELULAR */
+@media (max-width: 700px) {
+    #titulo-seccion-movil {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 9999;
+        background: #000000;
+        color: #ffffff;
+        text-align: center;
+        padding: 10px 15px;
+        font-size: 18px;
+        letter-spacing: 3px;
+        font-weight: 700;
+        box-sizing: border-box;
+    }
+}
+
+
+@media (max-width: 700px) {
+    #titulo-seccion-movil {
+        background: transparent;
+    }
+}
+
+
+@media (max-width: 700px) {
+    #eventos h2,
+    #musica h2,
+    #fotos h2,
+    #videoclips h2,
+    #envivo h2,
+    #merch h2 {
+        display: none;
+    }
+}
+
+
+@media (max-width: 700px) {
+    #titulo-seccion-movil {
+        top: 8px;
+    }
+}
+
+
+@media (max-width: 700px) {
+    #titulo-seccion-movil {
+        top: 18px;
+    }
+}
+
+
+@media (max-width: 700px) {
+    #titulo-seccion-movil {
+        top: 28px;
+    }
+}
+
+
+@media (max-width: 700px) {
+    #titulo-seccion-movil {
+        top: 0;
+    }
+}
+
+
+@media (max-width: 700px) {
+    #titulo-seccion-movil {
+        pointer-events: none;
+    }
+}
+
+@media (max-width: 700px) {
+    #titulo-seccion-movil {
+        top: 40px;
+    }
+}
+
+@media (max-width: 700px) {
+    #titulo-seccion-movil {
+        top: 32px;
+    }
+}
+
+@media (max-width: 700px) {
+    #titulo-seccion-movil {
+        top: 28px;
+    }
+}
+
+@media (max-width: 700px) {
+    #eventos > *,
+    #musica > *,
+    #fotos > *,
+    #videoclips > *,
+    #envivo > *,
+    #merch > * {
+        margin-top: 30px;
+    }
+}
+
+@media (max-width: 700px) {
+    #eventos > *,
+    #musica > *,
+    #fotos > *,
+    #videoclips > *,
+    #envivo > *,
+    #merch > * {
+        margin-top: 60px;
+    }
+}
+
+@media (max-width: 700px) {
+    .logo-nav {
+        width: 90px !important;
+        height: auto !important;
+    }
+}
+
+@media (max-width: 700px) {
+    .logo-nav {
+        width: 75px !important;
+        height: auto !important;
+    }
+}
+
+@media (max-width: 700px) {
+    .logo-nav img {
+        width: 75px !important;
+        max-height: 45px !important;
+    }
+}

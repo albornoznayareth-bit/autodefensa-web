@@ -641,6 +641,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
         titulo.textContent = enlace.textContent.trim();
 
+        const tituloMovil = document.getElementById("titulo-seccion-movil");
+        const titulosMoviles = {
+            "#eventos": "EVENTOS",
+            "#musica": "MÚSICA",
+            "#fotos": "FOTOS",
+            "#videoclips": "VIDEOCLIPS",
+            "#envivo": "EN VIVO",
+            "#merch": "MERCH"
+        };
+
+        if (tituloMovil) {
+            if (titulosMoviles[id]) {
+                tituloMovil.textContent = titulosMoviles[id];
+                tituloMovil.style.display = "block";
+            } else {
+                tituloMovil.textContent = "";
+                tituloMovil.style.display = "none";
+            }
+        }
+
         // La pestaña comienza a abrirse.
         capa.classList.add("abriendo");
 
@@ -739,22 +759,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 <script>
-let ultimaPosicionScroll = 0;
-
-window.addEventListener("scroll", () => {
-    const header = document.querySelector("header");
-    const posicionActual = window.scrollY;
-
-    if (posicionActual <= 20) {
-        header.classList.remove("header-oculto");
-    } else if (posicionActual > ultimaPosicionScroll) {
-        header.classList.add("header-oculto");
-    } else {
-        header.classList.remove("header-oculto");
-    }
-
-    ultimaPosicionScroll = posicionActual;
-});
 </script>
 
 
@@ -966,6 +970,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
+
+<div id="titulo-seccion-movil"></div>
 
 </body>
 </html>
