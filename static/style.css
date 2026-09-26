@@ -1879,10 +1879,23 @@ section h2::after {
 
     
 /* AJUSTE DEL FONDO PARA CELULARES */
+
 @media (max-width: 700px) {
     body {
-        background-attachment: fixed;
-        background-size: auto 100%;
-        background-position: center top;
+        background: #0b0b0b;
+    }
+
+    body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        background:
+            linear-gradient(
+                rgba(0, 0, 0, 0.72),
+                rgba(0, 0, 0, 0.72)
+            ),
+            url("/static/images/Fondo.JPG") center top / auto 100% no-repeat;
+        pointer-events: none;
     }
 }
