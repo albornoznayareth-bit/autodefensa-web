@@ -3104,3 +3104,15 @@ body.inicio-sin-eventos #eventos {
         margin: 30px auto 20px;
     }
 }
+
+#titulo-seccion-movil {
+    display: none !important;
+}
+
+#titulo-seccion-movil {
+    display: none !important;
+    visibility: hidden !important;
+    height: 0 !important;
+    width: 0 !important;
+    overflow: hidden !important;
+}
