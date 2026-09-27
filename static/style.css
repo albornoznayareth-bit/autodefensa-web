@@ -3086,3 +3086,12 @@ body.inicio-sin-eventos #eventos {
         max-height: 45px !important;
     }
 }
+
+.genero-banda {
+    font-size: 12px;
+    letter-spacing: 2px;
+    word-spacing: 6px;
+    opacity: 0.55;
+    text-align: center;
+    margin: 35px auto 25px;
+}
