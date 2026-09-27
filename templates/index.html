@@ -66,13 +66,13 @@
         </button>
 
         <div class="menu" id="menu-principal">
-            <a href="/" onclick="ocultarEventos(); mostrarRecomendaciones()">Inicio</a>
-            <a href="#eventos" onclick="mostrarEventos(); ocultarRecomendaciones()">Eventos</a>
-            <a href="#musica" onclick="ocultarRecomendaciones()">Música</a>
-            <a href="#fotos" onclick="ocultarRecomendaciones()">Fotos</a>
-            <a href="#videoclips" onclick="ocultarRecomendaciones()">Videoclips</a>
-            <a href="#envivo" onclick="ocultarRecomendaciones()">En Vivo</a>
-            <a href="#merch" onclick="ocultarRecomendaciones()">Merch</a>
+            <a href="/">Inicio</a>
+            <a href="#eventos">Eventos</a>
+            <a href="#musica">Música</a>
+            <a href="#fotos">Fotos</a>
+            <a href="#videoclips">Videoclips</a>
+            <a href="#envivo">En Vivo</a>
+            <a href="#merch">Merch</a>
         </div>
 
 
@@ -149,9 +149,7 @@
 
     </div>
 </section>
-
-</section>
-<section id="eventos" class="eventos-portada-oculto">
+<section id="eventos">
 
     <h2>EVENTOS</h2>
 
@@ -630,9 +628,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const secciones = document.querySelectorAll("main section");
     const menuEnlaces = document.querySelectorAll("#menu-principal a");
     const capa = document.getElementById("capa-pestana");
-    const titulo = document.getElementById("pestana-titulo");
 
-    function mostrarSeccion(id, enlace) {
+    function mostrarSeccion(id) {
 
         const activasIniciales = document.querySelectorAll(
             "main .presentacion.seccion-activa, main #eventos.seccion-activa, main #banda.seccion-activa"
@@ -736,18 +733,12 @@ document.addEventListener("DOMContentLoaded", () => {
         recomendaciones.classList.add("seccion-activa");
     }
 
-    const eventos = document.querySelector("#eventos");
     const banda = document.querySelector("#banda");
-
-    if (eventos) {
-        eventos.classList.remove("seccion-oculta");
-        eventos.classList.add("seccion-activa");
-    }
-
+    
     if (banda) {
-        banda.classList.remove("seccion-oculta");
-        banda.classList.add("seccion-activa");
-    }
+    banda.classList.remove("seccion-oculta");
+    banda.classList.add("seccion-activa");
+}
 
     menuEnlaces.forEach(enlace => {
 
@@ -765,7 +756,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("menu-principal").classList.remove("menu-abierto");
             document.querySelector(".menu-toggle").setAttribute("aria-expanded", "false");
 
-            mostrarSeccion(destino, enlace);
+            mostrarSeccion(destino);
 
         });
 
@@ -776,35 +767,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 <div id="capa-pestana">
-    <div class="pestana-titulo" id="pestana-titulo"></div>
     <div id="contenido-pestana"></div>
 </div>
 
 
-<script>
-</script>
-
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-
-    const hoy = new Date();
-    const fechaHoy = hoy.getFullYear() + "-" +
-        String(hoy.getMonth() + 1).padStart(2, "0") + "-" +
-        String(hoy.getDate()).padStart(2, "0");
-
-    document.querySelectorAll("#eventos .tarjeta").forEach(evento => {
-
-        const fechaEvento = evento.dataset.fecha;
-
-        if (fechaEvento < fechaHoy) {
-            evento.remove();
-        }
-
-    });
-
-});
-</script>
 
 
 <!-- POPUP PRÓXIMO EVENTO -->
@@ -865,24 +831,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-
-<script>
-function mostrarEventos() {
-    const eventos = document.getElementById("eventos");
-
-    if (eventos) {
-        eventos.classList.remove("eventos-portada-oculto");
-    }
-}
-
-function ocultarEventos() {
-    const eventos = document.getElementById("eventos");
-
-    if (eventos) {
-        eventos.classList.add("eventos-portada-oculto");
-    }
-}
-</script>
 
 
 <!-- REPRODUCTOR-MUSICA-JS -->
