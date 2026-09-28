@@ -9,28 +9,36 @@
     <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/Menu.png') }}">
 
     <meta name="description" content="Autodefensa es una banda independiente de Santiago de Chile, Conchalí. Post-hardcore melódico y shoegaze, con música sobre emociones, amistad y reflexión.">
-
     <meta name="keywords" content="Autodefensa, banda Autodefensa, banda Santiago de Chile, banda Conchalí, música independiente, música chilena, banda chilena">
-
     <meta name="author" content="Autodefensa">
-
     <meta name="robots" content="index, follow">
 
     <link rel="canonical" href="https://autodefensa-web.onrender.com/">
 
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Autodefensa — Banda de Santiago de Chile">
     <meta property="og:description" content="Banda de Santiago de Chile · Conchalí. Música, videoclips, presentaciones en vivo y eventos autogestionados.">
     <meta property="og:url" content="https://autodefensa-web.onrender.com/">
     <meta property="og:site_name" content="Autodefensa">
+    <meta property="og:image" content="{{ url_for('static', filename='images/FOTO LA BANDA.PNG', _external=True) }}">
+    <meta property="og:image:alt" content="Autodefensa — banda de Santiago de Chile">
 
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Autodefensa — Banda de Santiago de Chile">
+    <meta name="twitter:description" content="Banda independiente de Santiago de Chile · Conchalí.">
+    <meta name="twitter:image" content="{{ url_for('static', filename='images/FOTO LA BANDA.PNG', _external=True) }}">
+
+    <!-- Datos estructurados -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "MusicGroup",
       "name": "Autodefensa",
+      "url": "https://autodefensa-web.onrender.com/",
+      "logo": "https://autodefensa-web.onrender.com/static/images/LOGO%20AUTODEFENSA%20blanco.png",
+      "image": "https://autodefensa-web.onrender.com/static/images/FOTO%20LA%20BANDA.PNG",
       "genre": [
         "Post-hardcore melódico",
         "Shoegaze",
@@ -48,6 +56,9 @@
       ]
     }
     </script>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body class="inicio-sin-eventos">
