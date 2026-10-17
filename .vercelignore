@@ -1,0 +1,10 @@
+/static/
+venv/
+__pycache__/
+*.py[cod]
+logs/
+/respaldo_antes_*/
+/templates/*.backup
+/templates/*.copia*
+/templates/index_backup.html
+.DS_Store

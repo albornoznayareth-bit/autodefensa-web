@@ -307,19 +307,52 @@
     <div class="discografia">
         <h3 class="discografia-titulo">DISCOGRAFÍA</h3>
 
-        <article class="disco">
-            <img class="disco-portada" src="{{ url_for('static', filename='images/demasiado tiempo cantandole a la pena portada.jpg') }}" alt="Demasiado tiempo cantándole a la pena">
-            <div class="disco-cabecera">
-                <h3>DEMASIADO TIEMPO CANTÁNDOLE A LA PENA</h3>
-                <span>2024 · ÁLBUM</span>
-            </div>
-            <p>
-                El tercer disco de Autodefensa aborda la muerte, el proceso para afrontarla
-                y lo caótico de las experiencias traumáticas. Un carnaval de ruido nacido
-                después de demasiado tiempo cantándole a la pena.
-            </p>
-            <ol class="tracklist">
-                <li>El duelo</li>
+        
+        <article class="disco cd-album" data-album-key="album-1">
+            <div class="cd-display">
+                <div class="cd-stage" data-cd-stage>
+                    <div class="cd-object">
+                        <div class="cd-face cd-face-front" data-cd-front>
+                            <div class="cd-case-interior" aria-hidden="true">
+                                <div class="cd-tray"></div>
+                                <div class="cd-disc">
+                                    <div class="cd-disc-reflections"></div>
+                                    <img class="cd-disc-art"
+                                         data-image-slot="disco"
+                                         src="{{ url_for('static', filename='images/demasiado tiempo cantandole a la pena portada.jpg') }}" alt="" draggable="false">
+                                    <span class="cd-disc-hole"></span>
+                                </div>
+                            </div>
+
+                            <div class="cd-lid" aria-hidden="true">
+                                <div class="cd-lid-face cd-lid-front">
+                                    <img class="cd-cover-art"
+                                         data-image-slot="portada"
+                                         src="{{ url_for('static', filename='images/demasiado tiempo cantandole a la pena portada.jpg') }}" alt="Demasiado tiempo cantándole a la pena"
+                                         draggable="false">
+                                </div>
+                                <div class="cd-lid-face cd-lid-inner">
+                                    <span class="cd-inner-logo">AUTODEFENSA</span>
+                                    <span class="cd-inner-title">DEMASIADO TIEMPO CANTÁNDOLE A LA PENA</span>
+                                    <span class="cd-inner-detail">EDICIÓN FÍSICA</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cd-face cd-face-back" data-cd-back>
+                            <div class="cd-back-panel">
+                                <img class="cd-back-image"
+                                     data-image-slot="contraportada"
+                                     src="{{ url_for('static', filename='images/demasiado tiempo cantandole a la pena portada.jpg') }}" alt="" draggable="false">
+                                <div class="cd-back-shade"></div>
+                                <div class="cd-back-content">
+                                    <div class="cd-back-top">
+                                        <span>2024 · ÁLBUM</span>
+                                        <h4>DEMASIADO TIEMPO CANTÁNDOLE A LA PENA</h4>
+                                        <small>LISTA DE CANCIONES</small>
+                                    </div>
+                                    <ol class="cd-back-tracklist">
+                                        <li>El duelo</li>
                 <li>La confusión</li>
                 <li>La tristeza</li>
                 <li>La negación</li>
@@ -327,41 +360,176 @@
                 <li>La culpa</li>
                 <li>La aceptación</li>
                 <li>El futuro</li>
-            </ol>
-            <a class="boton" href="https://www.youtube.com/watch?v=pfuvN8ibBY4" target="_blank"><span class="youtube-text">Puedes escucharlo aquí</span><img src="{{ url_for('static', filename='images/Youtube_logo.png') }}" alt="YouTube" class="youtube-logo"></a>
+                                    </ol>
+                                    <div class="cd-back-footer">
+                                        AUTODEFENSA · SANTIAGO DE CHILE
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="cd-turn-button" data-cd-turn type="button"
+                            aria-pressed="false"
+                            aria-label="Mostrar contraportada de DEMASIADO TIEMPO CANTÁNDOLE A LA PENA">
+                        <span class="cd-sr-only">Voltear caja del CD</span>
+                    </button>
+                </div>
+
+                <div class="cd-controls">
+                    <button class="cd-open-toggle" data-cd-open type="button"
+                            aria-pressed="false">Abrir tapa</button>
+                </div>
+                <p class="cd-hint">
+                    Pasa el cursor para abrir la tapa. Pulsa la caja para ver el reverso.
+                </p>
+            </div>
+
+            <div class="cd-info">
+                <div class="disco-cabecera">
+                    <div>
+                        <h3>DEMASIADO TIEMPO CANTÁNDOLE A LA PENA</h3>
+                        <span>2024 · ÁLBUM</span>
+                    </div>
+                </div>
+                <p>El tercer disco de Autodefensa aborda la muerte, el proceso para afrontarla
+                y lo caótico de las experiencias traumáticas. Un carnaval de ruido nacido
+                después de demasiado tiempo cantándole a la pena.</p>
+                <a class="boton" href="https://www.youtube.com/watch?v=pfuvN8ibBY4" target="_blank"><span class="youtube-text">Puedes escucharlo aquí</span><img src="{{ url_for('static', filename='images/Youtube_logo.png') }}" alt="YouTube" class="youtube-logo"></a>
+            </div>
         </article>
 
-        <article class="disco">
-            <img class="disco-portada" src="{{ url_for('static', filename='images/mirar al fondo del mar portada.png') }}" alt="Mirar al fondo del mar">
-            <div class="disco-cabecera">
-                <h3>MIRAR AL FONDO DEL MAR</h3>
-                <span>2023 · EP</span>
-            </div>
-            <p>
-                Una historia sobre un buzo que se adentra en aguas profundas como metáfora
-                del proceso de mirarse hacia adentro, enfrentando el estrés, la inseguridad
-                y finalmente la calma.
-            </p>
-            <ol class="tracklist">
-                <li>Estrés</li>
+        <article class="disco cd-album" data-album-key="album-2">
+            <div class="cd-display">
+                <div class="cd-stage" data-cd-stage>
+                    <div class="cd-object">
+                        <div class="cd-face cd-face-front" data-cd-front>
+                            <div class="cd-case-interior" aria-hidden="true">
+                                <div class="cd-tray"></div>
+                                <div class="cd-disc">
+                                    <div class="cd-disc-reflections"></div>
+                                    <img class="cd-disc-art"
+                                         data-image-slot="disco"
+                                         src="{{ url_for('static', filename='images/mirar al fondo del mar portada.png') }}" alt="" draggable="false">
+                                    <span class="cd-disc-hole"></span>
+                                </div>
+                            </div>
+
+                            <div class="cd-lid" aria-hidden="true">
+                                <div class="cd-lid-face cd-lid-front">
+                                    <img class="cd-cover-art"
+                                         data-image-slot="portada"
+                                         src="{{ url_for('static', filename='images/mirar al fondo del mar portada.png') }}" alt="Mirar al fondo del mar"
+                                         draggable="false">
+                                </div>
+                                <div class="cd-lid-face cd-lid-inner">
+                                    <span class="cd-inner-logo">AUTODEFENSA</span>
+                                    <span class="cd-inner-title">MIRAR AL FONDO DEL MAR</span>
+                                    <span class="cd-inner-detail">EDICIÓN FÍSICA</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cd-face cd-face-back" data-cd-back>
+                            <div class="cd-back-panel">
+                                <img class="cd-back-image"
+                                     data-image-slot="contraportada"
+                                     src="{{ url_for('static', filename='images/mirar al fondo del mar portada.png') }}" alt="" draggable="false">
+                                <div class="cd-back-shade"></div>
+                                <div class="cd-back-content">
+                                    <div class="cd-back-top">
+                                        <span>2023 · EP</span>
+                                        <h4>MIRAR AL FONDO DEL MAR</h4>
+                                        <small>LISTA DE CANCIONES</small>
+                                    </div>
+                                    <ol class="cd-back-tracklist">
+                                        <li>Estrés</li>
                 <li>Inseguridad</li>
                 <li>Calma</li>
-            </ol>
-            <a class="boton" href="https://www.youtube.com/watch?v=d8s04XlJ-wU" target="_blank"><span class="youtube-text">Puedes escucharlo aquí</span><img src="{{ url_for('static', filename='images/Youtube_logo.png') }}" alt="YouTube" class="youtube-logo"></a>
+                                    </ol>
+                                    <div class="cd-back-footer">
+                                        AUTODEFENSA · SANTIAGO DE CHILE
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="cd-turn-button" data-cd-turn type="button"
+                            aria-pressed="false"
+                            aria-label="Mostrar contraportada de MIRAR AL FONDO DEL MAR">
+                        <span class="cd-sr-only">Voltear caja del CD</span>
+                    </button>
+                </div>
+
+                <div class="cd-controls">
+                    <button class="cd-open-toggle" data-cd-open type="button"
+                            aria-pressed="false">Abrir tapa</button>
+                </div>
+                <p class="cd-hint">
+                    Pasa el cursor para abrir la tapa. Pulsa la caja para ver el reverso.
+                </p>
+            </div>
+
+            <div class="cd-info">
+                <div class="disco-cabecera">
+                    <div>
+                        <h3>MIRAR AL FONDO DEL MAR</h3>
+                        <span>2023 · EP</span>
+                    </div>
+                </div>
+                <p>Una historia sobre un buzo que se adentra en aguas profundas como metáfora
+                del proceso de mirarse hacia adentro, enfrentando el estrés, la inseguridad
+                y finalmente la calma.</p>
+                <a class="boton" href="https://www.youtube.com/watch?v=d8s04XlJ-wU" target="_blank"><span class="youtube-text">Puedes escucharlo aquí</span><img src="{{ url_for('static', filename='images/Youtube_logo.png') }}" alt="YouTube" class="youtube-logo"></a>
+            </div>
         </article>
 
-        <article class="disco">
-            <img class="disco-portada" src="{{ url_for('static', filename='images/ESPIRAL PORTADA.png') }}" alt="Espiral">
-            <div class="disco-cabecera">
-                <h3>ESPIRAL</h3>
-                <span>2021 · ÁLBUM</span>
-            </div>
-            <p>
-                Un disco compuesto por canciones que exploran distintas tensiones,
-                contradicciones y experiencias personales.
-            </p>
-            <ol class="tracklist">
-                <li>Causa / Efecto</li>
+        <article class="disco cd-album" data-album-key="album-3">
+            <div class="cd-display">
+                <div class="cd-stage" data-cd-stage>
+                    <div class="cd-object">
+                        <div class="cd-face cd-face-front" data-cd-front>
+                            <div class="cd-case-interior" aria-hidden="true">
+                                <div class="cd-tray"></div>
+                                <div class="cd-disc">
+                                    <div class="cd-disc-reflections"></div>
+                                    <img class="cd-disc-art"
+                                         data-image-slot="disco"
+                                         src="{{ url_for('static', filename='images/ESPIRAL PORTADA.png') }}" alt="" draggable="false">
+                                    <span class="cd-disc-hole"></span>
+                                </div>
+                            </div>
+
+                            <div class="cd-lid" aria-hidden="true">
+                                <div class="cd-lid-face cd-lid-front">
+                                    <img class="cd-cover-art"
+                                         data-image-slot="portada"
+                                         src="{{ url_for('static', filename='images/ESPIRAL PORTADA.png') }}" alt="Espiral"
+                                         draggable="false">
+                                </div>
+                                <div class="cd-lid-face cd-lid-inner">
+                                    <span class="cd-inner-logo">AUTODEFENSA</span>
+                                    <span class="cd-inner-title">ESPIRAL</span>
+                                    <span class="cd-inner-detail">EDICIÓN FÍSICA</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cd-face cd-face-back" data-cd-back>
+                            <div class="cd-back-panel">
+                                <img class="cd-back-image"
+                                     data-image-slot="contraportada"
+                                     src="{{ url_for('static', filename='images/ESPIRAL PORTADA.png') }}" alt="" draggable="false">
+                                <div class="cd-back-shade"></div>
+                                <div class="cd-back-content">
+                                    <div class="cd-back-top">
+                                        <span>2021 · ÁLBUM</span>
+                                        <h4>ESPIRAL</h4>
+                                        <small>LISTA DE CANCIONES</small>
+                                    </div>
+                                    <ol class="cd-back-tracklist">
+                                        <li>Causa / Efecto</li>
                 <li>Ensayo / Error</li>
                 <li>Desprender / Enfrentar</li>
                 <li>Ansiedad / Depresión</li>
@@ -374,22 +542,89 @@
                 <li>Paradoja / Solución</li>
                 <li>Aceptar / Convencer</li>
                 <li>Uno / Tres</li>
-            </ol>
-            <a class="boton" href="https://www.youtube.com/watch?v=xOIgeT47AnU" target="_blank"><span class="youtube-text">Puedes escucharlo aquí</span><img src="{{ url_for('static', filename='images/Youtube_logo.png') }}" alt="YouTube" class="youtube-logo"></a>
+                                    </ol>
+                                    <div class="cd-back-footer">
+                                        AUTODEFENSA · SANTIAGO DE CHILE
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="cd-turn-button" data-cd-turn type="button"
+                            aria-pressed="false"
+                            aria-label="Mostrar contraportada de ESPIRAL">
+                        <span class="cd-sr-only">Voltear caja del CD</span>
+                    </button>
+                </div>
+
+                <div class="cd-controls">
+                    <button class="cd-open-toggle" data-cd-open type="button"
+                            aria-pressed="false">Abrir tapa</button>
+                </div>
+                <p class="cd-hint">
+                    Pasa el cursor para abrir la tapa. Pulsa la caja para ver el reverso.
+                </p>
+            </div>
+
+            <div class="cd-info">
+                <div class="disco-cabecera">
+                    <div>
+                        <h3>ESPIRAL</h3>
+                        <span>2021 · ÁLBUM</span>
+                    </div>
+                </div>
+                <p>Un disco compuesto por canciones que exploran distintas tensiones,
+                contradicciones y experiencias personales.</p>
+                <a class="boton" href="https://www.youtube.com/watch?v=xOIgeT47AnU" target="_blank"><span class="youtube-text">Puedes escucharlo aquí</span><img src="{{ url_for('static', filename='images/Youtube_logo.png') }}" alt="YouTube" class="youtube-logo"></a>
+            </div>
         </article>
 
-        <article class="disco">
-            <img class="disco-portada" src="{{ url_for('static', filename='images/CONTRA TODO MAL portada.jpg') }}" alt="Contra todo mal">
-            <div class="disco-cabecera">
-                <h3>CONTRA TODO MAL</h3>
-                <span>2018 · ÁLBUM</span>
-            </div>
-            <p>
-                El primer álbum de esta discografía, con ocho canciones que forman parte
-                de los primeros años del proyecto Autodefensa.
-            </p>
-            <ol class="tracklist">
-                <li>Mil operativos</li>
+        <article class="disco cd-album" data-album-key="album-4">
+            <div class="cd-display">
+                <div class="cd-stage" data-cd-stage>
+                    <div class="cd-object">
+                        <div class="cd-face cd-face-front" data-cd-front>
+                            <div class="cd-case-interior" aria-hidden="true">
+                                <div class="cd-tray"></div>
+                                <div class="cd-disc">
+                                    <div class="cd-disc-reflections"></div>
+                                    <img class="cd-disc-art"
+                                         data-image-slot="disco"
+                                         src="{{ url_for('static', filename='images/CONTRA TODO MAL portada.jpg') }}" alt="" draggable="false">
+                                    <span class="cd-disc-hole"></span>
+                                </div>
+                            </div>
+
+                            <div class="cd-lid" aria-hidden="true">
+                                <div class="cd-lid-face cd-lid-front">
+                                    <img class="cd-cover-art"
+                                         data-image-slot="portada"
+                                         src="{{ url_for('static', filename='images/CONTRA TODO MAL portada.jpg') }}" alt="Contra todo mal"
+                                         draggable="false">
+                                </div>
+                                <div class="cd-lid-face cd-lid-inner">
+                                    <span class="cd-inner-logo">AUTODEFENSA</span>
+                                    <span class="cd-inner-title">CONTRA TODO MAL</span>
+                                    <span class="cd-inner-detail">EDICIÓN FÍSICA</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="cd-face cd-face-back" data-cd-back>
+                            <div class="cd-back-panel">
+                                <img class="cd-back-image"
+                                     data-image-slot="contraportada"
+                                     src="{{ url_for('static', filename='images/CONTRA TODO MAL portada.jpg') }}" alt="" draggable="false">
+                                <div class="cd-back-shade"></div>
+                                <div class="cd-back-content">
+                                    <div class="cd-back-top">
+                                        <span>2018 · ÁLBUM</span>
+                                        <h4>CONTRA TODO MAL</h4>
+                                        <small>LISTA DE CANCIONES</small>
+                                    </div>
+                                    <ol class="cd-back-tracklist">
+                                        <li>Mil operativos</li>
                 <li>Flores, las antorchas</li>
                 <li>El problema</li>
                 <li>Dibújame</li>
@@ -397,8 +632,42 @@
                 <li>Utopía</li>
                 <li>Jugando con fuego</li>
                 <li>Creer</li>
-            </ol>
-            <a class="boton" href="https://www.youtube.com/watch?v=TzK7sGneRXg" target="_blank"><span class="youtube-text">Puedes escucharlo aquí</span><img src="{{ url_for('static', filename='images/Youtube_logo.png') }}" alt="YouTube" class="youtube-logo"></a>
+                                    </ol>
+                                    <div class="cd-back-footer">
+                                        AUTODEFENSA · SANTIAGO DE CHILE
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="cd-turn-button" data-cd-turn type="button"
+                            aria-pressed="false"
+                            aria-label="Mostrar contraportada de CONTRA TODO MAL">
+                        <span class="cd-sr-only">Voltear caja del CD</span>
+                    </button>
+                </div>
+
+                <div class="cd-controls">
+                    <button class="cd-open-toggle" data-cd-open type="button"
+                            aria-pressed="false">Abrir tapa</button>
+                </div>
+                <p class="cd-hint">
+                    Pasa el cursor para abrir la tapa. Pulsa la caja para ver el reverso.
+                </p>
+            </div>
+
+            <div class="cd-info">
+                <div class="disco-cabecera">
+                    <div>
+                        <h3>CONTRA TODO MAL</h3>
+                        <span>2018 · ÁLBUM</span>
+                    </div>
+                </div>
+                <p>El primer álbum de esta discografía, con ocho canciones que forman parte
+                de los primeros años del proyecto Autodefensa.</p>
+                <a class="boton" href="https://www.youtube.com/watch?v=TzK7sGneRXg" target="_blank"><span class="youtube-text">Puedes escucharlo aquí</span><img src="{{ url_for('static', filename='images/Youtube_logo.png') }}" alt="YouTube" class="youtube-logo"></a>
+            </div>
         </article>
     </div>
 
@@ -785,7 +1054,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 <!-- POPUP PRÓXIMO EVENTO -->
-<div id="eventoModal" class="evento-modal">
+<div id="eventoModal" class="evento-modal" data-fecha="2026-10-03" style="display: none;">
 
     <div class="evento-modal-contenido">
 
@@ -819,8 +1088,28 @@ document.addEventListener("DOMContentLoaded", () => {
 </div>
 
 <script>
+document.addEventListener("DOMContentLoaded", function () {
+    const ahora = new Date();
+    const hoy = [
+        ahora.getFullYear(),
+        String(ahora.getMonth() + 1).padStart(2, "0"),
+        String(ahora.getDate()).padStart(2, "0")
+    ].join("-");
+
+    document.querySelectorAll("#eventos [data-fecha]").forEach(function (evento) {
+        if (evento.dataset.fecha < hoy) {
+            evento.style.display = "none";
+        }
+    });
+
     const eventoModal = document.getElementById("eventoModal");
     const cerrarEvento = document.getElementById("cerrarEvento");
+
+    if (!eventoModal) return;
+
+    if (eventoModal.dataset.fecha >= hoy) {
+        eventoModal.style.display = "flex";
+    }
 
     cerrarEvento.addEventListener("click", function () {
         eventoModal.classList.add("cerrado");
@@ -831,6 +1120,7 @@ document.addEventListener("DOMContentLoaded", () => {
             eventoModal.classList.add("cerrado");
         }
     });
+});
 </script>
 
 
@@ -954,6 +1244,51 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 <div id="titulo-seccion-movil"></div>
+
+
+    <!-- AUTODEFENSA CD 3D INTERACTIONS -->
+    <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll("[data-cd-stage]").forEach(function (stage) {
+            const turn = stage.querySelector("[data-cd-turn]");
+            const open = stage.parentElement.querySelector("[data-cd-open]");
+            const front = stage.querySelector("[data-cd-front]");
+            const back = stage.querySelector("[data-cd-back]");
+            const titleNode = stage.closest(".cd-album").querySelector(".disco-cabecera h3");
+            const albumTitle = titleNode ? titleNode.textContent.trim() : "este álbum";
+
+            function update() {
+                const reversed = stage.classList.contains("is-reversed");
+                const opened = stage.classList.contains("is-open") && !reversed;
+
+                front.setAttribute("aria-hidden", String(reversed));
+                back.setAttribute("aria-hidden", String(!reversed));
+                turn.setAttribute("aria-pressed", String(reversed));
+                turn.setAttribute("aria-label", reversed
+                    ? "Volver a la portada de " + albumTitle
+                    : "Mostrar la contraportada de " + albumTitle);
+
+                open.disabled = reversed;
+                open.setAttribute("aria-pressed", String(opened));
+                open.textContent = opened ? "Cerrar tapa" : "Abrir tapa";
+            }
+
+            turn.addEventListener("click", function () {
+                stage.classList.toggle("is-reversed");
+                stage.classList.remove("is-open");
+                update();
+            });
+
+            open.addEventListener("click", function () {
+                if (stage.classList.contains("is-reversed")) return;
+                stage.classList.toggle("is-open");
+                update();
+            });
+
+            update();
+        });
+    });
+    </script>
 
 </body>
 </html>
