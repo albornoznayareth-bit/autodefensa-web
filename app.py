@@ -1,3 +1,4 @@
+import os
 from flask import Flask, render_template, send_from_directory
 
 # Los archivos estáticos se publican desde public/ en Vercel.
@@ -28,6 +29,17 @@ def google_verificacion():
 @app.route("/sitemap.xml")
 def sitemap():
     return send_from_directory("public", "sitemap.xml")
+
+
+
+
+@app.route("/admin")
+def admin():
+    return render_template(
+        "admin.html",
+        supabase_url=os.environ.get("SUPABASE_URL", ""),
+        supabase_key=os.environ.get("SUPABASE_PUBLISHABLE_KEY", "")
+    )
 
 
 if __name__ == "__main__":
