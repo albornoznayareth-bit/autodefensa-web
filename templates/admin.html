@@ -67,6 +67,19 @@
              required placeholder="Tu contraseña">
       <button id="login-button" type="submit">Iniciar sesión</button>
     </form>
+    <button id="forgot-password" class="secondary" type="button">Olvidé mi contraseña</button>
+  </section>
+
+  <section id="recovery" class="hidden">
+    <form id="recovery-form">
+      <label for="new-password">Nueva contraseña</label>
+      <input id="new-password" type="password" autocomplete="new-password"
+             minlength="8" required placeholder="Mínimo 8 caracteres">
+      <label for="confirm-password">Repite la nueva contraseña</label>
+      <input id="confirm-password" type="password" autocomplete="new-password"
+             minlength="8" required placeholder="Repite la contraseña">
+      <button id="recovery-button" type="submit">Guardar contraseña nueva</button>
+    </form>
   </section>
 
   <section id="dashboard" class="hidden">
@@ -121,6 +134,69 @@
         "La sesión funciona, pero esta cuenta no coincide con el usuario autorizado para modificar contenido. No intentes editar todavía.";
       status("Acceso iniciado; falta verificar los permisos de edición.");
     }
+  }
+
+  function showRecovery() {
+    $("login").classList.add("hidden");
+    $("dashboard").classList.add("hidden");
+    $("recovery").classList.remove("hidden");
+    status("Crea tu nueva contraseña.");
+  }
+
+  $("forgot-password").addEventListener("click", async () => {
+    const email = $("email").value.trim();
+    if (!email) {
+      status("Escribe tu correo en el campo de correo electrónico primero.");
+      $("email").focus();
+      return;
+    }
+
+    status("Enviando correo de recuperación…");
+    try {
+      const { error } = await client.auth.resetPasswordForEmail(email, {
+        redirectTo: window.location.origin + "/admin"
+      });
+      if (error) throw error;
+      status("Si el correo está registrado, recibirás un enlace para crear una contraseña nueva. Revisa también el spam.");
+    } catch (error) {
+      status(error.message || "No se pudo enviar el correo de recuperación.");
+    }
+  });
+
+  $("recovery-form").addEventListener("submit", async event => {
+    event.preventDefault();
+    const password = $("new-password").value;
+    const confirmation = $("confirm-password").value;
+
+    if (password !== confirmation) {
+      status("Las contraseñas no coinciden.");
+      return;
+    }
+
+    const button = $("recovery-button");
+    button.disabled = true;
+    status("Guardando la contraseña nueva…");
+
+    try {
+      const { error } = await client.auth.updateUser({ password });
+      if (error) throw error;
+      $("recovery-form").reset();
+      $("recovery").classList.add("hidden");
+      $("login").classList.remove("hidden");
+      status("Contraseña actualizada. Ya puedes iniciar sesión.");
+    } catch (error) {
+      status(error.message || "No se pudo actualizar la contraseña. Solicita un enlace nuevo.");
+    } finally {
+      button.disabled = false;
+    }
+  });
+
+  client.auth.onAuthStateChange((event, session) => {
+    if (event === "PASSWORD_RECOVERY") showRecovery();
+  });
+
+  if (window.location.hash.includes("type=recovery")) {
+    showRecovery();
   }
 
   $("login-form").addEventListener("submit", async event => {
