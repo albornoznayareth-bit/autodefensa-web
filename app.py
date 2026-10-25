@@ -57,7 +57,7 @@ def sitemap():
 
 @app.route("/admin")
 def admin():
-    if os.environ.get("VERCEL") == "1":
+    if os.environ.get("VERCEL") == "1" and os.environ.get("VERCEL_ENV") != "preview":
         return "Panel temporalmente deshabilitado.", 404
     return render_template(
         "admin.html",

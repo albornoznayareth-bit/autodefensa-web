@@ -6,54 +6,424 @@
   <meta name="robots" content="noindex, nofollow">
   <title>Administración · Autodefensa</title>
   <style>
-    :root {
-      color-scheme: dark;
-      --pink: #ff9dcc;
-      --green: #c9f5bb;
-      --black: #111;
-      --panel: #1b1b1b;
-    }
-    * { box-sizing: border-box; }
-    body {
-      margin: 0; min-height: 100vh; padding: 24px;
-      display: grid; place-items: center;
-      background: var(--black); color: #f7f2f5;
-      font-family: Arial, sans-serif;
-    }
-    main {
-      width: min(100%, 440px); padding: 32px;
-      background: var(--panel); border: 1px solid #484048;
-      border-radius: 18px;
-    }
-    .flower { color: var(--pink); font-size: 28px; }
-    h1 { margin: 8px 0; font-size: 28px; }
-    p { color: #c8c1c7; line-height: 1.5; }
-    label { display: block; margin: 18px 0 7px; }
-    input {
-      width: 100%; padding: 13px; border-radius: 8px;
-      border: 1px solid #61545e; background: #101010;
-      color: white; font-size: 16px;
-    }
-    button {
-      width: 100%; margin-top: 18px; padding: 13px;
-      border: 0; border-radius: 8px; cursor: pointer;
-      background: var(--pink); color: #171017;
-      font-size: 16px; font-weight: bold;
-    }
-    button.secondary { background: var(--green); }
-    button:disabled { opacity: .55; cursor: wait; }
-    #status {
-      margin-top: 18px; padding: 12px; border-radius: 8px;
-      background: #292329; overflow-wrap: anywhere;
-    }
-    .hidden { display: none; }
-    .small { font-size: 13px; }
-    a { color: var(--pink); }
-  </style>
+:root {
+  color-scheme: dark;
+  --pink: #ffffff;
+  --green: #ffffff;
+  --black: #0c0c0c;
+  --panel: #171717;
+  --muted: #bdbdbd;
+  --border: #3b3b3b;
+  --input: #101010;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 32px 20px;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(ellipse at 12% 5%, #242424 0, transparent 36%),
+    radial-gradient(ellipse at 95% 90%, #1a1a1a 0, transparent 30%),
+    var(--black);
+  color: #f5f5f5;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.55;
+}
+
+main {
+  width: min(100%, 470px);
+  padding: clamp(22px, 4vw, 38px);
+  background: rgba(20, 20, 20, .97);
+  border: 1px solid var(--border);
+  border-radius: 22px;
+  box-shadow: 0 24px 80px #0008;
+}
+
+main:has(#dashboard:not(.hidden)) {
+  width: min(100%, 1000px);
+  margin: 0 auto;
+}
+
+h1 {
+  margin: 8px 0 12px;
+  font-size: clamp(27px, 4vw, 36px);
+  line-height: 1.15;
+  letter-spacing: -.045em;
+}
+
+h2, h3 { line-height: 1.3; }
+h2 { color: #fff; font-size: 21px; }
+
+h3 {
+  margin-top: 24px;
+  color: #f2f2f2;
+  font-size: 17px;
+}
+
+p { color: var(--muted); line-height: 1.65; }
+
+label {
+  display: block;
+  margin: 18px 0 8px;
+  color: #e5e5e5;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+input, select, textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 13px 14px;
+  border: 1px solid #505050;
+  border-radius: 10px;
+  background: var(--input);
+  color: #fff;
+  font: inherit;
+  font-size: 15px;
+  transition: border-color .18s, box-shadow .18s;
+}
+
+input::placeholder, textarea::placeholder { color: #888; }
+
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: #fff;
+  box-shadow: 0 0 0 3px #ffffff20;
+}
+
+input[type="checkbox"] {
+  width: 18px;
+  min-width: 18px;
+  height: 18px;
+  accent-color: #fff;
+}
+
+textarea {
+  display: block;
+  min-height: 100px;
+  resize: vertical;
+  line-height: 1.6;
+}
+
+button {
+  width: 100%;
+  margin-top: 14px;
+  padding: 13px 17px;
+  border: 1px solid #fff;
+  border-radius: 11px;
+  background: #fff;
+  color: #111;
+  font: inherit;
+  font-size: 14px;
+  font-weight: 750;
+  cursor: pointer;
+  transition: transform .18s, filter .18s, background .18s;
+}
+
+button:hover:not(:disabled) {
+  filter: brightness(.9);
+  transform: translateY(-1px);
+}
+
+button:focus-visible, summary:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+
+button.secondary {
+  border-color: #555;
+  background: #292929;
+  color: #fff;
+}
+
+button:disabled { opacity: .55; cursor: wait; }
+
+#login, #recovery {
+  margin-top: 25px;
+  padding-top: 6px;
+}
+
+#status {
+  margin-top: 22px;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: #101010;
+  color: var(--muted);
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+
+#dashboard { width: 100%; }
+
+#dashboard > p:first-child {
+  padding: 12px 15px;
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  background: #222;
+  overflow-wrap: anywhere;
+}
+
+#account { color: #fff; }
+
+.editor-section, #text-editor {
+  margin-top: 22px;
+  padding: clamp(16px, 3vw, 26px);
+  border: 1px solid var(--border);
+  border-radius: 17px;
+  background: linear-gradient(145deg, #202020, #141414);
+}
+
+.editor-section h2 {
+  margin-top: 0;
+  color: #fff;
+}
+
+details > summary {
+  padding: 15px 16px;
+  border: 1px solid #555;
+  border-radius: 12px;
+  background: #292929;
+  color: #fff;
+  cursor: pointer;
+  list-style-position: inside;
+}
+
+details[open] > summary {
+  margin-bottom: 20px;
+  border-color: #999;
+}
+
+details > summary strong { font-size: 16px; }
+.event-editor-content { padding-top: 2px; }
+.editor-field { min-width: 0; margin: 18px 0; }
+.editor-field label { margin: 0 0 8px; }
+.editor-field input { margin: 0; }
+
+.editor-help, .small {
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.event-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.event-grid .editor-field { min-width: 0; margin: 8px 0; }
+
+.event-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.event-actions button {
+  flex: 1 1 160px;
+  width: auto;
+  min-width: 0;
+}
+
+.event-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 14px 0;
+}
+
+.event-check label { margin: 0; }
+
+.event-card, .music-library {
+  margin: 16px 0;
+  padding: 17px;
+  border: 1px solid var(--border);
+  border-radius: 13px;
+  background: #101010;
+  overflow-wrap: anywhere;
+}
+
+.event-card img {
+  display: block;
+  width: min(100%, 280px);
+  max-height: 380px;
+  margin-top: 12px;
+  border-radius: 9px;
+  object-fit: contain;
+  object-position: left;
+}
+
+.music-library > h3 {
+  margin-top: 0;
+  color: #fff;
+}
+
+#text-editor > p:first-child { color: #eee; }
+
+#editor-fields .editor-section {
+  margin-top: 16px;
+  padding: 18px;
+}
+
+.manager-list {
+  display: grid;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.manager-item {
+  min-width: 0;
+  border: 1px solid #555;
+  border-radius: 12px;
+  background: #181818;
+  overflow: hidden;
+}
+
+.manager-item > summary {
+  padding: 17px 18px;
+  border: 0;
+  border-radius: 0;
+  background: #202020;
+  color: #fff;
+  cursor: pointer;
+  list-style-position: inside;
+}
+
+.manager-item[open] > summary {
+  margin-bottom: 0;
+  border-bottom: 1px solid #444;
+  background: #292929;
+}
+
+.manager-content {
+  padding: 16px 18px 18px;
+}
+
+.manager-content > :first-child {
+  margin-top: 0;
+}
+
+.manager-content > :last-child {
+  margin-bottom: 0;
+}
+
+.manager-content button {
+  margin-top: 8px;
+}
+
+.admin-home {
+  margin-top: 22px;
+}
+
+.admin-home > h2 {
+  margin-bottom: 8px;
+}
+
+.admin-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.admin-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 9px;
+  width: 100%;
+  min-height: 145px;
+  margin: 0;
+  padding: 18px;
+  border: 1px solid #555;
+  border-radius: 13px;
+  background: #181818;
+  color: #fff;
+  text-align: left;
+  text-decoration: none;
+  transition: border-color .18s, background .18s, transform .18s;
+}
+
+.admin-card:hover:not(:disabled) {
+  border-color: #fff;
+  background: #242424;
+}
+
+.admin-card strong {
+  font-size: 18px;
+}
+
+.admin-card > span:last-child {
+  color: #bbb;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.admin-card-number {
+  color: #aaa;
+  font-size: 12px;
+  letter-spacing: .12em;
+}
+
+.admin-card.pending {
+  border-style: dashed;
+  background: #111;
+  color: #aaa;
+  cursor: not-allowed;
+  opacity: .7;
+}
+
+.admin-utility {
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--border);
+}
+
+.admin-utility h3 {
+  margin-bottom: 8px;
+}
+
+.admin-back {
+  margin: 0 0 16px;
+}
+
+#logout { margin-top: 28px; }
+
+a { color: #fff; text-underline-offset: 4px; }
+a:hover { color: #bbb; }
+
+.hidden { display: none !important; }
+
+@media (max-width: 600px) {
+  body { padding: 14px 10px; }
+  main { padding: 21px 16px; border-radius: 17px; }
+  .event-grid { grid-template-columns: 1fr; gap: 4px; }
+  .admin-card-grid { grid-template-columns: 1fr; }
+  .admin-card { min-height: 112px; }
+  .editor-section, #text-editor { padding: 15px; }
+  .event-actions { flex-direction: column; }
+  .event-actions button { flex-basis: auto; }
+  h1 { font-size: 29px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+</style>
 </head>
 <body>
 <main>
-  <div class="flower">✿ AUTODEFENSA</div>
   <h1>Panel de administración</h1>
   <p>Acceso privado para gestionar el contenido de la banda.</p>
 
@@ -85,7 +455,389 @@
   <section id="dashboard" class="hidden">
     <p>Sesión iniciada como <strong id="account"></strong></p>
     <p id="permission"></p>
-    <p class="small">Esta primera versión comprueba el acceso. La edición de contenido se añadirá después de verificar los permisos.</p>
+
+    <section id="admin-home" class="admin-home hidden" aria-label="Gestión del contenido">
+      <h2>Gestión del contenido</h2>
+      <p class="editor-help">Abre una sección para administrar su contenido.</p>
+
+      <div class="manager-list">
+        <details class="manager-item">
+          <summary><strong>Eventos</strong></summary>
+          <div class="manager-content">
+            <p class="editor-help">Gestiona las presentaciones, los afiches y el popup.</p>
+          <section id="event-editor" class="event-editor-inline">
+<div class="event-editor-content">
+          <p class="editor-help">Añade cada presentación como una ficha independiente. Los datos extraídos deben revisarse antes de guardar.</p>
+
+      <form id="event-form">
+        <input type="hidden" id="event-id">
+
+        <div class="editor-field">
+          <label for="event-url">Enlace de la ticketera</label>
+          <input id="event-url" type="url" required placeholder="https://portaldisc.com/evento/...">
+        </div>
+        <button id="extract-event" type="button">Extraer información del enlace</button>
+        <p id="extract-status" class="editor-help" role="status"></p>
+
+        <div class="event-grid">
+          <div class="editor-field">
+            <label for="event-title">Nombre del evento</label>
+            <input id="event-title" required>
+          </div>
+          <div class="editor-field">
+            <label for="event-date">Fecha</label>
+            <input id="event-date" type="date">
+          </div>
+          <div class="editor-field">
+            <label for="event-time">Hora</label>
+            <input id="event-time" placeholder="20:00 hrs.">
+          </div>
+          <div class="editor-field">
+            <label for="event-place">Lugar</label>
+            <input id="event-place">
+          </div>
+          <div class="editor-field">
+            <label for="event-address">Dirección</label>
+            <input id="event-address">
+          </div>
+          <div class="editor-field">
+            <label for="event-price">Precio</label>
+            <input id="event-price" placeholder="Ej. $3.000 + cargo">
+          </div>
+        </div>
+
+        <div class="editor-field">
+          <label for="event-description">Descripción</label>
+          <textarea id="event-description" rows="3"></textarea>
+        </div>
+        <input id="event-image" type="hidden">
+
+        <div class="event-check">
+          <input id="event-active" type="checkbox" checked>
+          <label for="event-active">Mostrar evento en la web</label>
+        </div>
+        <div class="event-check">
+          <input id="event-popup" type="checkbox">
+          <label for="event-popup">Usar este evento en el popup</label>
+        </div>
+
+        <div class="event-actions">
+          <button id="save-event" type="submit">Guardar evento</button>
+          <button id="cancel-event" class="secondary" type="button">Limpiar formulario</button>
+        </div>
+      </form>
+
+      <p id="events-status" role="status" aria-live="polite"></p>
+      <h3>Eventos guardados</h3>
+      <div id="events-list"></div>
+        </div>
+          </section>
+          </div>
+        </details>
+
+        <details class="manager-item">
+          <summary><strong>Música</strong></summary>
+          <div class="manager-content">
+          <section id="music-editor" class="editor-section">
+        <p class="editor-help">Administra toda la discografía: edita los lanzamientos existentes, controla cuáles se muestran y añade nuevos discos.</p>
+
+        <form id="music-form">
+          <input type="hidden" id="music-id">
+
+          <div class="editor-field">
+            <label for="music-title">Título *</label>
+            <input id="music-title" required maxlength="200">
+          </div>
+
+          <div class="event-grid">
+            <div class="editor-field">
+              <label for="music-year">Año</label>
+              <input id="music-year" type="number" min="1900" max="2100" step="1">
+            </div>
+            <div class="editor-field">
+              <label for="music-type">Tipo de lanzamiento</label>
+              <select id="music-type">
+                <option>Álbum</option>
+                <option>EP</option>
+                <option>Single</option>
+                <option>Demo</option>
+                <option>Otro</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="editor-field">
+            <label for="music-description">Descripción que aparece en la web</label>
+            <textarea id="music-description" rows="4"></textarea>
+          </div>
+
+          <div class="editor-field">
+            <label for="music-youtube">Enlace de YouTube</label>
+            <input id="music-youtube" type="url" placeholder="https://www.youtube.com/watch?v=...">
+          </div>
+
+          <div class="editor-field">
+            <label for="music-tracks">Canciones (una por línea)</label>
+            <textarea id="music-tracks" rows="6" placeholder="Primera canción&#10;Segunda canción&#10;Tercera canción"></textarea>
+          </div>
+
+          <div class="event-grid">
+            <div class="editor-field">
+              <label for="music-order">Orden</label>
+              <input id="music-order" type="number" step="1" value="0">
+            </div>
+            <div class="editor-field">
+              <label>Publicación</label>
+              <div class="event-check">
+                <input id="music-active" type="checkbox" checked>
+                <label for="music-active">Visible en la web</label>
+              </div>
+            </div>
+          </div>
+
+          <div class="event-actions">
+            <button id="music-save" type="submit">Guardar disco</button>
+            <button id="music-cancel" class="secondary" type="button">Limpiar formulario</button>
+          </div>
+        </form>
+
+        <p id="music-status" role="status" aria-live="polite"></p>
+        <div class="music-library">
+          <h3>Descripción de discos</h3>
+          <div id="music-list">Pulsa para cargar los lanzamientos.</div>
+        </div>
+          </section>
+            <div class="text-section-fields">
+              <h3>Textos de la banda</h3>
+              <div id="text-fields-musica"></div>
+              <button id="save-texts-musica" type="button">Guardar textos de Música</button>
+            </div>
+          </div>
+        </details>
+
+        <details class="manager-item">
+          <summary><strong>Fotos</strong></summary>
+          <div class="manager-content">
+
+            <p class="editor-help">Administra las fotos y organízalas en álbumes. Las fotos sin álbum seguirán disponibles por separado.</p>
+
+            <section class="event-card" aria-labelledby="albums-heading">
+              <h3 id="albums-heading">Álbumes de fotos</h3>
+              <form id="album-form">
+                <input type="hidden" id="album-id">
+
+                <div class="form-group">
+                  <label for="album-name">Nombre del álbum</label>
+                  <input type="text" id="album-name" maxlength="200" required>
+                </div>
+
+                <div class="form-group">
+                  <label for="album-description">Descripción</label>
+                  <textarea id="album-description" rows="2" maxlength="500"></textarea>
+                </div>
+
+                <div class="form-group">
+                  <label for="album-order">Orden de aparición</label>
+                  <input type="number" id="album-order" value="0" step="1" required>
+                </div>
+
+                <div class="form-group">
+                  <label>
+                    <input type="checkbox" id="album-active" checked>
+                    Mostrar álbum en la web
+                  </label>
+                </div>
+
+                <div class="form-actions">
+                  <button type="submit" id="album-save">Guardar álbum</button>
+                  <button type="button" id="album-cancel" class="secondary">Limpiar formulario</button>
+                </div>
+              </form>
+
+              <p id="albums-status" role="status" aria-live="polite"></p>
+              <h4>Álbumes guardados</h4>
+              <div id="albums-list">Los álbumes se conectarán a Supabase en el siguiente paso.</div>
+            </section>
+
+            <hr>
+
+            <h3>Agregar o editar una foto</h3>
+            <form id="photo-form">
+              <input type="hidden" id="photo-id">
+
+              <div class="form-group">
+                <label for="photo-title">Título</label>
+                <input type="text" id="photo-title" maxlength="200" required>
+              </div>
+
+              <div class="form-group">
+                <label for="photo-file">Seleccionar imagen</label>
+                <input type="file" id="photo-file"
+                       accept="image/jpeg,image/png,image/webp,image/gif">
+                <small>Formatos: JPG, PNG, WEBP y GIF. Máximo 15 MB.</small>
+                <input type="hidden" id="photo-url">
+              </div>
+
+              <div class="form-group">
+                <label for="photo-album">Álbum</label>
+                <select id="photo-album">
+                  <option value="">Sin álbum</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="photo-description">Descripción</label>
+                <textarea id="photo-description" rows="3" maxlength="500"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="photo-order">Orden de aparición</label>
+                <input type="number" id="photo-order" value="0" step="1" required>
+              </div>
+
+              <div class="form-group">
+                <label>
+                  <input type="checkbox" id="photo-active" checked>
+                  Mostrar en la web
+                </label>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" id="photo-save">Guardar foto</button>
+                <button type="button" id="photo-cancel">Limpiar formulario</button>
+              </div>
+            </form>
+
+            <p id="photos-status" role="status" aria-live="polite"></p>
+
+            <h3>Fotos guardadas</h3>
+            <div id="photos-list">El listado se conectará a Supabase en el siguiente paso.</div>
+
+            </div>
+        </details>
+
+        <details class="manager-item">
+          <summary><strong>Videoclips</strong></summary>
+          <div class="manager-content">
+            <p class="editor-help">Administra los videoclips de YouTube que aparecen en la web.</p>
+
+            <form id="videoclip-form">
+              <input type="hidden" id="videoclip-id">
+
+              <div class="form-group">
+                <label for="videoclip-title">Título</label>
+                <input type="text" id="videoclip-title" maxlength="200" required>
+              </div>
+
+              <div class="form-group">
+                <label for="videoclip-url">Enlace de YouTube</label>
+                <input type="url" id="videoclip-url" maxlength="500"
+                       placeholder="https://www.youtube.com/watch?v=..." required>
+              </div>
+
+              <div class="form-group">
+                <label for="videoclip-description">Descripción</label>
+                <textarea id="videoclip-description" rows="3" maxlength="500"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="videoclip-order">Orden de aparición</label>
+                <input type="number" id="videoclip-order" value="0" step="1" required>
+              </div>
+
+              <div class="form-group">
+                <label>
+                  <input type="checkbox" id="videoclip-active" checked>
+                  Mostrar en la web
+                </label>
+              </div>
+
+              <div class="form-actions">
+                <button type="submit" id="videoclip-save">Guardar videoclip</button>
+                <button type="button" id="videoclip-cancel">Limpiar formulario</button>
+              </div>
+            </form>
+
+            <p id="videoclips-status" role="status" aria-live="polite"></p>
+            <h3>Videoclips guardados</h3>
+            <div id="videoclips-list">Cargando videoclips…</div>
+          </div>
+        </details>
+
+        <details class="manager-item">
+          <summary><strong>En Vivo</strong></summary>
+          <div class="manager-content">
+            <p class="editor-help">Administra los videos de las presentaciones en vivo.</p>
+            <div id="envivo-manager"></div>
+
+          </div>
+        </details>
+
+        <details class="manager-item">
+          <summary><strong>Merch</strong></summary>
+          <div class="manager-content">
+            <div id="text-fields-merch"></div>
+            <button id="save-texts-merch" type="button">Guardar textos de Merch</button>
+          </div>
+        </details>
+
+        <details class="manager-item" id="design-manager">
+          <summary><strong>Diseño de la web</strong></summary>
+          <div class="manager-content">
+            <p class="editor-help">
+              Personaliza el fondo, el oscurecimiento, la tipografía y el color general del texto.
+              Los cambios de vista previa serán temporales hasta que los guardes.
+            </p>
+
+            <form id="design-form">
+              <div class="editor-field">
+                <label for="design-background">Imagen de fondo</label>
+                <input id="design-background" type="file" accept="image/jpeg,image/png,image/webp">
+                <p class="editor-help">Formatos JPG, PNG o WEBP; máximo 15 MB.</p>
+              </div>
+
+              <div class="editor-field">
+                <label for="design-overlay">Oscurecimiento: <output id="design-overlay-value">72%</output></label>
+                <input id="design-overlay" type="range" min="0" max="90" value="72" step="1">
+              </div>
+
+              <div class="editor-field">
+                <label for="design-font">Tipografía</label>
+                <select id="design-font">
+                  <option value="Arial">Arial</option>
+                  <option value="Georgia">Georgia</option>
+                  <option value="Sistema">Sistema</option>
+                  <option value="Monospace">Monospace</option>
+                </select>
+              </div>
+
+              <div class="editor-field">
+                <label for="design-text-color">Color general del texto</label>
+                <input id="design-text-color" type="color" value="#f2f2f2">
+              </div>
+
+              <div class="editor-field">
+                <strong>Vista previa</strong>
+                <div id="design-preview" style="min-height:120px;padding:20px;border:1px solid #777;border-radius:8px;background:#181818;color:#f2f2f2;font-family:Arial,sans-serif;">
+                  <p>Autodefensa · Santiago de Chile</p>
+                  <p>Así se verá el estilo general de la web.</p>
+                </div>
+              </div>
+
+              <div class="form-actions">
+                <button id="design-save" type="submit">Guardar cambios</button>
+                <button id="design-reset" type="button" class="secondary">Restaurar valores originales</button>
+              </div>
+
+              <p id="design-status" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <div id="text-editor" class="hidden" aria-hidden="true"></div>
+
     <button id="logout" class="secondary" type="button">Cerrar sesión</button>
   </section>
 
@@ -93,7 +845,7 @@
   <p class="small"><a href="/">Volver a la web pública</a></p>
 </main>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 (() => {
   const url = {{ supabase_url|tojson }};
@@ -113,11 +865,1519 @@
   }
 
   const client = window.supabase.createClient(url, key);
+  client.storage.listBuckets().then(({ data, error }) => {
+    console.log("[Diagnóstico Storage] Buckets:",
+      error ? error.message : (data || []).map(bucket => bucket.name));
+  });
+
+
+  const FIELD_GROUPS = [
+    { section: "musica", title: "Sobre la banda", fields: [
+      ["banda_presentacion", "Presentación de la banda", true],
+      ["banda_genero", "Estilo musical", false]
+    ]},
+
+    { section: "merch", title: "Textos de Merch", fields: [
+      ["merch_descripcion", "Descripción", true],
+      ["merch_detalle", "Detalle", true]
+    ]}
+  ];
+
+  function cleanText(value) {
+    return (value || "").replace(/\s+/g, " ").trim();
+  }
+
+  function textFromElement(element) {
+    const strong = element.querySelector(":scope > strong");
+    return cleanText(strong ? strong.textContent : element.textContent);
+  }
+async function loadTextEditor() {
+    const editor = $("text-editor");
+    if (editor.dataset.loading === "true" ||
+        editor.dataset.loaded === "true") return;
+
+    editor.dataset.loading = "true";
+    status("Cargando los textos de la web…");
+
+    try {
+      const pageResponse = await fetch("/", { cache: "no-store" });
+      if (!pageResponse.ok) throw new Error("No se pudieron leer los textos originales.");
+
+      const pageHTML = await pageResponse.text();
+      const page = new DOMParser().parseFromString(pageHTML, "text/html");
+      const values = {};
+
+      page.querySelectorAll("[data-text-key]").forEach(element => {
+        const fieldKey = element.dataset.textKey;
+        if (!(fieldKey in values)) values[fieldKey] = textFromElement(element);
+      });
+            const { data: row, error } = await client
+        .from("contenido_web")
+        .select("id,contenido")
+        .eq("clave", "textos_web")
+        .limit(1)
+        .maybeSingle();
+
+      if (error) throw error;
+
+      Object.assign(values, row?.contenido || {});
+
+      const targetContainers = {
+        musica: $("text-fields-musica"),
+        merch: $("text-fields-merch")
+      };
+      Object.values(targetContainers).forEach(container => container.replaceChildren());
+
+      FIELD_GROUPS.forEach(group => {
+        const container = targetContainers[group.section];
+        const section = document.createElement("section");
+        section.className = "editor-section";
+
+        const heading = document.createElement("h2");
+        heading.textContent = group.title;
+        section.appendChild(heading);
+
+        group.fields.forEach(([fieldKey, labelText, multiline]) => {
+          const field = document.createElement("div");
+          field.className = "editor-field";
+
+          const label = document.createElement("label");
+          label.htmlFor = "field-" + fieldKey;
+          label.textContent = labelText;
+
+          const isCheckbox = false;
+          const input = document.createElement(
+            isCheckbox ? "input" : (multiline ? "textarea" : "input")
+          );
+          input.id = "field-" + fieldKey;
+          input.className = "editor-input";
+          input.dataset.key = fieldKey;
+
+          if (isCheckbox) {
+            input.type = "checkbox";
+            input.checked = String(values[fieldKey] ?? "si").trim().toLowerCase() !== "no";
+            input.style.width = "auto";
+            input.style.margin = "0";
+            field.style.display = "flex";
+            field.style.alignItems = "center";
+            field.style.gap = "10px";
+            label.style.margin = "0";
+            field.append(input, label);
+          } else {
+            input.value = values[fieldKey] ?? "";
+            if (!multiline) input.type = "text";
+            field.append(label, input);
+          }
+          section.appendChild(field);
+        });
+
+        container.appendChild(section);
+      });
+
+      editor.dataset.loaded = "true";
+      status(row ? "Textos cargados. Puedes editarlos." :
+        "Textos originales cargados. Al guardar se crearán los primeros registros.");
+    } catch (error) {
+      status("No se pudieron cargar los textos: " + (error.message || error));
+    } finally {
+      delete editor.dataset.loading;
+    }
+  }
+
+  async function saveTextGroup(containerId, buttonId) {
+    const button = $(buttonId);
+    const values = {};
+
+    $(containerId).querySelectorAll(".editor-input").forEach(input => {
+      values[input.dataset.key] = input.type === "checkbox"
+        ? (input.checked ? "si" : "no")
+        : input.value;
+    });
+
+    button.disabled = true;
+    status("Guardando cambios en Supabase…");
+
+    try {
+      const { data: row, error: readError } = await client
+        .from("contenido_web")
+        .select("id,contenido")
+        .eq("clave", "textos_web")
+        .limit(1)
+        .maybeSingle();
+
+      if (readError) throw readError;
+
+      if (row) {
+        const { error } = await client
+          .from("contenido_web")
+          .update({ contenido: { ...(row.contenido || {}), ...values } })
+          .eq("id", row.id);
+        if (error) throw error;
+      } else {
+        const { error } = await client
+          .from("contenido_web")
+          .insert({ clave: "textos_web", contenido: values });
+        if (error) throw error;
+      }
+
+      status("¡Textos guardados! Recarga la web pública para ver los cambios.");
+    } catch (error) {
+      status("No se pudieron guardar los textos: " + (error.message || error));
+    } finally {
+      button.disabled = false;
+    }
+  }
+
+
+  let envivoItems = [];
+  let envivoEditingId = null;
+
+  async function loadEnvivoManager() {
+    const root = $("envivo-manager");
+    if (!root) return;
+
+    root.innerHTML = `
+      <form id="envivo-form">
+        <label for="envivo-title">Título de la presentación</label>
+        <input id="envivo-title" type="text" maxlength="160" required>
+        <label for="envivo-date">Fecha (opcional)</label>
+        <input id="envivo-date" type="text" maxlength="100" placeholder="Ej.: 25 de octubre de 2026">
+        <label for="envivo-url">Enlace de YouTube</label>
+        <input id="envivo-url" type="url" maxlength="500" placeholder="https://www.youtube.com/watch?v=..." required>
+        <button id="envivo-submit" type="submit">Agregar presentación</button>
+        <button id="envivo-cancel-edit" type="button" hidden>Cancelar edición</button>
+      </form>
+      <hr>
+      <div id="envivo-items-list"></div>
+      <button id="envivo-save" type="button">Guardar cambios en Supabase</button>
+      <p id="envivo-manager-status" role="status" aria-live="polite"></p>
+    `;
+
+    const localStatus = message => {
+      $("envivo-manager-status").textContent = message;
+    };
+
+    function getYoutubeId(enlace) {
+      try {
+        const u = new URL(enlace);
+        const host = u.hostname.toLowerCase();
+        if (u.protocol !== "https:") return "";
+        let id = "";
+
+        if (host === "youtu.be") {
+          id = u.pathname.split("/").filter(Boolean)[0] || "";
+        } else if (host === "youtube.com" || host.endsWith(".youtube.com")) {
+          if (u.pathname === "/watch") {
+            id = u.searchParams.get("v") || "";
+          } else {
+            id = u.pathname.match(/^\/(?:embed|shorts)\/([^/]+)/)?.[1] || "";
+          }
+        }
+
+        return /^[A-Za-z0-9_-]{11}$/.test(id) ? id : "";
+      } catch {
+        return "";
+      }
+    }
+
+    function resetEnvivoForm() {
+      $("envivo-form").reset();
+      envivoEditingId = null;
+      $("envivo-submit").textContent = "Agregar presentación";
+      $("envivo-cancel-edit").hidden = true;
+    }
+
+    function renderEnvivoItems() {
+      const list = $("envivo-items-list");
+      list.replaceChildren();
+
+      if (!envivoItems.length) {
+        const empty = document.createElement("p");
+        empty.textContent = "Todavía no hay presentaciones agregadas.";
+        list.appendChild(empty);
+        return;
+      }
+
+      envivoItems.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "manager-item";
+
+        const title = document.createElement("strong");
+        title.textContent = item.title;
+        card.appendChild(title);
+
+        if (item.date) {
+          const date = document.createElement("p");
+          date.textContent = item.date;
+          card.appendChild(date);
+        }
+
+        const link = document.createElement("p");
+        link.textContent = item.url;
+        card.appendChild(link);
+
+        const edit = document.createElement("button");
+        edit.type = "button";
+        edit.textContent = "Editar";
+        edit.addEventListener("click", () => {
+          envivoEditingId = item.id;
+          $("envivo-title").value = item.title;
+          $("envivo-date").value = item.date || "";
+          $("envivo-url").value = item.url;
+          $("envivo-submit").textContent = "Guardar edición en la lista";
+          $("envivo-cancel-edit").hidden = false;
+          $("envivo-title").focus();
+        });
+
+        const remove = document.createElement("button");
+        remove.type = "button";
+        remove.textContent = "Quitar de la lista";
+        remove.addEventListener("click", () => {
+          envivoItems = envivoItems.filter(current => current.id !== item.id);
+          if (envivoEditingId === item.id) resetEnvivoForm();
+          renderEnvivoItems();
+          localStatus("Elemento quitado de la lista local. Pulsa Guardar cambios en Supabase para confirmar.");
+        });
+
+        card.append(edit, remove);
+        list.appendChild(card);
+      });
+    }
+
+    $("envivo-form").addEventListener("submit", event => {
+      event.preventDefault();
+
+      const title = $("envivo-title").value.trim();
+      const date = $("envivo-date").value.trim();
+      const url = $("envivo-url").value.trim();
+      if (!title) {
+        localStatus("Escribe el título de la presentación.");
+        return;
+      }
+      if (!getYoutubeId(url)) {
+        localStatus("Enlace no válido. Usa una URL HTTPS de un video de YouTube.");
+        return;
+      }
+
+      if (envivoEditingId) {
+        envivoItems = envivoItems.map(item =>
+          item.id === envivoEditingId ? { ...item, title, date, url } : item
+        );
+      } else {
+        const id = typeof crypto !== "undefined" && crypto.randomUUID
+          ? crypto.randomUUID()
+          : "envivo-" + Date.now() + "-" + Math.random().toString(36).slice(2);
+        envivoItems.push({ id, title, date, url });
+      }
+
+      resetEnvivoForm();
+      renderEnvivoItems();
+      localStatus("Cambios preparados localmente. Aún no se han guardado en Supabase.");
+    });
+
+    $("envivo-cancel-edit").addEventListener("click", resetEnvivoForm);
+
+    $("envivo-save").addEventListener("click", async () => {
+      const button = $("envivo-save");
+      button.disabled = true;
+      localStatus("Guardando la lista en Supabase…");
+
+      try {
+        const { data: row, error: readError } = await client
+          .from("contenido_web")
+          .select("id,contenido")
+          .eq("clave", "textos_web")
+          .limit(1)
+          .maybeSingle();
+
+        if (readError) throw readError;
+
+        const contenidoActual = row?.contenido &&
+          typeof row.contenido === "object" &&
+          !Array.isArray(row.contenido)
+            ? row.contenido
+            : {};
+
+        const contenidoNuevo = {
+          ...contenidoActual,
+          presentaciones_envivo: envivoItems
+        };
+
+        if (row) {
+          const { error } = await client
+            .from("contenido_web")
+            .update({ contenido: contenidoNuevo })
+            .eq("id", row.id);
+          if (error) throw error;
+        } else {
+          const { error } = await client
+            .from("contenido_web")
+            .insert({ clave: "textos_web", contenido: contenidoNuevo });
+          if (error) throw error;
+        }
+
+        localStatus("Supabase confirmó el guardado de la lista.");
+        status("Lista de En Vivo guardada. Recarga la web pública para comprobar los cambios.");
+      } catch (error) {
+        localStatus("No se pudo guardar: " + (error.message || error));
+      } finally {
+        button.disabled = false;
+      }
+    });
+
+    const { data: row, error } = await client
+      .from("contenido_web")
+      .select("contenido")
+      .eq("clave", "textos_web")
+      .limit(1)
+      .maybeSingle();
+
+    if (error) {
+      localStatus("No se pudo cargar la lista: " + (error.message || error));
+      return;
+    }
+
+    const saved = row?.contenido?.presentaciones_envivo;
+    envivoItems = Array.isArray(saved)
+      ? saved.filter(item =>
+          item &&
+          typeof item.id === "string" &&
+          typeof item.title === "string" &&
+          typeof item.url === "string" &&
+          getYoutubeId(item.url)
+        ).map(item => ({
+          id: item.id,
+          title: item.title,
+          date: typeof item.date === "string" ? item.date : "",
+          url: item.url
+        }))
+      : [];
+
+    renderEnvivoItems();
+    localStatus("Lista cargada. Puedes agregar o editar presentaciones.");
+  }
+
+  $("save-texts-musica").addEventListener("click", () =>
+    saveTextGroup("text-fields-musica", "save-texts-musica"));
+  $("save-texts-merch").addEventListener("click", () =>
+    saveTextGroup("text-fields-merch", "save-texts-merch"));
+
+
+
+  const eventValue = id => $(id).value.trim();
+  const eventStatus = message => { $("events-status").textContent = message; };
+
+  function resetEventForm() {
+    $("event-form").reset();
+    $("event-id").value = "";
+    $("event-active").checked = true;
+    $("event-popup").checked = false;
+    $("extract-status").textContent = "";
+    $("save-event").textContent = "Guardar evento";
+  }
+
+  function fillEventForm(ev) {
+    $("event-id").value = ev.id || "";
+    $("event-url").value = ev.url || "";
+    $("event-title").value = ev.titulo || "";
+    $("event-date").value = ev.fecha || "";
+    $("event-time").value = ev.hora || "";
+    $("event-place").value = ev.lugar || "";
+    $("event-address").value = ev.direccion || "";
+    $("event-price").value = ev.precio || "";
+    $("event-description").value = ev.descripcion || "";
+    $("event-image").value = ev.imagen_url || "";
+    $("event-active").checked = ev.activo !== false;
+    $("event-popup").checked = ev.mostrar_popup === true;
+    $("save-event").textContent = "Guardar cambios";
+    $("event-editor").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  async function loadEvents() {
+    const list = $("events-list");
+    list.textContent = "Cargando eventos…";
+    try {
+      const { data, error } = await client
+        .from("eventos_web").select("*").order("fecha", { ascending: true });
+      if (error) throw error;
+      list.replaceChildren();
+
+      if (!data || data.length === 0) {
+        list.textContent = "Todavía no hay eventos guardados.";
+        return;
+      }
+
+      data.forEach(ev => {
+        const card = document.createElement("article");
+        card.className = "event-card";
+
+        const title = document.createElement("h3");
+        title.textContent = ev.titulo || "Evento sin título";
+        card.appendChild(title);
+
+        const details = document.createElement("p");
+        details.textContent = [
+          ev.fecha || "Fecha pendiente",
+          ev.hora,
+          ev.lugar,
+          ev.precio,
+          ev.activo ? "Activo" : "Oculto",
+          ev.mostrar_popup ? "Popup activado" : ""
+        ].filter(Boolean).join(" · ");
+        card.appendChild(details);
+
+        if (ev.imagen_url) {
+          const img = document.createElement("img");
+          img.src = ev.imagen_url;
+          img.alt = "Afiche: " + (ev.titulo || "evento");
+          img.loading = "lazy";
+          img.onerror = () => img.remove();
+          card.appendChild(img);
+        }
+
+        const actions = document.createElement("div");
+        actions.className = "event-actions";
+
+        const edit = document.createElement("button");
+        edit.type = "button";
+        edit.textContent = "Editar";
+        edit.addEventListener("click", () => fillEventForm(ev));
+
+        const remove = document.createElement("button");
+        remove.type = "button";
+        remove.className = "secondary";
+        remove.textContent = "Eliminar";
+        remove.addEventListener("click", async () => {
+          if (!confirm("¿Eliminar este evento? Esta acción no se puede deshacer.")) return;
+          remove.disabled = true;
+          try {
+            const { error } = await client.from("eventos_web").delete().eq("id", ev.id);
+            if (error) throw error;
+            eventStatus("Evento eliminado.");
+            await loadEvents();
+          } catch (error) {
+            eventStatus("No se pudo eliminar: " + (error.message || error));
+            remove.disabled = false;
+          }
+        });
+
+        actions.append(edit, remove);
+        card.appendChild(actions);
+        list.appendChild(card);
+      });
+    } catch (error) {
+      list.textContent = "No se pudieron cargar los eventos: " + (error.message || error);
+    }
+  }
+
+  $("extract-event").addEventListener("click", async () => {
+    const button = $("extract-event");
+    const url = eventValue("event-url");
+    if (!url) {
+      $("extract-status").textContent = "Pega primero el enlace del evento.";
+      return;
+    }
+
+    button.disabled = true;
+    $("extract-status").textContent = "Leyendo la página…";
+
+    try {
+      const response = await fetch("/api/extract-event", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ url })
+      });
+      const result = await response.json();
+      if (!response.ok || !result.ok) {
+        throw new Error(result.error || "No se pudo extraer la información.");
+      }
+
+      $("event-url").value = result.url || url;
+      if (result.titulo) $("event-title").value = result.titulo;
+      if (result.descripcion) $("event-description").value = result.descripcion;
+      if (result.imagen) $("event-image").value = result.imagen;
+
+      const missing = result.pendientes || [];
+      $("extract-status").textContent =
+        "Extracción completada. Revisa los datos. Pendiente de completar: " +
+        (missing.length ? missing.join(", ") : "nada");
+    } catch (error) {
+      $("extract-status").textContent = error.message || "Error al extraer.";
+    } finally {
+      button.disabled = false;
+    }
+  });
+
+  $("event-form").addEventListener("submit", async event => {
+    event.preventDefault();
+    const button = $("save-event");
+    button.disabled = true;
+    eventStatus("Guardando evento…");
+
+    const values = {
+      url: eventValue("event-url"),
+      titulo: eventValue("event-title"),
+      fecha: $("event-date").value || null,
+      hora: eventValue("event-time"),
+      lugar: eventValue("event-place"),
+      direccion: eventValue("event-address"),
+      precio: eventValue("event-price"),
+      descripcion: eventValue("event-description"),
+      imagen_url: eventValue("event-image"),
+      activo: $("event-active").checked,
+      mostrar_popup: $("event-popup").checked,
+      actualizado_en: new Date().toISOString()
+    };
+
+    try {
+      if (values.mostrar_popup && !values.activo) {
+        throw new Error("Activa el evento antes de seleccionarlo para el popup.");
+      }
+const id = $("event-id").value;
+      let result;
+      if (id) {
+        result = await client.from("eventos_web").update(values).eq("id", id);
+      } else {
+        result = await client.from("eventos_web").insert(values);
+      }
+      if (result.error) throw result.error;
+
+      eventStatus("Evento guardado correctamente.");
+      resetEventForm();
+      await loadEvents();
+    } catch (error) {
+      eventStatus("No se pudo guardar: " + (error.message || error));
+    } finally {
+      button.disabled = false;
+    }
+  });
+
+  $("cancel-event").addEventListener("click", resetEventForm);
+
+
+  function musicStatus(message) {
+    $("music-status").textContent = message;
+  }
+
+  function resetMusicForm() {
+    $("music-form").reset();
+    $("music-id").value = "";
+    $("music-order").value = "0";
+    $("music-active").checked = true;
+    $("music-type").value = "Álbum";
+    $("music-save").textContent = "Guardar disco";
+  }
+
+  function albumDescriptionKey(title) {
+    const titles = {
+      "demasiado tiempo cantándole a la pena": "album_1_descripcion",
+      "mirar al fondo del mar": "album_2_descripcion",
+      "espiral": "album_3_descripcion",
+      "contra todo mal": "album_4_descripcion"
+    };
+    return titles[(title || "").trim().toLocaleLowerCase("es")] || null;
+  }
+
+  async function fillMusicForm(disc) {
+    $("music-id").value = disc.id || "";
+    $("music-title").value = disc.titulo || "";
+    $("music-year").value = disc.anio ?? "";
+    $("music-type").value = disc.tipo || "Álbum";
+    let description = disc.descripcion || "";
+    const descriptionKey = albumDescriptionKey(disc.titulo);
+    if (descriptionKey) {
+      try {
+        const { data: row, error } = await client
+          .from("contenido_web")
+          .select("contenido")
+          .eq("clave", "textos_web")
+          .limit(1)
+          .maybeSingle();
+        if (error) throw error;
+        if (typeof row?.contenido?.[descriptionKey] === "string") {
+          description = row.contenido[descriptionKey];
+        }
+      } catch (error) {
+        musicStatus("No se pudo cargar la descripción pública: " +
+          (error.message || error));
+      }
+    }
+    $("music-description").value = description;
+    $("music-youtube").value = disc.youtube_url || "";
+    $("music-tracks").value = Array.isArray(disc.canciones)
+      ? disc.canciones.join("\n") : "";
+    $("music-order").value = disc.orden ?? 0;
+    $("music-active").checked = disc.activo !== false;
+    $("music-save").textContent = "Guardar cambios";
+    $("music-editor").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  async function loadMusic() {
+    const list = $("music-list");
+    list.textContent = "Cargando lanzamientos…";
+
+    try {
+      const { data, error } = await client
+        .from("discos_web")
+        .select("*")
+        .order("orden", { ascending: true })
+        .order("creado_en", { ascending: false });
+
+      if (error) throw error;
+      list.replaceChildren();
+
+      if (!data || data.length === 0) {
+        list.textContent = "Todavía no hay lanzamientos añadidos desde este panel.";
+        return;
+      }
+
+      data.forEach(disc => {
+        const card = document.createElement("article");
+        card.className = "event-card";
+
+        const title = document.createElement("h3");
+        title.textContent = disc.titulo || "Disco sin título";
+        card.appendChild(title);
+
+        const details = document.createElement("p");
+        details.textContent = [
+          disc.anio || "Año pendiente",
+          disc.tipo || "Otro",
+          disc.activo ? "Publicado" : "Oculto"
+        ].join(" · ");
+        card.appendChild(details);
+
+        if (disc.descripcion) {
+          const description = document.createElement("p");
+          description.textContent = disc.descripcion;
+          card.appendChild(description);
+        }
+
+        if (disc.youtube_url) {
+          const youtube = document.createElement("a");
+          youtube.href = disc.youtube_url;
+          youtube.target = "_blank";
+          youtube.rel = "noopener noreferrer";
+          youtube.textContent = "Abrir lanzamiento en YouTube";
+          card.appendChild(youtube);
+        }
+
+        if (Array.isArray(disc.canciones) && disc.canciones.length) {
+          const tracks = document.createElement("p");
+          tracks.textContent = "Canciones: " + disc.canciones.join(" · ");
+          card.appendChild(tracks);
+        }
+
+        const actions = document.createElement("div");
+        actions.className = "event-actions";
+
+        const edit = document.createElement("button");
+        edit.type = "button";
+        edit.textContent = "Editar";
+        edit.addEventListener("click", () => fillMusicForm(disc));
+
+        const toggle = document.createElement("button");
+        toggle.type = "button";
+        toggle.className = "secondary";
+        toggle.textContent = disc.activo ? "Ocultar" : "Publicar";
+        toggle.addEventListener("click", async () => {
+          toggle.disabled = true;
+          try {
+            const { error } = await client
+              .from("discos_web")
+              .update({
+                activo: !disc.activo,
+                actualizado_en: new Date().toISOString()
+              })
+              .eq("id", disc.id);
+
+            if (error) throw error;
+            musicStatus(disc.activo
+              ? "Lanzamiento ocultado."
+              : "Lanzamiento publicado.");
+            await loadMusic();
+          } catch (error) {
+            musicStatus("No se pudo cambiar la publicación: " +
+              (error.message || error));
+            toggle.disabled = false;
+          }
+        });
+
+        const remove = document.createElement("button");
+        remove.type = "button";
+        remove.className = "secondary";
+        remove.textContent = "Eliminar";
+        remove.addEventListener("click", async () => {
+          if (!confirm("¿Eliminar «" + disc.titulo +
+              "»? Esta acción no se puede deshacer.")) return;
+
+          remove.disabled = true;
+          try {
+            const { error } = await client
+              .from("discos_web")
+              .delete()
+              .eq("id", disc.id);
+
+            if (error) throw error;
+            if ($("music-id").value === disc.id) resetMusicForm();
+            musicStatus("Lanzamiento eliminado.");
+            await loadMusic();
+          } catch (error) {
+            musicStatus("No se pudo eliminar: " + (error.message || error));
+            remove.disabled = false;
+          }
+        });
+
+        actions.append(edit, toggle, remove);
+        card.appendChild(actions);
+        list.appendChild(card);
+      });
+    } catch (error) {
+      list.textContent = "No se pudieron cargar los lanzamientos: " +
+        (error.message || error);
+    }
+  }
+
+  $("music-form").addEventListener("submit", async event => {
+    event.preventDefault();
+
+    const button = $("music-save");
+    button.disabled = true;
+    musicStatus("Guardando lanzamiento…");
+
+    const yearText = $("music-year").value.trim();
+    const orderText = $("music-order").value.trim();
+    const values = {
+      titulo: $("music-title").value.trim(),
+      anio: yearText ? Number(yearText) : null,
+      tipo: $("music-type").value,
+      descripcion: $("music-description").value.trim(),
+      youtube_url: $("music-youtube").value.trim() || null,
+      canciones: $("music-tracks").value
+        .split(/\r?\n/)
+        .map(track => track.trim())
+        .filter(Boolean),
+      orden: orderText ? Number(orderText) : 0,
+      activo: $("music-active").checked,
+      actualizado_en: new Date().toISOString()
+    };
+
+    try {
+      if (!values.titulo) throw new Error("Escribe el título del lanzamiento.");
+      if (values.anio !== null &&
+          (!Number.isInteger(values.anio) || values.anio < 1900 || values.anio > 2100)) {
+        throw new Error("Revisa el año.");
+      }
+      if (!Number.isInteger(values.orden)) {
+        throw new Error("El orden debe ser un número entero.");
+      }
+
+      const id = $("music-id").value;
+      const result = id
+        ? await client.from("discos_web").update(values).eq("id", id)
+        : await client.from("discos_web").insert(values);
+
+      if (result.error) throw result.error;
+
+      const descriptionKey = albumDescriptionKey(values.titulo);
+      if (descriptionKey) {
+        const { data: row, error: readError } = await client
+          .from("contenido_web")
+          .select("id,contenido")
+          .eq("clave", "textos_web")
+          .limit(1)
+          .maybeSingle();
+        if (readError) throw readError;
+
+        if (row) {
+          const { data: updatedRow, error } = await client
+            .from("contenido_web")
+            .update({
+              contenido: {
+                ...(row.contenido || {}),
+                [descriptionKey]: values.descripcion
+              }
+            })
+            .eq("id", row.id)
+            .select("id")
+            .maybeSingle();
+
+          if (error) throw error;
+          if (!updatedRow) {
+            throw new Error(
+              "Supabase no actualizó la descripción. Comprueba los permisos de contenido_web."
+            );
+          }
+        } else {
+          const { error } = await client
+            .from("contenido_web")
+            .insert({
+              clave: "textos_web",
+              contenido: { [descriptionKey]: values.descripcion }
+            });
+          if (error) throw error;
+        }
+      }
+
+      musicStatus(id ? "Lanzamiento y descripción actualizados." :
+        "Lanzamiento y descripción guardados.");
+      resetMusicForm();
+      await loadMusic();
+    } catch (error) {
+      musicStatus("No se pudo guardar: " + (error.message || error));
+    } finally {
+      button.disabled = false;
+    }
+  });
+
+  $("music-cancel").addEventListener("click", () => {
+    resetMusicForm();
+    musicStatus("");
+  });
+
+
+  function albumsStatus(message) {
+    $("albums-status").textContent = message;
+  }
+
+  function resetAlbumForm() {
+    $("album-form").reset();
+    $("album-id").value = "";
+    $("album-order").value = "0";
+    $("album-active").checked = true;
+    $("album-save").textContent = "Guardar álbum";
+  }
+
+  function fillAlbumForm(album) {
+    $("album-id").value = album.id;
+    $("album-name").value = album.nombre || "";
+    $("album-description").value = album.descripcion || "";
+    $("album-order").value = album.orden ?? 0;
+    $("album-active").checked = album.activo !== false;
+    $("album-save").textContent = "Guardar cambios";
+    $("album-form").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  async function loadAlbums() {
+    const list = $("albums-list");
+    const selector = $("photo-album");
+    list.textContent = "Cargando álbumes…";
+
+    try {
+      const { data, error } = await client
+        .from("albumes_fotos")
+        .select("*")
+        .order("orden", { ascending: true })
+        .order("creado_en", { ascending: true });
+
+      if (error) throw error;
+
+      list.replaceChildren();
+      selector.replaceChildren();
+
+      const noAlbum = document.createElement("option");
+      noAlbum.value = "";
+      noAlbum.textContent = "Sin álbum";
+      selector.appendChild(noAlbum);
+
+      const albums = data || [];
+
+      albums.forEach(album => {
+        const option = document.createElement("option");
+        option.value = album.id;
+        option.textContent = album.nombre || "Álbum sin nombre";
+        selector.appendChild(option);
+
+        const card = document.createElement("article");
+        card.className = "event-card";
+
+        const title = document.createElement("h4");
+        title.textContent = album.nombre || "Álbum sin nombre";
+        card.appendChild(title);
+
+        const details = document.createElement("p");
+        details.textContent =
+          (album.activo ? "Visible en la web" : "Oculto") +
+          " · Orden: " + album.orden;
+        card.appendChild(details);
+
+        if (album.descripcion) {
+          const description = document.createElement("p");
+          description.textContent = album.descripcion;
+          card.appendChild(description);
+        }
+
+        const actions = document.createElement("div");
+        actions.className = "event-actions";
+
+        const edit = document.createElement("button");
+        edit.type = "button";
+        edit.textContent = "Editar";
+        edit.addEventListener("click", () => fillAlbumForm(album));
+
+        const toggle = document.createElement("button");
+        toggle.type = "button";
+        toggle.className = "secondary";
+        toggle.textContent = album.activo ? "Ocultar" : "Publicar";
+        toggle.addEventListener("click", async () => {
+          toggle.disabled = true;
+          try {
+            const { data: updated, error } = await client
+              .from("albumes_fotos")
+              .update({
+                activo: !album.activo,
+                actualizado_en: new Date().toISOString()
+              })
+              .eq("id", album.id)
+              .select("id")
+              .maybeSingle();
+
+            if (error) throw error;
+            if (!updated) throw new Error("Supabase no confirmó el cambio.");
+
+            albumsStatus(album.activo ? "Álbum oculto." : "Álbum publicado.");
+            await loadAlbums();
+          } catch (error) {
+            albumsStatus("No se pudo cambiar el álbum: " +
+              (error.message || error));
+            toggle.disabled = false;
+          }
+        });
+
+        actions.append(edit, toggle);
+        card.appendChild(actions);
+        list.appendChild(card);
+      });
+
+      if (!albums.length) {
+        list.textContent = "Todavía no hay álbumes. Puedes crear el primero arriba.";
+      }
+    } catch (error) {
+      list.textContent = "No se pudieron cargar los álbumes: " +
+        (error.message || error);
+      albumsStatus("Comprueba la conexión y los permisos de Supabase.");
+    }
+  }
+
+  $("album-form").addEventListener("submit", async event => {
+    event.preventDefault();
+
+    const button = $("album-save");
+    button.disabled = true;
+    albumsStatus("Guardando álbum…");
+
+    try {
+      const nombre = $("album-name").value.trim();
+      const descripcion = $("album-description").value.trim();
+      const orden = Number($("album-order").value);
+      const id = $("album-id").value;
+
+      if (!nombre) throw new Error("Escribe un nombre para el álbum.");
+      if (!Number.isInteger(orden)) {
+        throw new Error("El orden debe ser un número entero.");
+      }
+
+      const values = {
+        nombre,
+        descripcion,
+        orden,
+        activo: $("album-active").checked,
+        actualizado_en: new Date().toISOString()
+      };
+
+      const result = id
+        ? await client.from("albumes_fotos").update(values)
+            .eq("id", id).select("id").maybeSingle()
+        : await client.from("albumes_fotos").insert(values)
+            .select("id").maybeSingle();
+
+      if (result.error) throw result.error;
+      if (!result.data) {
+        throw new Error("Supabase no confirmó el guardado. Comprueba los permisos.");
+      }
+
+      albumsStatus(id ? "Álbum actualizado." : "Álbum creado.");
+      resetAlbumForm();
+      await loadAlbums();
+    } catch (error) {
+      albumsStatus("No se pudo guardar el álbum: " +
+        (error.message || error));
+    } finally {
+      button.disabled = false;
+    }
+  });
+
+  $("album-cancel").addEventListener("click", () => {
+    resetAlbumForm();
+    albumsStatus("");
+  });
+
+  function photosStatus(message) {
+    $("photos-status").textContent = message;
+  }
+
+  function resetPhotoForm() {
+    $("photo-form").reset();
+    $("photo-id").value = "";
+    $("photo-order").value = "0";
+    $("photo-album").value = "";
+    $("photo-active").checked = true;
+    $("photo-save").textContent = "Guardar foto";
+  }
+
+  function fillPhotoForm(photo) {
+    $("photo-id").value = photo.id;
+    $("photo-title").value = photo.titulo || "";
+    $("photo-url").value = photo.imagen_url || "";
+    $("photo-description").value = photo.descripcion || "";
+    $("photo-album").value = photo.album_id || "";
+    $("photo-order").value = photo.orden ?? 0;
+    $("photo-active").checked = photo.activo !== false;
+    $("photo-save").textContent = "Guardar cambios";
+    $("photo-form").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  async function loadPhotos() {
+    const list = $("photos-list");
+    list.textContent = "Cargando fotos…";
+
+    try {
+      const { data, error } = await client
+        .from("fotos_web")
+        .select("*")
+        .order("orden", { ascending: true })
+        .order("creado_en", { ascending: false });
+
+      if (error) throw error;
+      list.replaceChildren();
+
+      if (!data || data.length === 0) {
+        list.textContent = "Todavía no hay fotos añadidas.";
+        return;
+      }
+
+      data.forEach(photo => {
+        const card = document.createElement("article");
+        card.className = "event-card";
+
+        const title = document.createElement("h3");
+        title.textContent = photo.titulo || "Foto sin título";
+        card.appendChild(title);
+
+        const details = document.createElement("p");
+        details.textContent =
+          (photo.activo ? "Publicada" : "Oculta") +
+          " · Orden: " + photo.orden;
+        card.appendChild(details);
+
+        if (photo.imagen_url) {
+          const link = document.createElement("a");
+          link.href = photo.imagen_url;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          link.textContent = "Abrir imagen";
+          card.appendChild(link);
+        }
+
+        if (photo.descripcion) {
+          const description = document.createElement("p");
+          description.textContent = photo.descripcion;
+          card.appendChild(description);
+        }
+
+        const actions = document.createElement("div");
+        actions.className = "event-actions";
+
+        const edit = document.createElement("button");
+        edit.type = "button";
+        edit.textContent = "Editar";
+        edit.addEventListener("click", () => fillPhotoForm(photo));
+
+        const toggle = document.createElement("button");
+        toggle.type = "button";
+        toggle.className = "secondary";
+        toggle.textContent = photo.activo ? "Ocultar" : "Publicar";
+        toggle.addEventListener("click", async () => {
+          toggle.disabled = true;
+          try {
+            const { data: updated, error } = await client
+              .from("fotos_web")
+              .update({
+                activo: !photo.activo,
+                actualizado_en: new Date().toISOString()
+              })
+              .eq("id", photo.id)
+              .select("id")
+              .maybeSingle();
+
+            if (error) throw error;
+            if (!updated) {
+              throw new Error("Supabase no confirmó el cambio. Comprueba los permisos.");
+            }
+            photosStatus(photo.activo ? "Foto ocultada." : "Foto publicada.");
+            await loadPhotos();
+          } catch (error) {
+            photosStatus("No se pudo cambiar la publicación: " +
+              (error.message || error));
+            toggle.disabled = false;
+          }
+        });
+
+        const remove = document.createElement("button");
+        remove.type = "button";
+        remove.className = "secondary";
+        remove.textContent = "Eliminar";
+        remove.addEventListener("click", async () => {
+          if (!confirm("¿Eliminar «" + (photo.titulo || "Foto sin título") +
+              "»? Esta acción no se puede deshacer.")) return;
+
+          remove.disabled = true;
+          try {
+            const { data: deleted, error } = await client
+              .from("fotos_web")
+              .delete()
+              .eq("id", photo.id)
+              .select("id")
+              .maybeSingle();
+
+            if (error) throw error;
+            if (!deleted) {
+              throw new Error("Supabase no confirmó la eliminación. Comprueba los permisos.");
+            }
+            if ($("photo-id").value === photo.id) resetPhotoForm();
+            photosStatus("Foto eliminada de la tabla.");
+            await loadPhotos();
+          } catch (error) {
+            photosStatus("No se pudo eliminar: " + (error.message || error));
+            remove.disabled = false;
+          }
+        });
+
+        actions.append(edit, toggle, remove);
+        card.appendChild(actions);
+        list.appendChild(card);
+      });
+    } catch (error) {
+      list.textContent = "No se pudieron cargar las fotos: " +
+        (error.message || error);
+    }
+  }
+
+  $("photo-form").addEventListener("submit", async event => {
+    event.preventDefault();
+
+    const button = $("photo-save");
+    button.disabled = true;
+    photosStatus("Guardando foto…");
+
+    const title = $("photo-title").value.trim();
+    const file = $("photo-file").files[0];
+    const description = $("photo-description").value.trim();
+    const orderText = $("photo-order").value.trim();
+    const order = orderText === "" ? 0 : Number(orderText);
+
+    try {
+      if (!title) throw new Error("Escribe un título.");
+      if (!Number.isInteger(order)) {
+        throw new Error("El orden debe ser un número entero.");
+      }
+
+      const id = $("photo-id").value;
+      let imageUrl = $("photo-url").value.trim();
+
+      if (file) {
+        const allowedTypes = [
+          "image/jpeg", "image/png", "image/webp", "image/gif"
+        ];
+        if (!allowedTypes.includes(file.type)) {
+          throw new Error("Elige una imagen JPG, PNG, WEBP o GIF.");
+        }
+        if (file.size > 15 * 1024 * 1024) {
+          throw new Error("La imagen supera el límite de 15 MB.");
+        }
+
+        const safeName = file.name
+          .normalize("NFKD")
+          .replace(/[^a-zA-Z0-9._-]/g, "_");
+        const randomId = typeof crypto !== "undefined" && crypto.randomUUID
+          ? crypto.randomUUID()
+          : Math.random().toString(36).slice(2) +
+            Math.random().toString(36).slice(2);
+        const objectPath = Date.now() + "-" + randomId + "-" + safeName;
+
+        photosStatus("Subiendo imagen a Supabase Storage…");
+
+        const { error: uploadError } = await client
+          .storage
+          .from("Autodefensa-Media")
+          .upload(objectPath, file, {
+            contentType: file.type,
+            upsert: false
+          });
+
+        if (uploadError) throw uploadError;
+
+        const { data: publicData } = client
+          .storage
+          .from("Autodefensa-Media")
+          .getPublicUrl(objectPath);
+
+        imageUrl = publicData.publicUrl;
+      }
+
+      if (!imageUrl) {
+        throw new Error("Selecciona una imagen desde tu computador.");
+      }
+
+      const values = {
+        titulo: title,
+        imagen_url: imageUrl,
+        descripcion: description,
+        album_id: $("photo-album").value || null,
+        orden: order,
+        activo: $("photo-active").checked,
+        actualizado_en: new Date().toISOString()
+      };
+
+      const result = id
+        ? await client.from("fotos_web").update(values).eq("id", id).select("id").maybeSingle()
+        : await client.from("fotos_web").insert(values).select("id").maybeSingle();
+
+      if (result.error) throw result.error;
+      if (!result.data) {
+        throw new Error("Supabase no confirmó el guardado. Comprueba los permisos.");
+      }
+
+      photosStatus(id ? "Foto actualizada." : "Foto guardada.");
+      resetPhotoForm();
+      await loadPhotos();
+    } catch (error) {
+      photosStatus("No se pudo guardar: " + (error.message || error));
+    } finally {
+      button.disabled = false;
+    }
+  });
+
+  $("photo-cancel").addEventListener("click", () => {
+    resetPhotoForm();
+    photosStatus("");
+  });
+
+
+  function videoclipStatus(message) {
+    $("videoclips-status").textContent = message;
+  }
+
+  function getYoutubeVideoId(enlace) {
+    try {
+      const u = new URL(enlace);
+      const host = u.hostname.toLowerCase();
+      let id = "";
+
+      if (u.protocol !== "https:") return "";
+      if (host === "youtu.be") {
+        id = u.pathname.split("/").filter(Boolean)[0] || "";
+      } else if (host === "youtube.com" || host.endsWith(".youtube.com")) {
+        if (u.pathname === "/watch") {
+          id = u.searchParams.get("v") || "";
+        } else {
+          id = u.pathname.match(/^\/(?:embed|shorts)\/([^/]+)/)?.[1] || "";
+        }
+      }
+
+      return /^[A-Za-z0-9_-]{11}$/.test(id) ? id : "";
+    } catch {
+      return "";
+    }
+  }
+
+  function resetVideoclipForm() {
+    $("videoclip-form").reset();
+    $("videoclip-id").value = "";
+    $("videoclip-order").value = "0";
+    $("videoclip-active").checked = true;
+    $("videoclip-save").textContent = "Guardar videoclip";
+  }
+
+  function fillVideoclipForm(video) {
+    $("videoclip-id").value = video.id;
+    $("videoclip-title").value = video.titulo || "";
+    $("videoclip-url").value = video.video_url || "";
+    $("videoclip-description").value = video.descripcion || "";
+    $("videoclip-order").value = video.orden ?? 0;
+    $("videoclip-active").checked = video.activo !== false;
+    $("videoclip-save").textContent = "Guardar cambios";
+    $("videoclip-form").scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  async function loadVideoclips() {
+    const list = $("videoclips-list");
+    list.textContent = "Cargando videoclips…";
+
+    try {
+      const { data, error } = await client
+        .from("videoclips_web")
+        .select("*")
+        .order("orden", { ascending: true })
+        .order("creado_en", { ascending: true });
+
+      if (error) throw error;
+      list.replaceChildren();
+
+      if (!data || data.length === 0) {
+        list.textContent = "Todavía no hay videoclips guardados.";
+        return;
+      }
+
+      data.forEach(video => {
+        const card = document.createElement("article");
+        card.className = "event-card";
+
+        const title = document.createElement("h3");
+        title.textContent = video.titulo || "Sin título";
+        card.appendChild(title);
+
+        const link = document.createElement("a");
+        link.href = video.video_url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.textContent = "Abrir en YouTube ↗";
+        card.appendChild(link);
+
+        const description = document.createElement("p");
+        description.textContent = video.descripcion || "";
+        card.appendChild(description);
+
+        const state = document.createElement("p");
+        state.textContent = video.activo ? "Publicado" : "Oculto";
+        card.appendChild(state);
+
+        const actions = document.createElement("div");
+        actions.className = "form-actions";
+
+        const edit = document.createElement("button");
+        edit.type = "button";
+        edit.textContent = "Editar";
+        edit.addEventListener("click", () => fillVideoclipForm(video));
+
+        const toggle = document.createElement("button");
+        toggle.type = "button";
+        toggle.textContent = video.activo ? "Ocultar" : "Publicar";
+        toggle.addEventListener("click", async () => {
+          toggle.disabled = true;
+          try {
+            const { data: updated, error } = await client
+              .from("videoclips_web")
+              .update({
+                activo: !video.activo,
+                actualizado_en: new Date().toISOString()
+              })
+              .eq("id", video.id)
+              .select("id")
+              .maybeSingle();
+
+            if (error) throw error;
+            if (!updated) throw new Error("Supabase no confirmó el cambio.");
+            videoclipStatus(video.activo ? "Videoclip ocultado." : "Videoclip publicado.");
+            await loadVideoclips();
+          } catch (error) {
+            videoclipStatus("No se pudo cambiar la publicación: " + (error.message || error));
+            toggle.disabled = false;
+          }
+        });
+
+        const remove = document.createElement("button");
+        remove.type = "button";
+        remove.textContent = "Eliminar";
+        remove.addEventListener("click", async () => {
+          if (!window.confirm("¿Eliminar este videoclip de la tabla? Esta acción no se puede deshacer.")) return;
+
+          remove.disabled = true;
+          try {
+            const { data: deleted, error } = await client
+              .from("videoclips_web")
+              .delete()
+              .eq("id", video.id)
+              .select("id")
+              .maybeSingle();
+
+            if (error) throw error;
+            if (!deleted) throw new Error("Supabase no confirmó la eliminación.");
+            if ($("videoclip-id").value === video.id) resetVideoclipForm();
+            videoclipStatus("Videoclip eliminado de la tabla.");
+            await loadVideoclips();
+          } catch (error) {
+            videoclipStatus("No se pudo eliminar: " + (error.message || error));
+            remove.disabled = false;
+          }
+        });
+
+        actions.append(edit, toggle, remove);
+        card.appendChild(actions);
+        list.appendChild(card);
+      });
+    } catch (error) {
+      list.textContent = "No se pudieron cargar los videoclips: " + (error.message || error);
+    }
+  }
+
+  $("videoclip-form").addEventListener("submit", async event => {
+    event.preventDefault();
+
+    const button = $("videoclip-save");
+    button.disabled = true;
+    videoclipStatus("Guardando videoclip…");
+
+    try {
+      const id = $("videoclip-id").value;
+      const titulo = $("videoclip-title").value.trim();
+      const video_url = $("videoclip-url").value.trim();
+      const descripcion = $("videoclip-description").value.trim();
+      const orden = Number($("videoclip-order").value);
+
+      if (!titulo) throw new Error("Escribe un título.");
+      if (!getYoutubeVideoId(video_url)) {
+        throw new Error("Enlace no válido. Usa una URL HTTPS de un video de YouTube.");
+      }
+      if (!Number.isInteger(orden)) throw new Error("El orden debe ser un número entero.");
+
+      const values = {
+        titulo,
+        video_url,
+        descripcion,
+        orden,
+        activo: $("videoclip-active").checked,
+        actualizado_en: new Date().toISOString()
+      };
+
+      const result = id
+        ? await client.from("videoclips_web").update(values).eq("id", id).select("id").maybeSingle()
+        : await client.from("videoclips_web").insert(values).select("id").maybeSingle();
+
+      if (result.error) throw result.error;
+      if (!result.data) throw new Error("Supabase no confirmó el guardado. Comprueba los permisos.");
+
+      videoclipStatus(id ? "Videoclip actualizado." : "Videoclip guardado.");
+      resetVideoclipForm();
+      await loadVideoclips();
+    } catch (error) {
+      videoclipStatus("No se pudo guardar: " + (error.message || error));
+    } finally {
+      button.disabled = false;
+    }
+  });
+
+  $("videoclip-cancel").addEventListener("click", () => {
+    resetVideoclipForm();
+    videoclipStatus("");
+  });
 
   function showSession(user) {
     if (!user) {
       $("login").classList.remove("hidden");
       $("dashboard").classList.add("hidden");
+      $("admin-home").classList.add("hidden");
+      $("text-editor").classList.add("hidden");
       return;
     }
 
@@ -133,6 +2393,22 @@
       $("permission").textContent =
         "La sesión funciona, pero esta cuenta no coincide con el usuario autorizado para modificar contenido. No intentes editar todavía.";
       status("Acceso iniciado; falta verificar los permisos de edición.");
+    }
+
+    if (user.id === expectedUser) {
+      $("admin-home").classList.remove("hidden");
+      $("text-editor").classList.add("hidden");
+      loadTextEditor();
+      loadEvents();
+      loadMusic();
+      loadAlbums();
+      loadPhotos();
+      loadVideoclips();
+      loadEnvivoManager();
+      loadDesignConfig();
+    } else {
+      $("admin-home").classList.add("hidden");
+      $("text-editor").classList.add("hidden");
     }
   }
 
@@ -198,6 +2474,214 @@
   if (window.location.hash.includes("type=recovery")) {
     showRecovery();
   }
+
+
+  // DISEÑO GLOBAL DE LA WEB
+  const DESIGN_DEFAULTS = {
+    fondo: "/static/images/Fondo.JPG",
+    oscurecimiento: 0.72,
+    tipografia: "Arial",
+    colorTexto: "#f2f2f2"
+  };
+
+  let designSaved = { ...DESIGN_DEFAULTS };
+  let designPreviewUrl = null;
+  let designRestoreDefaults = false;
+
+  function designValues() {
+    return {
+      fondo: designPreviewUrl || designSaved.fondo,
+      oscurecimiento: Number($("design-overlay").value) / 100,
+      tipografia: $("design-font").value,
+      colorTexto: $("design-text-color").value
+    };
+  }
+
+  function updateDesignPreview() {
+    const values = designValues();
+    const preview = $("design-preview");
+    const opacity = Math.min(0.9, Math.max(0, values.oscurecimiento));
+
+    $("design-overlay-value").textContent =
+      Math.round(opacity * 100) + "%";
+
+    preview.style.backgroundImage =
+      `linear-gradient(rgba(0,0,0,${opacity}),rgba(0,0,0,${opacity})),url("${values.fondo.replace(/["\\\n\r]/g, "")}")`;
+    preview.style.backgroundSize = "cover";
+    preview.style.backgroundPosition = "center";
+    preview.style.color = values.colorTexto;
+    preview.style.fontFamily = ({
+      Arial: "Arial, Helvetica, sans-serif",
+      Georgia: "Georgia, serif",
+      Sistema: "system-ui, sans-serif",
+      Monospace: "monospace"
+    })[values.tipografia] || "Arial, Helvetica, sans-serif";
+  }
+
+  async function loadDesignConfig() {
+    const message = $("design-status");
+    try {
+      const { data, error } = await client
+        .from("contenido_web")
+        .select("id,contenido")
+        .eq("clave", "configuracion_visual")
+        .limit(1)
+        .maybeSingle();
+
+      if (error) throw error;
+
+      const saved = data?.contenido || {};
+      designSaved = {
+        fondo: typeof saved.fondo === "string" && saved.fondo
+          ? saved.fondo : DESIGN_DEFAULTS.fondo,
+        oscurecimiento: Number.isFinite(Number(saved.oscurecimiento))
+          ? Math.min(0.9, Math.max(0, Number(saved.oscurecimiento)))
+          : DESIGN_DEFAULTS.oscurecimiento,
+        tipografia: ["Arial", "Georgia", "Sistema", "Monospace"].includes(saved.tipografia)
+          ? saved.tipografia : DESIGN_DEFAULTS.tipografia,
+        colorTexto: /^#[0-9a-fA-F]{6}$/.test(saved.colorTexto || "")
+          ? saved.colorTexto : DESIGN_DEFAULTS.colorTexto
+      };
+
+      $("design-overlay").value = String(Math.round(designSaved.oscurecimiento * 100));
+      $("design-font").value = designSaved.tipografia;
+      $("design-text-color").value = designSaved.colorTexto;
+      updateDesignPreview();
+      message.textContent = data
+        ? "Configuración visual guardada cargada."
+        : "Usando los valores originales. Aún no hay una configuración guardada.";
+    } catch (error) {
+      message.textContent = "No se pudo cargar la configuración: " +
+        (error.message || "error desconocido");
+    }
+  }
+
+  ["design-overlay", "design-font", "design-text-color"].forEach(id => {
+    $(id).addEventListener("input", updateDesignPreview);
+    $(id).addEventListener("change", updateDesignPreview);
+  });
+
+  $("design-background").addEventListener("change", () => {
+    const file = $("design-background").files[0];
+    if (!file) {
+      if (designPreviewUrl) URL.revokeObjectURL(designPreviewUrl);
+      designPreviewUrl = null;
+      updateDesignPreview();
+      return;
+    }
+
+    if (!["image/jpeg", "image/png", "image/webp"].includes(file.type) ||
+        file.size > 15 * 1024 * 1024) {
+      $("design-background").value = "";
+      $("design-status").textContent =
+        "Elige una imagen JPG, PNG o WEBP de hasta 15 MB.";
+      return;
+    }
+
+    designRestoreDefaults = false;
+    if (designPreviewUrl) URL.revokeObjectURL(designPreviewUrl);
+    designPreviewUrl = URL.createObjectURL(file);
+    updateDesignPreview();
+    $("design-status").textContent =
+      "Vista previa temporal. Guarda los cambios para publicarlos en la web.";
+  });
+
+  $("design-form").addEventListener("submit", async event => {
+    event.preventDefault();
+    const button = $("design-save");
+    button.disabled = true;
+    $("design-status").textContent = "Guardando configuración…";
+
+    try {
+      const userResult = await client.auth.getUser();
+      if (userResult.error) throw userResult.error;
+      if (userResult.data.user?.id !== expectedUser) {
+        throw new Error("La cuenta no está autorizada para guardar cambios.");
+      }
+
+      const values = designValues();
+      const file = $("design-background").files[0];
+
+      if (file) {
+        const safeName = file.name.normalize("NFKD")
+          .replace(/[^a-zA-Z0-9._-]/g, "_");
+        const randomId = typeof crypto !== "undefined" && crypto.randomUUID
+          ? crypto.randomUUID()
+          : Math.random().toString(36).slice(2);
+        const objectPath = "fondos/" + Date.now() + "-" + randomId + "-" + safeName;
+
+        const { error: uploadError } = await client.storage
+          .from("Autodefensa-Media")
+          .upload(objectPath, file, { contentType: file.type, upsert: false });
+
+        if (uploadError) throw uploadError;
+
+        const { data: publicData } = client.storage
+          .from("Autodefensa-Media")
+          .getPublicUrl(objectPath);
+
+        values.fondo = publicData.publicUrl;
+      } else {
+        values.fondo = designRestoreDefaults
+          ? DESIGN_DEFAULTS.fondo
+          : designSaved.fondo;
+      }
+
+      const payload = {
+        fondo: values.fondo,
+        oscurecimiento: values.oscurecimiento,
+        tipografia: values.tipografia,
+        colorTexto: values.colorTexto
+      };
+
+      const { data: existing, error: readError } = await client
+        .from("contenido_web")
+        .select("id")
+        .eq("clave", "configuracion_visual")
+        .limit(1)
+        .maybeSingle();
+
+      if (readError) throw readError;
+
+      const result = existing
+        ? await client.from("contenido_web")
+            .update({ contenido: payload })
+            .eq("id", existing.id)
+        : await client.from("contenido_web")
+            .insert({ clave: "configuracion_visual", contenido: payload });
+
+      if (result.error) throw result.error;
+
+      designSaved = payload;
+      designRestoreDefaults = false;
+      designPreviewUrl = null;
+      $("design-background").value = "";
+      updateDesignPreview();
+      $("design-status").textContent =
+        "Configuración guardada. Recarga la web pública para comprobar los cambios.";
+    } catch (error) {
+      $("design-status").textContent =
+        "No se pudo guardar: " + (error.message || "error desconocido");
+    } finally {
+      button.disabled = false;
+    }
+  });
+
+  $("design-reset").addEventListener("click", async () => {
+    designRestoreDefaults = true;
+    $("design-overlay").value = String(DESIGN_DEFAULTS.oscurecimiento * 100);
+    $("design-font").value = DESIGN_DEFAULTS.tipografia;
+    $("design-text-color").value = DESIGN_DEFAULTS.colorTexto;
+    $("design-background").value = "";
+
+    if (designPreviewUrl) URL.revokeObjectURL(designPreviewUrl);
+    designPreviewUrl = null;
+    designSaved = { ...DESIGN_DEFAULTS };
+    updateDesignPreview();
+
+    $("design-status").textContent =
+      "Valores originales preparados en la vista previa. Pulsa «Guardar cambios» para aplicarlos a la web.";
+  });
 
   $("login-form").addEventListener("submit", async event => {
     event.preventDefault();
