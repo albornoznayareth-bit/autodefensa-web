@@ -1,1 +1,26 @@
 .DS_Store
+__pycache__/
+*.py[cod]
+venv/
+.env
+.env.*
+!.env.example
+logs/
+respaldo_antes_*/
+templates/*.backup
+templates/*.copia*
+templates/index_backup.html
+static/style.css.antes-limpieza
+static/style.css.backup
+static/images/Instagram_files/
+.vercel
+.env*
+# Respaldos antiguos: conservar fuera del repositorio
+*.backup*
+*.antes-*
+*.respaldo*
+*.bak
+**/*.backup*
+**/*.antes-*
+**/*.respaldo*
+**/*.bak

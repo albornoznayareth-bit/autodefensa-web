@@ -8,3 +8,12 @@ logs/
 /templates/*.copia*
 /templates/index_backup.html
 .DS_Store
+# Excluir respaldos sin excluir archivos activos
+*.backup*
+*.antes-*
+*.respaldo*
+*.bak
+**/*.backup*
+**/*.antes-*
+**/*.respaldo*
+**/*.bak

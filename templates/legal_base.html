@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="index,follow">
+  <title>{% block title %}Información legal{% endblock %} | Autodefensa</title>
+  <style>
+    :root { color-scheme: dark; }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; background: #050505; color: #e9e9e9;
+      font-family: Arial, Helvetica, sans-serif; line-height: 1.7;
+    }
+    header, main, footer { width: min(820px, calc(100% - 40px)); margin: auto; }
+    header { padding: 34px 0 22px; border-bottom: 1px solid #292929; }
+    header a, footer a { color: #bdbdbd; text-decoration: none; }
+    header a:hover, footer a:hover { color: #fff; }
+    .marca { display: inline-block; color: #fff; letter-spacing: 4px; font-size: 14px; }
+    main { min-height: 65vh; padding: 48px 0 70px; }
+    h1 { color: #fff; font-size: clamp(30px, 6vw, 46px); line-height: 1.15; }
+    h2 { margin-top: 32px; font-size: 19px; color: #fff; }
+    p, li { color: #bdbdbd; }
+    a { overflow-wrap: anywhere; }
+    .aviso { padding: 14px 16px; border-left: 2px solid #777; background: #111; }
+    footer { padding: 22px 0 36px; border-top: 1px solid #292929; font-size: 12px; }
+    .enlaces { display: flex; flex-wrap: wrap; gap: 14px 22px; }
+  </style>
+</head>
+<body>
+  <header><a class="marca" href="/">AUTODEFENSA</a></header>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  <footer>
+    <nav class="enlaces" aria-label="Enlaces legales">
+      <a href="/terminos">Términos de uso</a>
+      <a href="/privacidad">Privacidad</a>
+      <a href="/cookies">Cookies</a>
+      <a href="/">Volver al sitio</a>
+    </nav>
+    <p>Autodefensa · Santiago de Chile, Conchalí</p>
+  </footer>
+</body>
+</html>

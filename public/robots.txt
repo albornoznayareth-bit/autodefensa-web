@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://autodefensa-web.onrender.com/sitemap.xml
+Sitemap: https://autodefensa-banda.vercel.app/sitemap.xml

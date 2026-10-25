@@ -13,13 +13,13 @@
     <meta name="author" content="Autodefensa">
     <meta name="robots" content="index, follow">
 
-    <link rel="canonical" href="https://autodefensa-web.onrender.com/">
+    <link rel="canonical" href="https://autodefensa-banda.vercel.app/">
 
     <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Autodefensa — Banda de Santiago de Chile">
     <meta property="og:description" content="Banda de Santiago de Chile · Conchalí. Música, videoclips, presentaciones en vivo y eventos autogestionados.">
-    <meta property="og:url" content="https://autodefensa-web.onrender.com/">
+    <meta property="og:url" content="https://autodefensa-banda.vercel.app/">
     <meta property="og:site_name" content="Autodefensa">
     <meta property="og:image" content="{{ url_for('static', filename='images/FOTO LA BANDA.PNG', _external=True) }}">
     <meta property="og:image:alt" content="Autodefensa — banda de Santiago de Chile">
@@ -36,9 +36,9 @@
       "@context": "https://schema.org",
       "@type": "MusicGroup",
       "name": "Autodefensa",
-      "url": "https://autodefensa-web.onrender.com/",
-      "logo": "https://autodefensa-web.onrender.com/static/images/LOGO%20AUTODEFENSA%20blanco.png",
-      "image": "https://autodefensa-web.onrender.com/static/images/FOTO%20LA%20BANDA.PNG",
+      "url": "https://autodefensa-banda.vercel.app/",
+      "logo": "https://autodefensa-banda.vercel.app/static/images/LOGO%20AUTODEFENSA%20blanco.png",
+      "image": "https://autodefensa-banda.vercel.app/static/images/FOTO%20LA%20BANDA.PNG",
       "genre": [
         "Post-hardcore melódico",
         "Shoegaze",
@@ -61,7 +61,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
-<body class="inicio-sin-eventos">
+<body>
 
 
 
@@ -161,47 +161,11 @@
     </div>
 </section>
 <section id="eventos">
-
     <h2>EVENTOS</h2>
-
-    <p>Próximas presentaciones</p>
-
-    <div class="evento-cocina" data-fecha="2026-09-25">
-
-        <a class="afiche-enlace" href="https://portaldisc.com/evento/autodefensablacksunsetgamanjoy" target="_blank" rel="noopener noreferrer">
-            <img class="afiche-evento" src="{{ url_for('static', filename='images/afiche cocina clandestina 25 septiembre.png') }}" alt="Afiche Cocina Clandestina">
-        </a>
-
-        <a class="detalle-evento" href="https://portaldisc.com/evento/autodefensablacksunsetgamanjoy" target="_blank" rel="noopener noreferrer">
-            <h3>VIERNES 25 DE SEPTIEMBRE</h3>
-            <p><strong>21:00 hrs.</strong></p>
-            <p>Cocina Clandestina</p>
-            <p>Antonia López de Bello #0108, Providencia</p>
-        </a>
-
+    <p data-text-key="eventos_intro">Próximas presentaciones</p>
+    <div id="eventos-dinamicos" aria-live="polite">
+        <p>Cargando eventos…</p>
     </div>
-
-    <div class="evento-anfiteatro" data-fecha="2026-10-03">
-
-        <a class="afiche-enlace" href="https://portaldisc.com/evento/brokencoletivofloresfuego" target="_blank" rel="noopener noreferrer">
-            <img class="afiche-evento" src="{{ url_for('static', filename='images/afiche anfiteatro cortijano - 03 octubre.png') }}" alt="Afiche Broken Colectivo / Flores y Fuego">
-        </a>
-
-        <div class="detalle-evento">
-
-            <a class="nombre-evento" href="https://portaldisc.com/evento/brokencoletivofloresfuego" target="_blank" rel="noopener noreferrer">
-                <h3>BROKEN COLECTIVO / FLORES Y FUEGO</h3>
-            </a>
-
-            <p><strong>Sábado 3 de Octubre</strong></p>
-            <p><strong>15:30 hrs.</strong></p>
-            <p>Anfiteatro Cortijano</p>
-            <p>Forestal #2250, Conchalí</p>
-
-        </div>
-
-    </div>
-
 </section>
 
 <section id="banda">
@@ -211,27 +175,7 @@
     <div class="banda-presentacion">
 
         <div class="banda-texto">
-
-            <p>
-                El proyecto nació desde la intención de expresar mundos interiores y, poco a poco, fue creciendo en torno a la amistad, abordando temáticas cada vez más complejas.
-            </p>
-
-            <p>
-                Nuestra música busca acompañar a quienes están pasando por un mal momento, a quienes sobrepiensan constantemente y a quienes necesitan un espacio para detenerse, sentir y reflexionar.
-            </p>
-
-            <p>
-                En cada frase y en cada canción intentamos contar un proceso, una experiencia alrededor de la temática que estamos abordando. No buscamos dar respuestas ni decirle a nadie qué hacer. Solo queremos generar sensaciones y espacios para reflexionar sobre lo que ocurre dentro y fuera de nosotros.
-            </p>
-
-            <p>
-                Para nosotros, la música también es una forma de hablar y de generar conversaciones entre amigos de una manera más cercana.
-            </p>
-
-            <p>
-                <strong>Autodefensa es, en gran parte, nuestra forma de relacionarnos.</strong>
-            </p>
-
+            <p data-text-key="banda_presentacion">El proyecto nació desde la intención de expresar mundos interiores y, poco a poco, fue creciendo en torno a la amistad, abordando temáticas cada vez más complejas. Nuestra música busca acompañar a quienes están pasando por un mal momento, a quienes sobrepiensan constantemente y a quienes necesitan un espacio para detenerse, sentir y reflexionar. En cada frase y en cada canción intentamos contar un proceso, una experiencia alrededor de la temática que estamos abordando. No buscamos dar respuestas ni decirle a nadie qué hacer. Solo queremos generar sensaciones y espacios para reflexionar sobre lo que ocurre dentro y fuera de nosotros. Para nosotros, la música también es una forma de hablar y de generar conversaciones entre amigos de una manera más cercana. Autodefensa es, en gran parte, nuestra forma de relacionarnos.</p>
         </div>
 
         <div class="banda-foto">
@@ -240,7 +184,7 @@
 
     </div>
 
-    <p class="genero-banda">post-hardcore melódico · shoegaze · independiente</p>
+    <p class="genero-banda" data-text-key="banda_genero">post-hardcore melódico · shoegaze · independiente</p>
 
     <div class="integrantes">
 
@@ -250,22 +194,22 @@
 
             <div class="integrante">
                 <h4>YERKO LOPEZ</h4>
-                <p>Voz y guitarra</p>
+                <p data-text-key="integrante_yerko_rol">Voz y guitarra</p>
             </div>
 
             <div class="integrante">
                 <h4>JORGE LOPEZ</h4>
-                <p>Bajo</p>
+                <p data-text-key="integrante_jorge_rol">Bajo</p>
             </div>
 
             <div class="integrante">
                 <h4>SEBASTIAN SAAVEDRA</h4>
-                <p>Batería</p>
+                <p data-text-key="integrante_sebastian_rol">Batería</p>
             </div>
 
             <div class="integrante">
                 <h4>NAYARETH ALBORNOZ</h4>
-                <p>Guitarra</p>
+                <p data-text-key="integrante_nayareth_rol">Guitarra</p>
             </div>
 
         </div>
@@ -375,14 +319,6 @@
                         <span class="cd-sr-only">Voltear caja del CD</span>
                     </button>
                 </div>
-
-                <div class="cd-controls">
-                    <button class="cd-open-toggle" data-cd-open type="button"
-                            aria-pressed="false">Abrir tapa</button>
-                </div>
-                <p class="cd-hint">
-                    Pasa el cursor para abrir la tapa. Pulsa la caja para ver el reverso.
-                </p>
             </div>
 
             <div class="cd-info">
@@ -392,7 +328,7 @@
                         <span>2024 · ÁLBUM</span>
                     </div>
                 </div>
-                <p>El tercer disco de Autodefensa aborda la muerte, el proceso para afrontarla
+                <p data-text-key="album_1_descripcion">El tercer disco de Autodefensa aborda la muerte, el proceso para afrontarla
                 y lo caótico de las experiencias traumáticas. Un carnaval de ruido nacido
                 después de demasiado tiempo cantándole a la pena.</p>
                 <a class="boton" href="https://www.youtube.com/watch?v=pfuvN8ibBY4" target="_blank"><span class="youtube-text">Puedes escucharlo aquí</span><img src="{{ url_for('static', filename='images/Youtube_logo.png') }}" alt="YouTube" class="youtube-logo"></a>
@@ -461,14 +397,6 @@
                         <span class="cd-sr-only">Voltear caja del CD</span>
                     </button>
                 </div>
-
-                <div class="cd-controls">
-                    <button class="cd-open-toggle" data-cd-open type="button"
-                            aria-pressed="false">Abrir tapa</button>
-                </div>
-                <p class="cd-hint">
-                    Pasa el cursor para abrir la tapa. Pulsa la caja para ver el reverso.
-                </p>
             </div>
 
             <div class="cd-info">
@@ -478,7 +406,7 @@
                         <span>2023 · EP</span>
                     </div>
                 </div>
-                <p>Una historia sobre un buzo que se adentra en aguas profundas como metáfora
+                <p data-text-key="album_2_descripcion">Una historia sobre un buzo que se adentra en aguas profundas como metáfora
                 del proceso de mirarse hacia adentro, enfrentando el estrés, la inseguridad
                 y finalmente la calma.</p>
                 <a class="boton" href="https://www.youtube.com/watch?v=d8s04XlJ-wU" target="_blank"><span class="youtube-text">Puedes escucharlo aquí</span><img src="{{ url_for('static', filename='images/Youtube_logo.png') }}" alt="YouTube" class="youtube-logo"></a>
@@ -557,14 +485,6 @@
                         <span class="cd-sr-only">Voltear caja del CD</span>
                     </button>
                 </div>
-
-                <div class="cd-controls">
-                    <button class="cd-open-toggle" data-cd-open type="button"
-                            aria-pressed="false">Abrir tapa</button>
-                </div>
-                <p class="cd-hint">
-                    Pasa el cursor para abrir la tapa. Pulsa la caja para ver el reverso.
-                </p>
             </div>
 
             <div class="cd-info">
@@ -574,7 +494,7 @@
                         <span>2021 · ÁLBUM</span>
                     </div>
                 </div>
-                <p>Un disco compuesto por canciones que exploran distintas tensiones,
+                <p data-text-key="album_3_descripcion">Un disco compuesto por canciones que exploran distintas tensiones,
                 contradicciones y experiencias personales.</p>
                 <a class="boton" href="https://www.youtube.com/watch?v=xOIgeT47AnU" target="_blank"><span class="youtube-text">Puedes escucharlo aquí</span><img src="{{ url_for('static', filename='images/Youtube_logo.png') }}" alt="YouTube" class="youtube-logo"></a>
             </div>
@@ -647,14 +567,6 @@
                         <span class="cd-sr-only">Voltear caja del CD</span>
                     </button>
                 </div>
-
-                <div class="cd-controls">
-                    <button class="cd-open-toggle" data-cd-open type="button"
-                            aria-pressed="false">Abrir tapa</button>
-                </div>
-                <p class="cd-hint">
-                    Pasa el cursor para abrir la tapa. Pulsa la caja para ver el reverso.
-                </p>
             </div>
 
             <div class="cd-info">
@@ -664,7 +576,7 @@
                         <span>2018 · ÁLBUM</span>
                     </div>
                 </div>
-                <p>El primer álbum de esta discografía, con ocho canciones que forman parte
+                <p data-text-key="album_4_descripcion">El primer álbum de esta discografía, con ocho canciones que forman parte
                 de los primeros años del proyecto Autodefensa.</p>
                 <a class="boton" href="https://www.youtube.com/watch?v=TzK7sGneRXg" target="_blank"><span class="youtube-text">Puedes escucharlo aquí</span><img src="{{ url_for('static', filename='images/Youtube_logo.png') }}" alt="YouTube" class="youtube-logo"></a>
             </div>
@@ -674,26 +586,14 @@
 </section>
 
 <section id="fotos">
-
     <h2>FOTOS</h2>
-
-
-    <div class="fotos-grid">
-
-        <div class="foto-card">
-            <img src="{{ url_for('static', filename='images/photo1.JPG') }}" alt="Autodefensa en vivo">
-        </div>
-
-        <div class="foto-card">
-            <img src="{{ url_for('static', filename='images/photo2.JPG') }}" alt="Autodefensa">
-        </div>
-
-        <div class="foto-card">
-            <img src="{{ url_for('static', filename='images/photo3.JPG') }}" alt="Autodefensa">
-        </div>
-
+    <div id="fotos-albumes" class="fotos-albumes" aria-live="polite">
+        <p>Cargando álbumes…</p>
     </div>
+    <div class="fotos-sin-album">
 
+        <div class="fotos-grid" id="fotos-grid" aria-live="polite"></div>
+    </div>
 </section>
 
 <section id="videoclips">
@@ -756,59 +656,20 @@
 </section>
 
 <section id="envivo">
-
     <h2>EN VIVO</h2>
-
-
-    <div class="videos-grid">
-
-        <div class="video-link">
-
-            <div class="video-thumb" onclick="reproducirVideo(this, 'uKQLyWpnuFU')">
-                <img src="https://img.youtube.com/vi/uKQLyWpnuFU/maxresdefault.jpg" alt="Autodefensa en vivo">
-                <span class="play-button">▶</span>
-            </div>
-
-            <div class="video-info">
-                <h3>EN VIVO · PLECTRUM</h3>
-                <p>02/11/2025</p>
-                <a href="https://www.youtube.com/watch?v=uKQLyWpnuFU" target="_blank">
-                    Ver en YouTube ↗
-                </a>
-            </div>
-
-        </div>
-
-        <div class="video-link">
-
-            <div class="video-thumb" onclick="reproducirVideo(this, 'q9ZvD4zRuOs')">
-                <img src="https://img.youtube.com/vi/q9ZvD4zRuOs/maxresdefault.jpg" alt="Autodefensa en vivo">
-                <span class="play-button">▶</span>
-            </div>
-
-            <div class="video-info">
-                <h3>FLORES LAS ANTORCHAS · SHOW SECRETO</h3>
-                <p>18/12/2022</p>
-                <a href="https://www.youtube.com/watch?v=q9ZvD4zRuOs" target="_blank">
-                    Ver en YouTube ↗
-                </a>
-            </div>
-
-        </div>
-
+    <div class="videos-grid" id="envivo-videos-grid">
     </div>
-
 </section>
 
 <section id="merch">
 
     <h2>MERCH</h2>
 
-    <p>Merchandising oficial de Autodefensa.</p>
+    <p data-text-key="merch_descripcion">Merchandising oficial de Autodefensa.</p>
 
     <div class="tarjeta">
         <h3>PRÓXIMAMENTE</h3>
-        <p>Poleras, discos, accesorios y más.</p>
+        <p data-text-key="merch_detalle">Poleras, discos, accesorios y más.</p>
     </div>
 
 </section>
@@ -819,9 +680,7 @@
 
 <footer>
 
-    <h3>AUTODEFENSA</h3>
 
-    <p>Santiago de Chile · Conchalí</p>
 
     <div class="redes">
 
@@ -856,12 +715,14 @@
 
     </div>
 
-    <div class="creditos-footer">
-        <span class="detalle-autor">✦</span>
-        <p>DISEÑO Y DESARROLLO WEB</p>
-        <strong>NAYARETH ALBORNOZ</strong>
-    </div>
+    <div class="footer-inferior">
+        <p class="copyright-footer">© 2026 AUTODEFENSA</p>
 
+        <div class="creditos-footer">
+            <p>DISEÑO Y DESARROLLO WEB</p>
+            <strong>NAYA CRISTAL</strong>
+        </div>
+    </div>
 </footer>
 
 <script>
@@ -999,6 +860,11 @@ document.addEventListener("DOMContentLoaded", () => {
         seccion.classList.add("seccion-oculta");
     });
 
+    const seccionesPermitidas = [
+        "#inicio", "#recomendadas", "#eventos", "#banda",
+        "#musica", "#fotos", "#videoclips", "#envivo", "#merch"
+    ];
+
     const inicio = document.querySelector("main .presentacion");
 
     if (inicio) {
@@ -1036,9 +902,20 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("menu-principal").classList.remove("menu-abierto");
             document.querySelector(".menu-toggle").setAttribute("aria-expanded", "false");
 
+            if (seccionesPermitidas.includes(destino)) {
+                history.replaceState(null, "", destino);
+            }
+
             mostrarSeccion(destino);
 
         });
+
+    const seccionGuardada = window.location.hash;
+    if (seccionesPermitidas.includes(seccionGuardada)) {
+        mostrarSeccion(seccionGuardada);
+    }
+
+
 
     });
 
@@ -1053,85 +930,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
-<!-- POPUP PRÓXIMO EVENTO -->
-<div id="eventoModal" class="evento-modal" data-fecha="2026-10-03" style="display: none;">
-
-    <div class="evento-modal-contenido">
-
-        <h2 class="evento-modal-titulo">PRÓXIMAS PRESENTACIONES</h2>
-
-        <button
-            id="cerrarEvento"
-            class="evento-modal-cerrar"
-            aria-label="Cerrar"
-        >
-            ×
-        </button>
-
-        <img
-            src="{{ url_for('static', filename='images/afiche anfiteatro cortijano - 03 octubre.png') }}"
-            alt="Anfiteatro Cortijano - 3 de octubre"
-            class="evento-modal-afiche"
-        >
-
-        <a
-            href="https://portaldisc.com/evento/brokencoletivofloresfuego"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="evento-modal-boton"
-        >
-            VER EVENTO
-        </a>
-
-    </div>
-
-</div>
-
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const ahora = new Date();
-    const hoy = [
-        ahora.getFullYear(),
-        String(ahora.getMonth() + 1).padStart(2, "0"),
-        String(ahora.getDate()).padStart(2, "0")
-    ].join("-");
-
-    document.querySelectorAll("#eventos [data-fecha]").forEach(function (evento) {
-        if (evento.dataset.fecha < hoy) {
-            evento.style.display = "none";
-        }
-    });
-
-    const eventoModal = document.getElementById("eventoModal");
-    const cerrarEvento = document.getElementById("cerrarEvento");
-
-    if (!eventoModal) return;
-
-    if (eventoModal.dataset.fecha >= hoy) {
-        eventoModal.style.display = "flex";
-    }
-
-    cerrarEvento.addEventListener("click", function () {
-        eventoModal.classList.add("cerrado");
-    });
-
-    eventoModal.addEventListener("click", function (e) {
-        if (e.target === eventoModal) {
-            eventoModal.classList.add("cerrado");
-        }
-    });
-});
-</script>
-
-
-
-
-
-
-
-
-
-
+<!-- POPUP DE EVENTO GENERADO DESDE SUPABASE -->
 
 
 <!-- REPRODUCTOR-MUSICA-JS -->
@@ -1268,9 +1067,11 @@ document.addEventListener("DOMContentLoaded", function () {
                     ? "Volver a la portada de " + albumTitle
                     : "Mostrar la contraportada de " + albumTitle);
 
-                open.disabled = reversed;
-                open.setAttribute("aria-pressed", String(opened));
-                open.textContent = opened ? "Cerrar tapa" : "Abrir tapa";
+                if (open) {
+                    open.disabled = reversed;
+                    open.setAttribute("aria-pressed", String(opened));
+                    open.textContent = opened ? "Cerrar tapa" : "Abrir tapa";
+                }
             }
 
             turn.addEventListener("click", function () {
@@ -1279,16 +1080,655 @@ document.addEventListener("DOMContentLoaded", function () {
                 update();
             });
 
-            open.addEventListener("click", function () {
-                if (stage.classList.contains("is-reversed")) return;
-                stage.classList.toggle("is-open");
-                update();
-            });
+            if (open) {
+                open.addEventListener("click", function () {
+                    if (stage.classList.contains("is-reversed")) return;
+                    stage.classList.toggle("is-open");
+                    update();
+                });
+            }
 
             update();
         });
     });
     </script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script>
+(async () => {
+  const url = {{ supabase_url|tojson }};
+  const key = {{ supabase_key|tojson }};
+  if (!url || !key || !window.supabase) return;
+
+  try {
+    const client = window.supabase.createClient(url, key);
+    const { data, error } = await client
+      .from("contenido_web")
+      .select("contenido")
+      .eq("clave", "textos_web")
+      .limit(1)
+      .maybeSingle();
+
+    if (error) throw error;
+    const values = data?.contenido;
+    if (!values) return;
+document.querySelectorAll("[data-text-key]").forEach(element => {
+      const fieldKey = element.dataset.textKey;
+      if (!Object.prototype.hasOwnProperty.call(values, fieldKey)) return;
+
+      const strong = element.querySelector(":scope > strong");
+      if (strong) strong.textContent = values[fieldKey];
+      else element.textContent = values[fieldKey];
+    });
+        const grid = document.getElementById("envivo-videos-grid");
+    const presentaciones = Array.isArray(values.presentaciones_envivo)
+      ? values.presentaciones_envivo
+      : [];
+
+    function obtenerIdYouTube(enlace) {
+      try {
+        const u = new URL(enlace);
+        const host = u.hostname.toLowerCase();
+        let id = "";
+
+        if (u.protocol !== "https:") return "";
+        if (host === "youtu.be") {
+          id = u.pathname.split("/").filter(Boolean)[0] || "";
+        } else if (host === "youtube.com" || host.endsWith(".youtube.com")) {
+          if (u.pathname === "/watch") {
+            id = u.searchParams.get("v") || "";
+          } else {
+            id = u.pathname.match(/^\/(?:embed|shorts)\/([^/]+)/)?.[1] || "";
+          }
+        }
+
+        return /^[A-Za-z0-9_-]{11}$/.test(id) ? id : "";
+      } catch {
+        return "";
+      }
+    }
+
+    if (grid) {
+      grid.replaceChildren();
+
+      presentaciones.forEach(presentacion => {
+        if (!presentacion || typeof presentacion !== "object") return;
+
+        const tituloTexto = typeof presentacion.title === "string"
+          ? presentacion.title.trim()
+          : "";
+        const enlaceTexto = typeof presentacion.url === "string"
+          ? presentacion.url.trim()
+          : "";
+        const videoId = obtenerIdYouTube(enlaceTexto);
+
+        if (!tituloTexto || !videoId) return;
+
+        const tarjeta = document.createElement("article");
+        tarjeta.className = "video-link";
+
+        const miniatura = document.createElement("div");
+        miniatura.className = "video-thumb";
+        miniatura.addEventListener("click", () => reproducirVideo(miniatura, videoId));
+
+        const imagen = document.createElement("img");
+        imagen.src = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+        imagen.alt = "Autodefensa en vivo: " + tituloTexto;
+        imagen.loading = "lazy";
+        imagen.onerror = () => {
+          imagen.onerror = null;
+          imagen.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+        };
+
+        const play = document.createElement("span");
+        play.className = "play-button";
+        play.textContent = "▶";
+        miniatura.append(imagen, play);
+
+        const info = document.createElement("div");
+        info.className = "video-info";
+
+        const titulo = document.createElement("h3");
+        titulo.textContent = tituloTexto;
+        info.appendChild(titulo);
+
+        if (typeof presentacion.date === "string" && presentacion.date.trim()) {
+          const fecha = document.createElement("p");
+          fecha.textContent = presentacion.date.trim();
+          info.appendChild(fecha);
+        }
+
+        const enlace = document.createElement("a");
+        enlace.href = `https://www.youtube.com/watch?v=${videoId}`;
+        enlace.target = "_blank";
+        enlace.rel = "noopener noreferrer";
+        enlace.textContent = "Ver en YouTube ↗";
+        info.appendChild(enlace);
+
+        tarjeta.append(miniatura, info);
+        grid.appendChild(tarjeta);
+      });
+    }
+
+    } catch (error) {
+    console.warn("No se pudieron cargar los textos guardados.", error);
+  }
+})();
+</script>
+
+
+
+<script>
+(async function cargarConfiguracionVisual() {
+  const defaults = {
+    fondo: "/static/images/Fondo.JPG",
+    oscurecimiento: 0.72,
+    tipografia: "Arial, Helvetica, sans-serif",
+    colorTexto: "#f2f2f2"
+  };
+
+  try {
+    const url = {{ supabase_url|tojson }};
+    const key = {{ supabase_key|tojson }};
+    if (!url || !key || !window.supabase) return;
+
+    const client = window.supabase.createClient(url, key);
+    const { data, error } = await client
+      .from("contenido_web")
+      .select("contenido")
+      .eq("clave", "configuracion_visual")
+      .limit(1)
+      .maybeSingle();
+
+    if (error) throw error;
+
+    const config = data?.contenido || {};
+    const fondo = typeof config.fondo === "string" && config.fondo.trim()
+      ? config.fondo.trim()
+      : defaults.fondo;
+    const parsedUrl = new URL(fondo, window.location.origin);
+
+    if (!(parsedUrl.protocol === "https:" || (parsedUrl.protocol === "http:" && parsedUrl.origin === window.location.origin))) {
+      throw new Error("URL de fondo no permitida");
+    }
+
+    const overlay = Number(config.oscurecimiento);
+    const oscurecimiento = Number.isFinite(overlay)
+      ? Math.min(0.9, Math.max(0, overlay))
+      : defaults.oscurecimiento;
+
+    const tipografias = {
+      "Arial": "Arial, Helvetica, sans-serif",
+      "Georgia": "Georgia, serif",
+      "Sistema": "system-ui, sans-serif",
+      "Monospace": "monospace"
+    };
+
+    const tipografia = tipografias[config.tipografia] || defaults.tipografia;
+    const colorTexto = typeof config.colorTexto === "string" &&
+      /^#[0-9a-fA-F]{6}$/.test(config.colorTexto)
+      ? config.colorTexto
+      : defaults.colorTexto;
+
+    const root = document.documentElement;
+    root.style.setProperty("--site-background-image", `url("${parsedUrl.href.replace(/["\\\n\r]/g, "")}")`);
+    root.style.setProperty("--site-background-overlay", String(oscurecimiento));
+    root.style.setProperty("--site-font", tipografia);
+    root.style.setProperty("--site-text-color", colorTexto);
+  } catch (error) {
+    console.warn("No se pudo cargar la configuración visual guardada.", error);
+  }
+})();
+</script>
+
+<script>
+(async function cargarVideoclipsPublicos() {
+  const grid = document.querySelector("#videoclips .videos-grid");
+  if (!grid) return;
+
+  const url = {{ supabase_url|tojson }};
+  const key = {{ supabase_key|tojson }};
+  if (!url || !key || !window.supabase) return;
+
+  try {
+    const cliente = window.supabase.createClient(url, key);
+    const { data, error } = await cliente
+      .from("videoclips_web")
+      .select("titulo, video_url, descripcion, orden")
+      .eq("activo", true)
+      .order("orden", { ascending: true })
+      .order("creado_en", { ascending: true });
+
+    if (error) throw error;
+    if (!Array.isArray(data)) return;
+
+    function obtenerIdYouTube(enlace) {
+      try {
+        const u = new URL(enlace);
+        const host = u.hostname.toLowerCase();
+        let id = "";
+
+        if (u.protocol !== "https:") return "";
+        if (host === "youtu.be") {
+          id = u.pathname.split("/").filter(Boolean)[0] || "";
+        } else if (host === "youtube.com" || host.endsWith(".youtube.com")) {
+          if (u.pathname === "/watch") {
+            id = u.searchParams.get("v") || "";
+          } else {
+            id = u.pathname.match(/^\/(?:embed|shorts)\/([^/]+)/)?.[1] || "";
+          }
+        }
+
+        return /^[A-Za-z0-9_-]{11}$/.test(id) ? id : "";
+      } catch {
+        return "";
+      }
+    }
+
+    const tarjetas = data.map(video => {
+      const tituloTexto = typeof video.titulo === "string" ? video.titulo.trim() : "";
+      const videoId = obtenerIdYouTube(video.video_url || "");
+      if (!tituloTexto || !videoId) return null;
+
+      const tarjeta = document.createElement("article");
+      tarjeta.className = "video-link";
+
+      const miniatura = document.createElement("div");
+      miniatura.className = "video-thumb";
+      miniatura.addEventListener("click", () => reproducirVideo(miniatura, videoId));
+
+      const imagen = document.createElement("img");
+      imagen.src = `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`;
+      imagen.alt = "Autodefensa: " + tituloTexto;
+      imagen.loading = "lazy";
+      imagen.onerror = () => {
+        imagen.onerror = null;
+        imagen.src = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+      };
+
+      const play = document.createElement("span");
+      play.className = "play-button";
+      play.textContent = "▶";
+      miniatura.append(imagen, play);
+
+      const info = document.createElement("div");
+      info.className = "video-info";
+
+      const titulo = document.createElement("h3");
+      titulo.textContent = tituloTexto;
+      info.appendChild(titulo);
+
+      if (typeof video.descripcion === "string" && video.descripcion.trim()) {
+        const descripcion = document.createElement("p");
+        descripcion.textContent = video.descripcion.trim();
+        info.appendChild(descripcion);
+      }
+
+      const enlace = document.createElement("a");
+      enlace.href = `https://www.youtube.com/watch?v=${videoId}`;
+      enlace.target = "_blank";
+      enlace.rel = "noopener noreferrer";
+      enlace.textContent = "Ver en YouTube ↗";
+      info.appendChild(enlace);
+
+      tarjeta.append(miniatura, info);
+      return tarjeta;
+    }).filter(Boolean);
+
+    grid.replaceChildren(...tarjetas);
+  } catch (error) {
+    console.warn("No se pudieron cargar los videoclips; se conserva el contenido HTML.", error);
+  }
+})();
+</script>
+
+<script>
+(async function () {
+    const contenedor = document.getElementById("eventos-dinamicos");
+    const seccionEventos = document.getElementById("eventos");
+    if (!contenedor || !seccionEventos) return;
+
+    const url = {{ supabase_url|tojson }};
+    const key = {{ supabase_key|tojson }};
+
+    if (!url || !key || !window.supabase) {
+        contenedor.textContent = "No se pudieron conectar los eventos.";
+        console.error("Falta la configuración pública de Supabase.");
+        return;
+    }
+
+    const cliente = window.supabase.createClient(url, key);
+    const hoy = [
+        new Date().getFullYear(),
+        String(new Date().getMonth() + 1).padStart(2, "0"),
+        String(new Date().getDate()).padStart(2, "0")
+    ].join("-");
+
+    function crear(tag, clase, texto) {
+        const el = document.createElement(tag);
+        if (clase) el.className = clase;
+        if (texto !== undefined) el.textContent = texto;
+        return el;
+    }
+
+    function enlaceSeguro(valor) {
+        try {
+            const u = new URL(valor);
+            const host = u.hostname.toLowerCase();
+            const permitido = [
+                "portaldisc.com", "passline.com", "puntoticket.com"
+            ].some(d => host === d || host.endsWith("." + d));
+            return u.protocol === "https:" && permitido ? u.href : "";
+        } catch (_) {
+            return "";
+        }
+    }
+
+    function fechaLegible(valor) {
+        if (!valor) return "";
+        const partes = valor.slice(0, 10).split("-");
+        if (partes.length !== 3) return valor;
+        return partes[2] + "/" + partes[1] + "/" + partes[0];
+    }
+
+    function crearTarjeta(evento) {
+        const tarjeta = crear("article", "evento-cocina evento-dinamico");
+        tarjeta.dataset.fecha = evento.fecha || "";
+        tarjeta.dataset.eventoId = String(evento.id ?? "");
+
+        const destino = enlaceSeguro(evento.url);
+
+        if (evento.imagen_url) {
+            const imagen = crear("img", "afiche-evento");
+            imagen.src = evento.imagen_url;
+            imagen.alt = "Afiche: " + (evento.titulo || "Autodefensa");
+            imagen.loading = "lazy";
+
+            if (destino) {
+                const enlaceImagen = crear("a", "afiche-enlace");
+                enlaceImagen.href = destino;
+                enlaceImagen.target = "_blank";
+                enlaceImagen.rel = "noopener noreferrer";
+                enlaceImagen.appendChild(imagen);
+                tarjeta.appendChild(enlaceImagen);
+            } else {
+                tarjeta.appendChild(imagen);
+            }
+        }
+
+        const detalle = crear("div", "detalle-evento");
+
+        if (evento.lugar || evento.direccion) {
+            const ubicacion = [evento.lugar, evento.direccion]
+                .filter(Boolean)
+                .join(" — ");
+
+            const enlaceMapa = crear("a", "evento-lugar", ubicacion);
+            const mapa = new URL(atob("aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbQ=="));
+            mapa.pathname = "/maps/search/";
+            mapa.searchParams.set("api", "1");
+            mapa.searchParams.set("query", ubicacion);
+            enlaceMapa.href = mapa.href;
+            enlaceMapa.target = "_blank";
+            enlaceMapa.rel = "noopener noreferrer";
+            detalle.appendChild(enlaceMapa);
+        }
+
+        if (evento.fecha || evento.hora) {
+            const fechaHora = [
+                evento.fecha ? fechaLegible(evento.fecha) : "",
+                evento.hora || ""
+            ].filter(Boolean).join(" · ");
+
+            detalle.appendChild(
+                crear("p", "evento-fecha", fechaHora)
+            );
+        }
+
+        if (evento.descripcion && evento.descripcion.trim()) {
+            detalle.appendChild(
+                crear("p", "evento-descripcion", evento.descripcion.trim())
+            );
+        }
+
+        if (destino) {
+            const enlace = crear("a", "detalle-evento-enlace", "VER ENTRADAS");
+            enlace.href = destino;
+            enlace.target = "_blank";
+            enlace.rel = "noopener noreferrer";
+            detalle.appendChild(enlace);
+        }
+
+        tarjeta.appendChild(detalle);
+        return tarjeta;
+    }
+
+    function mostrarPopup(evento, destacado) {
+        if (!destacado) return;
+
+        destacado.id = "evento-destacado";
+        destacado.classList.add("evento-destacado");
+        contenedor.prepend(destacado);
+
+        const cerrar = crear("button", "evento-modal-cerrar", "×");
+        cerrar.type = "button";
+        cerrar.setAttribute("aria-label", "Ocultar evento destacado");
+        cerrar.addEventListener("click", () => {
+            destacado.classList.remove("evento-destacado");
+            destacado.removeAttribute("id");
+            cerrar.remove();
+        });
+        destacado.appendChild(cerrar);
+    }
+
+    try {
+        const { data: datosEventos, error: errorEventos } = await cliente
+            .from("eventos_web")
+            .select("*")
+            .eq("activo", true)
+            .order("fecha", { ascending: true });
+
+        if (errorEventos) throw errorEventos;
+
+        const eventos = (datosEventos || [])
+            .filter(e => e.fecha && e.fecha >= hoy);
+
+        contenedor.replaceChildren();
+
+        if (!eventos.length) {
+            contenedor.appendChild(crear("p", "", "Próximamente anunciaremos nuevas fechas."));
+            return;
+        }
+
+        eventos.forEach(evento => contenedor.appendChild(crearTarjeta(evento)));
+
+        let filaDestacados = document.getElementById("eventos-destacados");
+        if (!filaDestacados) {
+            filaDestacados = document.createElement("div");
+            filaDestacados.id = "eventos-destacados";
+            filaDestacados.className = "eventos-destacados";
+            filaDestacados.setAttribute("aria-label", "Eventos destacados");
+            const inicio = document.getElementById("inicio");
+            if (!inicio) throw new Error("No se encontró la sección de inicio.");
+            inicio.prepend(filaDestacados);
+        }
+
+        filaDestacados.replaceChildren();
+
+        const eventosPopup = eventos.filter(
+            evento => evento.mostrar_popup === true
+        );
+
+        if (eventosPopup.length) {
+            const cerrar = crear("button", "evento-modal-cerrar", "×");
+            cerrar.type = "button";
+            cerrar.setAttribute("aria-label", "Cerrar todos los eventos destacados");
+            cerrar.addEventListener("click", () => {
+                filaDestacados.hidden = true;
+            });
+            filaDestacados.appendChild(cerrar);
+
+            eventosPopup.forEach(evento => {
+                const tarjeta = crearTarjeta(evento);
+                tarjeta.classList.add("evento-destacado");
+                filaDestacados.appendChild(tarjeta);
+            });
+        }
+
+    } catch (error) {
+        console.error("No se pudieron cargar los eventos.", error);
+        contenedor.textContent = "No se pudieron cargar los eventos.";
+    }
+})();
+</script>
+
+<script>
+(async function cargarFotosPublicas() {
+  const grid = document.getElementById("fotos-grid");
+  const albumsContainer = document.getElementById("fotos-albumes");
+  const unassignedTitle = document.getElementById("fotos-sin-album-titulo");
+  if (!grid || !albumsContainer) return;
+
+  function createPhotoCard(photo, className = "foto-card") {
+    if (!photo.imagen_url) return null;
+
+    let imageUrl;
+    try {
+      imageUrl = new URL(photo.imagen_url);
+    } catch {
+      return null;
+    }
+    if (imageUrl.protocol !== "https:") return null;
+
+    const card = document.createElement("div");
+    card.className = className;
+
+    const image = document.createElement("img");
+    image.src = imageUrl.href;
+    image.alt = photo.descripcion || photo.titulo || "Fotografía de Autodefensa";
+    image.loading = "lazy";
+    image.decoding = "async";
+    image.addEventListener("error", () => card.remove(), { once: true });
+
+    card.appendChild(image);
+    return card;
+  }
+
+  try {
+    if (!window.supabase || !window.supabase.createClient) {
+      throw new Error("No se pudo cargar el servicio de fotografías.");
+    }
+
+    const photosClient = window.supabase.createClient(
+      {{ supabase_url|tojson }},
+      {{ supabase_key|tojson }}
+    );
+
+    const [albumsResult, photosResult] = await Promise.all([
+      photosClient.from("albumes_fotos")
+        .select("id,nombre,descripcion,orden")
+        .eq("activo", true)
+        .order("orden", { ascending: true })
+        .order("creado_en", { ascending: true }),
+      photosClient.from("fotos_web")
+        .select("id,titulo,imagen_url,descripcion,orden,album_id")
+        .eq("activo", true)
+        .order("orden", { ascending: true })
+        .order("creado_en", { ascending: false })
+    ]);
+
+    if (albumsResult.error) throw albumsResult.error;
+    if (photosResult.error) throw photosResult.error;
+
+    const albums = albumsResult.data || [];
+    const photos = photosResult.data || [];
+    albumsContainer.replaceChildren();
+    grid.replaceChildren();
+
+    const photosByAlbum = new Map();
+    photos.forEach(photo => {
+      if (!photo.album_id) return;
+      if (!photosByAlbum.has(photo.album_id)) {
+        photosByAlbum.set(photo.album_id, []);
+      }
+      photosByAlbum.get(photo.album_id).push(photo);
+    });
+
+    let previousDetails = null;
+
+    albums.forEach(album => {
+      const details = document.createElement("details");
+      details.className = "foto-album";
+
+      const summary = document.createElement("summary");
+      summary.textContent = album.nombre || "Álbum de fotografías";
+      details.appendChild(summary);
+
+      if (album.descripcion) {
+        const description = document.createElement("p");
+        description.className = "foto-album-descripcion";
+        description.textContent = album.descripcion;
+        details.appendChild(description);
+      }
+
+      const albumGrid = document.createElement("div");
+      albumGrid.className = "fotos-grid foto-album-grid";
+
+      (photosByAlbum.get(album.id) || []).forEach(photo => {
+        const card = createPhotoCard(photo, "foto-card foto-album-photo");
+        if (card) albumGrid.appendChild(card);
+      });
+
+      if (!albumGrid.children.length) {
+        const empty = document.createElement("p");
+        empty.textContent = "Este álbum todavía no tiene fotografías.";
+        details.appendChild(empty);
+      } else {
+        details.appendChild(albumGrid);
+      }
+
+      details.addEventListener("toggle", () => {
+        if (details.open) {
+          if (previousDetails && previousDetails !== details) {
+            previousDetails.open = false;
+          }
+          previousDetails = details;
+        } else if (previousDetails === details) {
+          previousDetails = null;
+        }
+      });
+
+      albumsContainer.appendChild(details);
+    });
+
+    const unassignedPhotos = photos.filter(photo => !photo.album_id);
+    unassignedPhotos.forEach(photo => {
+      const card = createPhotoCard(photo);
+      if (card) grid.appendChild(card);
+    });
+
+    if (unassignedTitle) {
+      unassignedTitle.hidden = grid.children.length === 0;
+    }
+
+    if (!albums.length && !grid.children.length) {
+      const message = document.createElement("p");
+      message.textContent = "Pronto encontrarás aquí nuestras fotografías.";
+      albumsContainer.appendChild(message);
+    } else if (albums.length && !grid.children.length && unassignedTitle) {
+      unassignedTitle.hidden = true;
+    }
+  } catch (error) {
+    console.error("Error al cargar fotografías:", error);
+    albumsContainer.replaceChildren();
+    grid.replaceChildren();
+    const message = document.createElement("p");
+    message.textContent = "No se pudieron cargar las fotografías.";
+    albumsContainer.appendChild(message);
+  }
+})();
+</script>
 
 </body>
 </html>

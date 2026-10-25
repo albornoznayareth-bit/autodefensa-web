@@ -2076,10 +2076,10 @@ body {
 body {
     background:
         linear-gradient(
-            rgba(0, 0, 0, 0.72),
-            rgba(0, 0, 0, 0.72)
+            rgba(0, 0, 0, var(--site-background-overlay)),
+            rgba(0, 0, 0, var(--site-background-overlay))
         ),
-        url("/static/images/Fondo.JPG") center center / cover fixed no-repeat;
+        var(--site-background-image) center center / cover fixed no-repeat;
 }
 
 
@@ -2182,10 +2182,10 @@ section h2::after {
         z-index: -1;
         background:
             linear-gradient(
-                rgba(0, 0, 0, 0.72),
-                rgba(0, 0, 0, 0.72)
+                rgba(0, 0, 0, var(--site-background-overlay)),
+                rgba(0, 0, 0, var(--site-background-overlay))
             ),
-            url("/static/images/Fondo.JPG") center top / auto 100% no-repeat;
+            var(--site-background-image) center top / auto 100% no-repeat;
         pointer-events: none;
     }
 }
@@ -2411,10 +2411,10 @@ section h2::after {
     body {
         background:
             linear-gradient(
-                rgba(0, 0, 0, 0.72),
-                rgba(0, 0, 0, 0.72)
+                rgba(0, 0, 0, var(--site-background-overlay)),
+                rgba(0, 0, 0, var(--site-background-overlay))
             ),
-            url("/static/images/Fondo.JPG") center center / cover fixed no-repeat;
+            var(--site-background-image) center center / cover fixed no-repeat;
     }
 }
 
@@ -2429,10 +2429,10 @@ section h2::after {
     body {
         background-image:
             linear-gradient(
-                rgba(0, 0, 0, 0.72),
-                rgba(0, 0, 0, 0.72)
+                rgba(0, 0, 0, var(--site-background-overlay)),
+                rgba(0, 0, 0, var(--site-background-overlay))
             ),
-            url("/static/images/Fondo.JPG");
+            var(--site-background-image);
         background-position: center center;
         background-size: cover;
         background-repeat: no-repeat;
@@ -2446,8 +2446,10 @@ section h2::after {
    ========================================= */
 
 footer {
-    margin-top: 80px;
-    padding: 70px 30px 55px;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 40px 0 0;
+    padding: 25px 30px 20px;
     background: #050505;
     text-align: center;
     position: relative;
@@ -2535,6 +2537,57 @@ footer .redes a:hover::after {
 
 }
 
+
+
+/* DISCOGRAFÍA · ENLACE YOUTUBE DISCRETO */
+.cd-info .boton:has(.youtube-logo) {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 7px;
+    margin-top: 14px;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    text-decoration: none;
+}
+
+.cd-info .boton .youtube-logo {
+    display: block;
+    width: 18px;
+    height: auto;
+    box-shadow: none !important;
+    background: transparent;
+}
+
+.cd-info .youtube-text {
+    color: #a8a8a8;
+    font-size: 11px;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.cd-info .boton:has(.youtube-logo):hover {
+    transform: none;
+    border: 0 !important;
+}
+
+.cd-info .boton:hover .youtube-text {
+    color: #fff;
+}
+
+@media (max-width: 700px) {
+    .cd-info .boton .youtube-logo {
+        width: 16px;
+    }
+
+    .cd-info .youtube-text {
+        font-size: 10px;
+    }
+}
 
 /* ICONOS DEL FOOTER */
 
@@ -2838,17 +2891,22 @@ section h2::after {
 
 .evento-modal {
     position: fixed;
-    inset: 0;
+    right: 24px;
+    bottom: 24px;
+    left: auto;
+    top: auto;
+    inset: auto 24px 24px auto;
     z-index: 9999;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
-    background: rgba(0, 0, 0, 0.84);
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 0;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
     opacity: 1;
     visibility: visible;
+    pointer-events: none;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
@@ -2860,9 +2918,10 @@ section h2::after {
 
 .evento-modal-contenido {
     position: relative;
-    max-width: 520px;
+    pointer-events: auto;
+    max-width: min(380px, calc(100vw - 32px));
     width: 100%;
-    max-height: 90vh;
+    max-height: calc(100vh - 48px);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -2971,10 +3030,7 @@ section h2::after {
 }
 
 
-/* EVENTOS NO SE MUESTRA AL ENTRAR A INICIO */
-body.inicio-sin-eventos #eventos {
-    display: none;
-}
+/* Se eliminó la regla que ocultaba los eventos en la portada. */
 
 
 
@@ -3424,4 +3480,907 @@ body.inicio-sin-eventos #eventos {
     main section > h2 {
         background: transparent;
     }
+}
+
+
+/* EVENTOS DINÁMICOS · JERARQUÍA Y RESPONSIVE */
+#eventos .evento-dinamico {
+    width: min(300px, 92vw);
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+#eventos .evento-dinamico .afiche-enlace {
+    width: min(260px, 85vw);
+    max-width: 100%;
+}
+
+#eventos .evento-dinamico .detalle-evento {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 18px 0 0;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+#eventos .evento-dinamico .detalle-evento p {
+    color: inherit;
+    font-size: 14px;
+    line-height: 1.5;
+    text-align: center;
+    overflow-wrap: anywhere;
+}
+
+#eventos .evento-dinamico .detalle-evento p:hover {
+    color: inherit;
+    opacity: 1;
+}
+
+#eventos .evento-dinamico .detalle-evento .evento-lugar {
+    margin: 0 0 4px;
+    color: inherit;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#eventos .evento-dinamico .detalle-evento .evento-fecha {
+    margin: 0 0 12px;
+    color: #999999;
+    font-size: 11px;
+    font-weight: 400;
+}
+
+#eventos .evento-dinamico .detalle-evento .nombre-evento {
+    margin: 0 0 10px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+#eventos .evento-dinamico .detalle-evento .detalle-evento-enlace {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    min-height: 46px;
+    margin: 18px 0 0;
+    padding: 13px 16px;
+    box-sizing: border-box;
+    border: 1px solid #ffffff;
+    border-radius: 2px;
+    background: #171717;
+    color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 2px;
+    overflow-wrap: anywhere;
+    white-space: normal;
+    cursor: pointer;
+    transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+#eventos .evento-dinamico .detalle-evento .detalle-evento-enlace:hover {
+    background: #ffffff;
+    color: #0b0b0b;
+}
+
+@media (max-width: 700px) {
+    #eventos .evento-dinamico {
+        width: min(300px, 92vw);
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+    #eventos .evento-dinamico .detalle-evento {
+        padding: 10px 0 0;
+    }
+
+    #eventos .evento-dinamico .detalle-evento p {
+        margin-top: 0;
+        margin-bottom: 6px;
+        line-height: 1.3;
+    }
+
+    #eventos .evento-dinamico .detalle-evento .evento-lugar {
+        margin-bottom: 2px;
+        font-size: 14px;
+    }
+
+    #eventos .evento-dinamico .detalle-evento .evento-fecha {
+        margin-bottom: 8px;
+        color: #999999;
+        font-size: 10px;
+    }
+
+    #eventos .evento-dinamico .detalle-evento .nombre-evento {
+        margin-bottom: 6px;
+        line-height: 1.25;
+    }
+
+    #eventos .evento-dinamico .detalle-evento .detalle-evento-enlace {
+        min-height: 44px;
+        margin-top: 10px;
+        padding: 10px 8px;
+        letter-spacing: 1.5px;
+    }
+}
+
+
+/* Ajuste del popup flotante en móviles */
+@media (max-width: 700px) {
+    .evento-modal {
+        right: 12px;
+        bottom: 12px;
+        left: auto;
+        top: auto;
+        inset: auto 12px 12px auto;
+        padding: 0;
+    }
+    .evento-modal-contenido {
+        width: min(320px, calc(100vw - 24px));
+        max-width: calc(100vw - 24px);
+        max-height: calc(100vh - 24px);
+    }
+}
+
+
+/* POPUP FLOTANTE DE EVENTOS DESTACADOS */
+#inicio .eventos-destacados {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 100vw;
+    height: 100vh;
+    max-width: none;
+    max-height: none;
+    margin: 0;
+    padding: 2rem;
+    box-sizing: border-box;
+    overflow-x: auto;
+    overflow-y: hidden;
+    background: rgba(0, 0, 0, 0.72);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+}
+
+#inicio .eventos-destacados:empty {
+    display: none;
+}
+
+#inicio .eventos-destacados .evento-dinamico {
+    position: relative;
+    flex: 0 0 clamp(240px, 30vw, 340px);
+    width: auto;
+    max-width: 80vw;
+    max-height: 85vh;
+    min-width: 0;
+    margin: 0;
+    box-sizing: border-box;
+    overflow-y: auto;
+    scroll-snap-align: center;
+}
+
+#inicio .eventos-destacados .evento-modal-cerrar {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    background: #0b0b0b;
+    color: #fff;
+    z-index: 5;
+}
+
+@media (max-width: 700px) {
+    #inicio .eventos-destacados {
+        justify-content: flex-start;
+        padding: 1rem;
+        gap: .75rem;
+    }
+
+    #inicio .eventos-destacados .evento-dinamico {
+        flex-basis: min(60vw, 240px);
+        max-width: 60vw;
+    }
+
+    #inicio .eventos-destacados .evento-modal-afiche {
+        max-width: 100%;
+        max-height: 55vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+    }
+
+    #inicio .eventos-destacados .afiche-evento {
+        display: block;
+        width: auto;
+        height: auto;
+        max-width: 55vw;
+        max-height: 55vh;
+        object-fit: contain;
+        margin-inline: auto;
+    }
+}
+
+@media (max-width: 700px) {
+    #inicio .eventos-destacados .afiche-evento {
+        transform: translateX(24px);
+    }
+}
+
+@media (max-width: 700px) {
+    #inicio .eventos-destacados .afiche-evento {
+        transform: translateX(40px) !important;
+    }
+}
+
+@media (max-width: 700px) {
+    #inicio .eventos-destacados .evento-dinamico {
+        transform: translateX(60px) !important;
+    }
+
+    #inicio .eventos-destacados .afiche-evento {
+        transform: none !important;
+    }
+}
+
+/* AJUSTE RESPONSIVE DEL POPUP DE EVENTOS */
+@media (max-width: 700px) {
+    #inicio .eventos-destacados {
+        box-sizing: border-box;
+        width: 100%;
+        padding: 16px 9vw;
+        justify-content: flex-start;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scroll-padding-inline: 9vw;
+    }
+
+    #inicio .eventos-destacados .evento-dinamico {
+        flex: 0 0 82vw;
+        width: 82vw;
+        max-width: 82vw;
+        margin: 0;
+        transform: none !important;
+        scroll-snap-align: center;
+    }
+
+    #inicio .eventos-destacados .afiche-evento {
+        display: block;
+        max-width: 100%;
+        max-height: 55dvh;
+        width: auto;
+        height: auto;
+        margin-inline: auto;
+        transform: none !important;
+        object-fit: contain;
+    }
+}
+
+/* ELIMINAR LINEAS DECORATIVAS DE LOS TITULOS */
+main section h2::after {
+    content: none !important;
+    display: none !important;
+}
+
+
+/* Footer compacto */
+footer {
+    padding-bottom: 20px;
+}
+
+/* PIE INFERIOR: COPYRIGHT Y CRÉDITOS */
+.footer-inferior {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    margin-top: 12px;
+    padding-top: 0;
+}
+
+.copyright-footer {
+    margin: 0;
+    color: #777;
+    font-size: 8px;
+    letter-spacing: 1px;
+    text-align: left;
+}
+
+.footer-inferior .creditos-footer {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    text-align: right;
+}
+
+.footer-inferior .creditos-footer p {
+    margin: 0 0 4px;
+    color: #777;
+    font-size: 7px;
+    letter-spacing: 1.5px;
+}
+
+.footer-inferior .creditos-footer strong {
+    color: #999;
+    font-size: 8px;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+}
+
+@media (max-width: 700px) {
+    footer {
+        padding-bottom: 16px;
+    }
+
+    .footer-inferior {
+        gap: 12px;
+        margin-top: 12px;
+        padding-top: 0;
+    }
+
+    .copyright-footer {
+        font-size: 7px;
+        letter-spacing: 0.4px;
+    }
+
+    .footer-inferior .creditos-footer p {
+        font-size: 6px;
+        letter-spacing: 0.7px;
+    }
+
+    .footer-inferior .creditos-footer strong {
+        font-size: 7px;
+        letter-spacing: 1px;
+    }
+}
+
+
+/* FOOTER ABAJO EN PÁGINAS CON POCO CONTENIDO */
+html {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+body > main {
+    flex: 1 0 auto;
+}
+
+body > footer {
+    flex-shrink: 0;
+}
+
+/* Ajuste final: botón de entradas dentro del popup de eventos */
+#eventos .evento-dinamico .detalle-evento a.detalle-evento-enlace,
+#eventos .evento-dinamico .detalle-evento a.detalle-evento-enlace:link,
+#eventos .evento-dinamico .detalle-evento a.detalle-evento-enlace:visited,
+#eventos .evento-dinamico .detalle-evento a.detalle-evento-enlace:hover,
+#eventos .evento-dinamico .detalle-evento a.detalle-evento-enlace:active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 46px;
+    padding: 13px 16px;
+    box-sizing: border-box;
+    border: 1px solid #ffffff;
+    border-radius: 2px;
+    background: #171717;
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* BOTÓN VER ENTRADAS: SOLO EN EL POPUP FLOTANTE */
+#inicio .eventos-destacados a.detalle-evento-enlace,
+#inicio .eventos-destacados a.detalle-evento-enlace:link,
+#inicio .eventos-destacados a.detalle-evento-enlace:visited,
+#inicio .eventos-destacados a.detalle-evento-enlace:hover,
+#inicio .eventos-destacados a.detalle-evento-enlace:active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 46px;
+    margin: 18px 0 0;
+    padding: 13px 16px;
+    box-sizing: border-box;
+    border: 1px solid #ffffff;
+    border-radius: 2px;
+    background: #171717;
+    color: #ffffff;
+    -webkit-text-fill-color: #ffffff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1.4;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+#inicio .eventos-destacados a.detalle-evento-enlace:hover {
+    background: #ffffff;
+    color: #111111;
+    -webkit-text-fill-color: #111111;
+}
+
+/* AUTODEFENSA · EVENTOS DINÁMICOS SIEMPRE EN FILA HORIZONTAL */
+#eventos #eventos-dinamicos {
+    display: flex !important;
+    flex-direction: row !important;
+    flex-wrap: nowrap !important;
+    justify-content: flex-start !important;
+    align-items: flex-start !important;
+    gap: 28px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    padding: 16px 12px 24px !important;
+    scroll-snap-type: x proximity;
+    -webkit-overflow-scrolling: touch;
+}
+
+#eventos #eventos-dinamicos > article.evento-dinamico {
+    display: flex !important;
+    flex: 0 0 280px !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    width: 280px !important;
+    min-width: 280px !important;
+    max-width: 82vw !important;
+    margin: 0 !important;
+    box-sizing: border-box !important;
+    scroll-snap-align: start;
+}
+
+#eventos #eventos-dinamicos > article.evento-dinamico .afiche-enlace {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+#eventos #eventos-dinamicos > article.evento-dinamico .afiche-evento {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+}
+
+#eventos #eventos-dinamicos > article.evento-dinamico .detalle-evento {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+/* Popup conjunto: un solo cierre y descripciones legibles */
+#inicio .eventos-destacados[hidden] {
+    display: none !important;
+}
+
+#inicio .eventos-destacados > .evento-modal-cerrar {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    flex: 0 0 36px;
+    width: 36px;
+    height: 36px;
+}
+
+#inicio .eventos-destacados .evento-descripcion {
+    margin: 10px 0 0;
+    color: #ffffff;
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: center;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+}
+
+
+/* AJUSTE: afiches completos dentro del popup conjunto */
+#inicio .eventos-destacados {
+    align-items: center;
+    overflow-x: auto;
+    overflow-y: auto;
+    padding: 64px 24px 24px;
+}
+
+#inicio .eventos-destacados .evento-dinamico {
+    flex: 0 0 clamp(260px, 34vw, 380px);
+    width: auto;
+    max-width: calc(100vw - 48px);
+    max-height: none;
+    height: auto;
+    overflow: visible;
+    align-self: center;
+}
+
+#inicio .eventos-destacados .afiche-enlace {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+}
+
+#inicio .eventos-destacados .afiche-evento {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+    max-height: 52dvh;
+    object-fit: contain;
+    margin-inline: auto;
+    transform: none !important;
+}
+
+#inicio .eventos-destacados .detalle-evento {
+    width: 100%;
+    box-sizing: border-box;
+    overflow-wrap: anywhere;
+    padding-bottom: 12px;
+}
+
+@media (max-width: 700px) {
+    #inicio .eventos-destacados {
+        padding: 60px 16px 20px;
+        gap: 16px;
+    }
+
+    #inicio .eventos-destacados .evento-dinamico {
+        flex: 0 0 82vw;
+        width: 82vw;
+        max-width: 82vw;
+    }
+
+    #inicio .eventos-destacados .afiche-evento {
+        max-height: 48dvh;
+    }
+}
+
+/* AJUSTE: popup conjunto un poco más compacto */
+#inicio .eventos-destacados {
+    padding: 56px 20px 20px;
+    gap: 14px;
+}
+
+#inicio .eventos-destacados .evento-dinamico {
+    flex-basis: clamp(230px, 29vw, 330px);
+}
+
+#inicio .eventos-destacados .afiche-evento {
+    max-height: 44dvh;
+}
+
+@media (max-width: 700px) {
+    #inicio .eventos-destacados {
+        padding: 56px 14px 16px;
+        gap: 12px;
+    }
+
+    #inicio .eventos-destacados .evento-dinamico {
+        flex-basis: 76vw;
+        width: 76vw;
+        max-width: 76vw;
+    }
+
+    #inicio .eventos-destacados .afiche-evento {
+        max-height: 42dvh;
+    }
+}
+
+/* POPUP COMPLETO MÁS COMPACTO */
+#inicio .eventos-destacados {
+    inset: 5vh 5vw;
+    width: 90vw;
+    height: 90vh;
+    padding: 52px 18px 18px;
+    gap: 12px;
+}
+
+#inicio .eventos-destacados .evento-dinamico {
+    flex: 0 0 clamp(210px, 25vw, 290px);
+    max-width: 290px;
+}
+
+#inicio .eventos-destacados .afiche-evento {
+    max-height: 38vh;
+}
+
+#inicio .eventos-destacados > .evento-modal-cerrar {
+    top: 10px;
+    right: 10px;
+}
+
+@media (max-width: 700px) {
+    #inicio .eventos-destacados {
+        inset: 4vh 4vw;
+        width: 92vw;
+        height: 92vh;
+        padding: 48px 12px 12px;
+        gap: 10px;
+    }
+
+    #inicio .eventos-destacados .evento-dinamico {
+        flex: 0 0 74vw;
+        width: 74vw;
+        max-width: 74vw;
+    }
+
+    #inicio .eventos-destacados .afiche-evento {
+        max-height: 36vh;
+    }
+}
+
+/* AFICHES MÁS GRANDES DENTRO DEL POPUP COMPACTO */
+#inicio .eventos-destacados .afiche-evento {
+    max-height: 52vh;
+}
+
+@media (max-width: 700px) {
+    #inicio .eventos-destacados .afiche-evento {
+        max-height: 48vh;
+    }
+}
+
+
+/* GALERÍA DE ÁLBUMES DESPLEGABLES */
+#fotos .fotos-albumes {
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: start;
+    gap: 12px;
+    margin: 24px 0;
+}
+
+#fotos .foto-album {
+    border: 1px solid #292929;
+    background: transparent;
+}
+
+#fotos .foto-album > summary {
+    padding: 18px 20px;
+    cursor: pointer;
+    color: inherit;
+    font-weight: 700;
+    list-style-position: inside;
+}
+
+#fotos .foto-album > summary:hover,
+#fotos .foto-album > summary:focus-visible {
+    background: transparent;
+}
+
+#fotos .foto-album-descripcion {
+    margin: 0;
+    padding: 0 20px 16px;
+    opacity: 0.85;
+}
+
+#fotos .foto-album-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-auto-rows: 220px;
+    gap: 12px;
+    padding: 0 12px 12px;
+}
+
+#fotos .foto-album-grid .foto-album-photo {
+    min-width: 0;
+    min-height: 0;
+    grid-row: auto;
+}
+
+#fotos .foto-album-grid .foto-album-photo img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+#fotos .fotos-sin-album > h3 {
+    margin: 28px 0 16px;
+}
+
+#fotos .fotos-sin-album > h3[hidden] {
+    display: none;
+}
+
+@media (max-width: 700px) {
+    #fotos .fotos-albumes {
+        grid-template-columns: 1fr;
+    }
+
+    #fotos .foto-album-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-rows: 180px;
+        gap: 8px;
+        padding: 0 8px 8px;
+    }
+
+    #fotos .foto-album > summary {
+        padding: 16px;
+    }
+}
+
+@media (max-width: 420px) {
+    #fotos .fotos-albumes {
+        grid-template-columns: 1fr;
+    }
+
+    #fotos .foto-album-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 250px;
+    }
+}
+
+
+/* CONFIGURACIÓN VISUAL GLOBAL AUTODEFENSA */
+:root {
+    --site-font: Arial, Helvetica, sans-serif;
+    --site-text-color: #f2f2f2;
+    --site-background-image: url("/static/images/Fondo.JPG");
+    --site-background-overlay: 0.72;
+}
+
+
+/* APLICACIÓN DE CONFIGURACIÓN VISUAL GLOBAL */
+body {
+    font-family: var(--site-font);
+    color: var(--site-text-color);
+}
+
+/* PRUEBA VISUAL: cristal oscuro en el reproductor de recomendaciones */
+#recomendadas .reproductor-musica {
+    padding: 18px 22px;
+    border: 1px solid rgba(210, 190, 255, 0.22);
+    border-radius: 12px;
+    background: rgba(9, 7, 16, 0.48);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+}
+
+#recomendadas .cancion {
+    border-bottom-color: rgba(230, 220, 255, 0.18);
+}
+
+#recomendadas .cancion:first-child {
+    border-top-color: rgba(230, 220, 255, 0.18);
+}
+
+#recomendadas .boton-play {
+    border-color: rgba(235, 225, 255, 0.65);
+    background: rgba(20, 12, 35, 0.3);
+}
+
+#recomendadas .boton-play:hover {
+    border-color: #fff;
+    background: rgba(145, 90, 210, 0.22);
+    box-shadow: 0 0 14px rgba(165, 100, 255, 0.22);
+}
+
+#recomendadas .info-cancion h3 {
+    color: #f1ebfa;
+}
+
+#recomendadas .barra-musica {
+    background: rgba(235, 225, 255, 0.2);
+}
+
+#recomendadas .progreso-musica {
+    background: #e7d5ff;
+    box-shadow: 0 0 8px rgba(190, 140, 255, 0.3);
+}
+
+#recomendadas .tiempo-musica {
+    color: #c5b9d5;
+}
+
+@media (max-width: 700px) {
+    #recomendadas .reproductor-musica {
+        padding: 14px 12px;
+        border-radius: 10px;
+    }
+}
+
+/* PRUEBA VISUAL: cristal oscuro en el reproductor de recomendaciones */
+#recomendadas .reproductor-musica {
+    padding: 18px 22px;
+    border: 1px solid rgba(210, 190, 255, 0.22);
+    border-radius: 12px;
+    background: rgba(9, 7, 16, 0.48);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+}
+
+#recomendadas .cancion {
+    border-bottom-color: rgba(230, 220, 255, 0.18);
+}
+
+#recomendadas .cancion:first-child {
+    border-top-color: rgba(230, 220, 255, 0.18);
+}
+
+#recomendadas .boton-play {
+    border-color: rgba(235, 225, 255, 0.65);
+    background: rgba(20, 12, 35, 0.3);
+}
+
+#recomendadas .boton-play:hover {
+    border-color: #fff;
+    background: rgba(145, 90, 210, 0.22);
+    box-shadow: 0 0 14px rgba(165, 100, 255, 0.22);
+}
+
+#recomendadas .info-cancion h3 {
+    color: #f1ebfa;
+}
+
+#recomendadas .barra-musica {
+    background: rgba(235, 225, 255, 0.2);
+}
+
+#recomendadas .progreso-musica {
+    background: #e7d5ff;
+    box-shadow: 0 0 8px rgba(190, 140, 255, 0.3);
+}
+
+#recomendadas .tiempo-musica {
+    color: #c5b9d5;
+}
+
+@media (max-width: 700px) {
+    #recomendadas .reproductor-musica {
+        padding: 14px 12px;
+        border-radius: 10px;
+    }
+}
+
+/* SOMBRAS DIFUMINADAS — textos y logos de Autodefensa */
+body {
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.72);
+}
+
+h1, h2, h3,
+.logo-nav,
+.logo-presentacion,
+.redes a,
+.redes a svg,
+#musica a img,
+footer a img {
+    filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.72));
+}
+
+.logo-presentacion {
+    filter: drop-shadow(0 5px 22px rgba(0, 0, 0, 0.78));
+}
+
+.redes a svg {
+    filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.8))
+            drop-shadow(0 0 10px rgba(190, 150, 255, 0.24));
+}
+
+#recomendadas .reproductor-musica {
+    text-shadow: none;
 }
