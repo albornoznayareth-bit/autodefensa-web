@@ -1596,10 +1596,10 @@ position: absolute;
 .cd-back-tracklist {
     flex: 1;
     min-height: 0;
-    margin: 3px 0 0;
+    margin: 0;
     padding-left: 13px;
-    columns: 2;
-    column-gap: 7%;
+    columns: 1;
+    column-gap: 0;
     overflow-y: auto;
     color: #f1edf2;
     font-size: 9px;
@@ -4383,4 +4383,23 @@ footer a img {
 
 #recomendadas .reproductor-musica {
     text-shadow: none;
+}
+
+/* Espiral: dos columnas por su lista más extensa */
+.disco[data-album-key="album-3"] .cd-back-tracklist {
+    columns: 2;
+    column-gap: 7%;
+}
+
+/* Centrar visualmente las canciones de los discos de una columna */
+.disco:not([data-album-key="album-3"]) .cd-back-tracklist {
+    width: 100%;
+    max-width: 100%;
+    padding-left: 0;
+    list-style-position: inside;
+    text-align: center;
+}
+
+.disco:not([data-album-key="album-3"]) .cd-back-tracklist li {
+    padding-left: 0;
 }
